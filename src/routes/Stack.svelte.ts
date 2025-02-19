@@ -41,7 +41,7 @@ export class Stack {
         //card.x = this.x + this.dir[0]*i;
         //card.y = this.y + this.dir[1]*i;
         card.z = i;
-        card.inDrag = false;
+        card.inDrag = true;
         this.cards.push(card);
     }
     

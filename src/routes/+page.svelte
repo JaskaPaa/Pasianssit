@@ -8,10 +8,9 @@
     import Card from '../lib/Card.svelte';
     import {Stack, value, suit, alt, type card} from './Stack.svelte';
     import {rectsIntersection} from './utils';
-    import {getStacks, getDeal, isReady} from './meditators';
-    import {loadPatience} from './loader';
-
-    
+    import {getStacks, getDeal, isReady, Meditators} from './meditators';
+    import {Klondike} from './klondike';
+    import {loadPatience} from './loader';    
     
     let width = $state(0);
 	let height = $state(0);
@@ -44,7 +43,6 @@
         rerun = false;
         collectCards();
 
-        //roll();
         let res = await isReady();
         console.log("res:", res);
 
@@ -59,10 +57,17 @@
     }
 
     const switchPat = async (name: string) => {
-        let pat = await loadPatience(name);
+        //let pat = await loadPatience(name);
 
-        doDeal = pat.deal;
-        stacks = pat.stacks;
+        if (name === "klondike") {
+            doDeal = Klondike.deal;
+            stacks = Klondike.stacks;
+        }
+
+        if (name === "meditators") {
+            doDeal = Meditators.deal;
+            stacks = Meditators.stacks;
+        }
         //deal();
 
         console.log("loaded!");
@@ -184,7 +189,7 @@
                 stacks[i].cards[j].x = stacks[i].getX(j);
                 stacks[i].cards[j].y = stacks[i].getY(j);
                 stacks[i].cards[j].z = lift ? 100 + j : j;
-                stacks[i].cards[j].inDrag = false;
+                stacks[i].cards[j].inDrag = false; 
                 //stacks[i].cards[j].enabled = true;                                 
             }
         }
@@ -254,7 +259,7 @@
                 continue;
             if (stacks[i].accept(id) === true && inStack !== -1) {
                 console.log("dropping to stack:", i);
-                stacks[i].disable();
+                stacks[i].disable();  // prevent click to acard under 
                 stacks[inStack].disable();
                 
                 let cards = stacks[inStack].cards.slice(index);
@@ -264,10 +269,11 @@
                     continue;
 
                 cards = stacks[inStack].cards.splice(index);
-                for (let k = 0; k < cards.length; k++)
-                        stacks[i].pushC(cards[k]);
-
-                tooStack = i;                
+                for (let k = 0; k < cards.length; k++) {
+                    stacks[i].pushC(cards[k]);
+                }
+                tooStack = i;
+                      
                 return;
             }
         }
@@ -280,29 +286,6 @@
 
     //deal();
     updateCards();
-    
-    async function roll() {
-		//const response = await fetch('/newgame');
-
-        const response = await fetch('/newgame', {
-			method: 'POST',
-			body: JSON.stringify({ limits: ""}),
-			headers: {
-				'content-type': 'application/json'
-			}
-		});
-		
-        game = await response.json();
-
-        //console.log("selected:", selected);
-
-        if (game.error) {
-            console.log("error:", game.error);
-        } else {
-            //console.log("game:", game.deal);
-            console.log("game:", $state.snapshot(game));
-        }
-	}
 
 </script>
 
@@ -310,6 +293,12 @@
     on:dblclick={() => console.log('dblclick')}></svelte:window>
 
 <div class="topbar">Mietiskelijän pasianssi</div>
+<div class="topbar">
+    <button onclick={() => deal()}>Jaa</button>
+    <button onclick={()=> updateCards()}>Päivitä</button>
+    <button onclick={()=> switchPat("klondike")}>Vaihda</button>
+    <button onclick={()=> switchPat("meditators")}>Vaihda</button>
+</div>
 
 <div id="tableu" class="table" bind:offsetHeight={offset} bind:clientWidth={width} bind:clientHeight={height} style:--full={full + "vw"}>    
     {#each stacks as stack, i}
@@ -329,13 +318,6 @@
             </div>
         {/each}      
     {/each}
-</div>
-
-<div class="topbar">
-    <button onclick={() => deal()}>Jaa</button>
-    <button onclick={()=> updateCards()}>Päivitä</button>
-    <button onclick={()=> switchPat("klondike")}>Vaihda</button>
-    <button onclick={()=> switchPat("meditators")}>Vaihda</button>
 </div>
 
 <style>

@@ -1,5 +1,5 @@
 
-import {Stack, value, suit, alt, pipValue, type card} from './Stack.svelte';
+import {Stack, value, suit, alt, pipValue} from './Stack.svelte';
 import {shuffle} from './utils';
 
 export const getStacks = () =>  stacks
@@ -16,7 +16,7 @@ let dy = 14.0;
 let margin = 1;
 let dx = 11.0;
 
-let stacks: Stack[] = [];
+let stacks = [];
 
 for (let i = 0; i < 4; i++) {
     let st = new Stack(40 + i*dx, margin, [0, 0], 1);
@@ -47,11 +47,11 @@ waste.update = () => {
         waste.cards[waste.cards.length-1].x = waste.x + 5;
         waste.cards[waste.cards.length-2].x = waste.x + 2.5;
     }
-    waste.enableOnlyTop();
+    setTimeout(() => waste.enableOnlyTop(), 100);
 };
 
-waste.emptyAccept = (card) => false;
-waste.topAccept = (card) => false;
+waste.emptyAccept = () => false;
+waste.topAccept = () => false;
 stacks.push(waste);
 
 let pile = new Stack(10, margin, [0, 0], 0);
@@ -77,6 +77,7 @@ pile.onClick = () => {
             break;
         setTimeout(() => card.z = 100, 1);
         setTimeout(() => card.front = true, 100);
+        //setTimeout(() => waste.enableOnlyTop(), 100);
         waste.pushC(card);
     }
     
@@ -97,3 +98,5 @@ const deal = () => {
     for (let i = index; i < deal.length; i++)
         pile.push(deal[i]);
 }
+
+export const Klondike = { deal: deal, stacks: stacks };

@@ -43,7 +43,7 @@ const ready = async () => {
     return game;
 }
 
-const doDeal = async (deal = []) => {
+const doDeal = (deal = []) => {
     
     console.log("game:", deal2);
     
@@ -84,3 +84,6 @@ for (let i = 0; i < 8; i++) {
 for (let i = 4; i < 12; i++) {
     stacks[i].update = () => stacks[i].enableOnlyTop();
 }
+
+export const Meditators = { deal: doDeal, stacks: stacks };
+

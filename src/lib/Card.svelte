@@ -28,6 +28,8 @@
 		disabled = !enabled;
 		face = front;
 
+		//console.log("moving:", id);
+
 		if (dir[0] < 0 && cardInDrag) 
 			shadow = true;
 		if (dir[0] > 0 && inDrag)
@@ -46,6 +48,9 @@
 			shadow = true;
 
 		//shadow = (dir[1] > 0) ? true : false;
+
+		if (shadow)
+			setTimeout(() => shadow = false, 700);  
 
 		zIndex = inDrag ? 100 + index : index;
 		dur = inDrag ? 0 : 400;
@@ -71,9 +76,6 @@
 		top = progT.current;
 
 		mouseMoveCounter = 0;
-		//console.log("shadowW:", shadowW);
-		//console.log("sss:", shadowW, dir[0], size) ;
-		//console.log("shadowH:", shadowH) ;
 
         if (inDrag)
             return;
@@ -94,12 +96,15 @@
 			zIndex = index + 100;
 
             let pos = end(id, rect);
+			shadow = true;
+			//setTimeout(() => shadow = false, 1000);
 			//progL.target = 500; //pos[0];	//progT.target = 500; //pos[1];
 		}
 		if (inDrag)
 			console.log("inDrag stop ++++++++++++++++++++", id);
 		inDrag = false;
-		shadow = false;
+		//shadow = true;
+		//setTimeout(() => shadow = false, 1000);
         zIndex = index;
 		cardInDrag = false;	
 	}
@@ -124,6 +129,7 @@
         }
 		//inDrag = false;
 		console.log("Clicked ----------------:", id);
+		shadow = true;
 		click(id);
     }
 
@@ -135,7 +141,7 @@
 	
 </script>
 
-<svelte:window on:mousemove={move} onmouseup={stop}/>
+<svelte:window onpointermove={move} onpointerup={stop}/>
 
 <!--img class="hidden" class:shadow style:--size={size/10 + "vw"} style:--width={shadowW}
 	style:--height={shadowH} style:--dirx={dirX} draggable="false"
@@ -147,7 +153,7 @@
 <!-- svelte-ignore a11y_missing_attribute -->
 <img class="card" class:disabled class:flip={!face} class:back={!face} class:shadow class:shadowdown 
 	class:shadowleft style:--size={size/10 + "vw"} draggable="false" id={id}
-    onmouseup={stop} onmousedown={startDrag} onclick={info}
+    onpointerup={stop} onpointerdown={startDrag} onclick={info}
     style="left: {progL.current}px; top: {inDrag ? top : progT.current}px; z-index: {zIndex}"
     src="cards/{(face) ? id[0] + id[1] : "Blue_Back"}.svg" />
 
@@ -156,7 +162,7 @@
 <!-- svelte-ignore a11y_missing_attribute -->
 <img class="card" class:disabled class:flip={face} class:shadow class:shadowdown 
 	class:shadowleft style:--size={size/10 + "vw"} draggable="false" id={id}
-    onmouseup={stop} onmousedown={startDrag} onclick={info}
+    onpointerup={stop} onpointerdown={startDrag} onclick={info}
     style="left: {progL.current}px; top: {inDrag ? top : progT.current}px; z-index: {zIndex}"
     src="cards/Blue_Back.svg" />
 
@@ -175,7 +181,7 @@
 		background-color: transparent;
 		/*clip-path: polygon(0% 0%, 100% 0%, 100% 210%, 0% 210%);
   		filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.9));*/
-		transition: transform 0.4s;
+		transition: transform 0.7s;
 		transform-style: preserve-3d;
 		backface-visibility: hidden;
 	}
