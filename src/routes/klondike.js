@@ -71,13 +71,13 @@ pile.onClick = () => {
         return;
     }
     
-    for (let i = 0; i < 1; i++) {
+    for (let i = 0; i < 3; i++) {
         let card = pile.cards.pop();
         if (card === undefined)
             break;
         setTimeout(() => card.z = 100, 1);
         setTimeout(() => card.front = true, 100);
-        //setTimeout(() => waste.enableOnlyTop(), 100);
+        setTimeout(() => waste.enableOnlyTop(), 100);
         waste.pushC(card);
     }
     
