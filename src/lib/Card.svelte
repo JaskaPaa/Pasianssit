@@ -25,12 +25,17 @@
 		progL.target = left;
 		progT.target = top;
 
+		//console.log("face:", face, id);
+		let current = face;
+
 		disabled = !enabled;
 		face = front;
+		
+		if (current !== face)
+			shadow = true;
+		console.log("flipped face:", face, id);
 
-		//console.log("moving:", id);
-
-		if (dir[0] < 0 && cardInDrag) 
+		/*if (dir[0] < 0 && cardInDrag) 
 			shadow = true;
 		if (dir[0] > 0 && inDrag)
 			shadow = true;
@@ -45,7 +50,10 @@
 			shadow = true;
 
 		if (dir[0] == 0 && dir[1] === 0 && inDrag)
-			shadow = true;
+			shadow = true;*/
+
+		if (inDrag)
+			shadow = true;	
 
 		//shadow = (dir[1] > 0) ? true : false;
 
@@ -151,20 +159,36 @@
 <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_missing_attribute -->
-<img class="card" class:disabled class:flip={!face} class:back={!face} class:shadow class:shadowdown 
+<!--img class="card" class:disabled class:flip={!face} class:back={!face} class:shadow class:shadowdown 
 	class:shadowleft style:--size={size/10 + "vw"} draggable="false" id={id}
     onpointerup={stop} onpointerdown={startDrag} onclick={info}
     style="left: {progL.current}px; top: {inDrag ? top : progT.current}px; z-index: {zIndex}"
-    src="cards/{(face) ? id[0] + id[1] : "Blue_Back"}.svg" />
+    src="cards/{(face) ? id[0] + id[1] : "Blue_Back"}.svg" /-->
 
 <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_missing_attribute -->
-<img class="card" class:disabled class:flip={face} class:shadow class:shadowdown 
+<!--img class="card" class:disabled class:flip={face} class:shadow class:shadowdown 
 	class:shadowleft style:--size={size/10 + "vw"} draggable="false" id={id}
     onpointerup={stop} onpointerdown={startDrag} onclick={info}
     style="left: {progL.current}px; top: {inDrag ? top : progT.current}px; z-index: {zIndex}"
-    src="cards/Blue_Back.svg" />
+    src="cards/Blue_Back.svg" /-->
+
+<!-- svelte-ignore a11y_click_events_have_key_events -->
+<!-- svelte-ignore a11y_no_static_element_interactions -->
+<div class="flip-card" class:disabled class:shadow class:shadowdown 
+	class:shadowleft style:--size={size/10 + "vw"} draggable="false" id={id}
+	onpointerup={stop} onpointerdown={startDrag} onclick={info}
+	style="left: {progL.current}px; top: {inDrag ? top : progT.current}px; z-index: {zIndex}">
+	<div class="flip-card-inner" class:flip={!face} class:flip-card-back={!face}>
+		<div class="flip-card-front" >
+			<img draggable="false" src="cards/{id[0] + id[1]}.svg" style:--size={size/10 + "vw"} alt="Avatar">
+		</div>
+		<div class="flip-card-back"  >
+			<img draggable="false" src="cards/Blue_Back.svg" style:--size={size/10 + "vw"} alt="Avatar">
+		</div>
+	</div>
+</div>
 
 <style>
 	.card {
@@ -188,6 +212,7 @@
 	.back {
 		transform: rotateY(180deg);
 	}
+
 	.flip {
 		transform: rotateY(-180deg);
 	}
@@ -206,6 +231,55 @@
 	.disabled {
         pointer-events: none;
     }
+
+	.flip-card {
+		background-color: transparent;
+		position: absolute;
+		user-select: none;
+		--size: 10vw;
+        width: var(--size);
+        height: calc(1.3 * var(--size));
+		perspective: 10cm;
+	}
+
+	.flip-card-inner {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		transition: transform 0.5s;
+		transform-style: preserve-3d;
+		backface-visibility: hidden;
+	}
+
+	/*.flip-card-inner {
+		transform: rotateY(180deg);
+	}*/
+
+	.flip-card-front, .flip-card-back {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+	}
+
+	.flip-card-front {
+		background-color: transparent;
+	}
+
+	.flip-card-back {
+		background-color:transparent;
+		transform: rotateY(-180deg);
+	}
+
+	img {
+		--size: 10vw;
+        width: var(--size);
+        height: calc(1.3 * var(--size));
+	}
+
+
 	.hidden {
 		visibility: hidden;	
 	}

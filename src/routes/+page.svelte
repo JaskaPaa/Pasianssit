@@ -310,12 +310,10 @@
 
     {#each stacks as stack, i}
         {#each stacks[i].cards as card, j}
-            <div class="box">
             <Card left={card.x*width/100} top={card.y*width/100} id={card.id}
                 start={innDrag} end={dropped} inDrag={card.inDrag} index={card.z} size={full}
                 click={clicked} dir={stacks[i].dir} numInDrag={numInDrag} front={card.front}
                 enabled={card.enabled} />
-            </div>
         {/each}      
     {/each}
 </div>
@@ -340,6 +338,8 @@
         display: flex;
         flex-direction: column;
         --full: 100vw;
+
+
         width: var(--full);
         height: calc(0.57*var(--full));
         justify-content: center;
@@ -360,12 +360,6 @@
         background-color: #33333355;
         /*pointer-events: none;*/
     }
-    .box {
-        background: transparent;
-		/*position: absolute;*/
-		/*perspective: 10px;*/
-        /*perspective: 10cm; */
-	}
 
     .unselectable {
         -webkit-touch-callout: none;
