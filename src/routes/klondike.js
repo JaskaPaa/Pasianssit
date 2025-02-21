@@ -71,7 +71,7 @@ pile.onClick = () => {
         return;
     }
     
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 1; i++) {
         let card = pile.cards.pop();
         if (card === undefined)
             break;

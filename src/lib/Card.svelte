@@ -9,7 +9,7 @@
 	let shadow = $state(false);
 	let shadowdown = $state(false);
 	let shadowleft = $state(false);
-	let dur = 300;
+	let dur = 400;
 	let disabled =  $state(!enabled);
 	let face =  $state(front);
 
@@ -171,20 +171,10 @@
 <style>
 
 	.flip {
-		transform: rotateY(-180deg);
+		transform: rotateY(-18deg);
+		transform: rotateX(300deg);
 	}
-	
-	.shadowdown {
-  		box-shadow: 0 20px 20px -10px #00000088;
-	}
-	.shadowleft {
-  		box-shadow: 20px 0px 20px -10px #00000088;
-	}
-	.shadow {
-		/*filter: drop-shadow(16px 16px 20px #000000aa);*/
-		box-shadow: 20px 20px 20px #00000055;
-		color: transparent;
-	}
+
 	.disabled {
         pointer-events: none;
     }
@@ -227,13 +217,28 @@
 
 	.flip-card-back {
 		background-color:transparent;
-		transform: rotateY(-180deg);
+		transform: rotateY(-180deg) rotateZ(720deg);
 	}
 
 	img {
 		--size: 10vw;
         width: var(--size);
         height: calc(1.3 * var(--size));
+		border-radius: calc(0.03 * var(--size));
+	}
+
+	.shadowdown {
+  		box-shadow: 0 20px 20px -10px #00000088;
+	}
+
+	.shadowleft {
+  		box-shadow: 20px 0px 20px -10px #00000088;
+	}
+	.shadow {
+		/*filter: drop-shadow(16px 16px 20px #000000aa);*/
+		box-shadow: 20px 20px 20px #00000055;
+		color: transparent;
+		border-radius: calc(0.05 * var(--size));
 	}
 
 
