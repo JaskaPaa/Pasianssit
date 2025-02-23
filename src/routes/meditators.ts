@@ -12,8 +12,8 @@ let suits = ["c", "d", "h", "s"];
 let deck = [...ranks.map((r) => r + suits[0]), ...ranks.map((r) => r + suits[1]),
             ...ranks.map((r) => r + suits[2]), ...ranks.map((r) => r + suits[3])];
 
-let dy = 14.0;    
-let margin = 0.7;
+let dy = 18.0;    
+let margin = 1;
 
 let stacks: Stack[] = [];
 
@@ -70,9 +70,9 @@ for (let i = 0; i < 4; i++) {
 }
 
 for (let i = 0; i < 8; i++) {
-    let dirX = (i%2 === 0) ? 2.5 : -2.5;
+    let dirX = (i%2 === 0) ? 3 : -3;
     let y = Math.floor(i/2)*dy;
-    let st = new Stack((i%2 === 0) ? 56 : 34, y + margin, [dirX, 0], 32);
+    let st = new Stack((i%2 === 0) ? 60 : 30, y + margin, [dirX, 0], 32);
     st.emptyAccept = (card) => value(card) === 14;
     st.topAccept = (card) => {
         return alt(card, st.topCard().id)

@@ -10,7 +10,9 @@
     import {rectsIntersection} from './utils';
     import {getStacks, getDeal, isReady, Meditators} from './meditators';
     import {Klondike} from './klondike';
-    import {loadPatience} from './loader';    
+    import {loadPatience} from './loader';
+    
+    import Patience from '../lib/Patience.svelte';
     
     let width = $state(0);
 	let height = $state(0);
@@ -24,7 +26,7 @@
     let numInDrag = $state(0);
 
     $effect(() => {
-        full = ( winWidth < winHeight) ? 100 : 70;
+        full = ( winWidth < winHeight) ? 100 : 60;
     });
 
     let doDeal = getDeal();
@@ -84,7 +86,7 @@
             }
         }
 
-        console.log("num", num);
+        console.log("num:", num);
         numInDrag = num;        
     }
 
@@ -149,9 +151,9 @@
         console.log("rect:", rect.x, rect.y);
         console.log("rect:", rect.x/width*100, rect.y/width*100);
 
-        let tableu = document.getElementById("tableu");
+        /*let tableu = document.getElementById("tableu");
         let tabY = (tableu) ? tableu.getBoundingClientRect().y : 0;
-        console.log("tableu:", tabY );
+        console.log("tableu:", tabY );*/
         
         /*for (let k = 0; k < res.cards.length; k++) {
             stacks[inStack].cards[index+k].x = rect.x/width*100 + stacks[inStack].dir[0]*k;
@@ -298,13 +300,15 @@
     <button onclick={()=> updateCards()}>Päivitä</button>
     <button onclick={()=> switchPat("klondike")}>Vaihda</button>
     <button onclick={()=> switchPat("meditators")}>Vaihda</button>
+    <button onclick={()=> full += 5}>+</button>
+    <button onclick={()=> full -= 5}>-</button>
 </div>
 
-<div id="tableu" class="table" bind:offsetHeight={offset} bind:clientWidth={width} bind:clientHeight={height} style:--full={full + "vw"}>    
+<!--div id="tableu" class="table" bind:offsetHeight={offset} bind:clientWidth={width} bind:clientHeight={height} style:--full={full + "vw"}>    
     {#each stacks as stack, i}
         <!-- svelte-ignore a11y_click_events_have_key_events -->
         <!-- svelte-ignore a11y_no_static_element_interactions -->
-        <div id="st{i}" onclick={() => stackClick(i)}  style:--size={full/10 + "vw"} class="unselectable stack" 
+        <!--div id="st{i}" onclick={() => stackClick(i)}  style:--size={(full + 1)/7 - 1 + "vw"} class="unselectable stack" 
             style="left: {stack.x*width/100.0}px; top: {stack.y*width/100.0}px"></div>
     {/each}
 
@@ -316,7 +320,10 @@
                 enabled={card.enabled} />
         {/each}      
     {/each}
-</div>
+</div-->
+
+<Patience foo={stacks} />
+
 
 <style>
     :global(body) { 
@@ -338,8 +345,6 @@
         display: flex;
         flex-direction: column;
         --full: 100vw;
-
-
         width: var(--full);
         height: calc(0.57*var(--full));
         justify-content: center;

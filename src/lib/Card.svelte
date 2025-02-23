@@ -108,7 +108,7 @@
 			//progL.target = 500; //pos[0];	//progT.target = 500; //pos[1];
 		}
 		if (inDrag)
-			console.log("inDrag stop ++++++++++++++++++++", id);
+			console.log("inDrag stop ++++++++++++++++++++", id, zIndex);
 		inDrag = false;
 		//shadow = true;
 		//setTimeout(() => shadow = false, 1000);
@@ -135,7 +135,8 @@
             return;
         }
 		//inDrag = false;
-		console.log("Clicked ----------------:", id);
+		console.log("Clicked ----------------:", id, zIndex);
+		zIndex += 200; 
 		shadow = true;
 		click(id);
     }
@@ -153,17 +154,17 @@
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div class="flip-card" class:disabled class:shadow class:shadowdown 
-	class:shadowleft style:--size={size/10 + "vw"} draggable="false" id={id}
+	class:shadowleft style:--size={(size + 1)/7 - 1 + "vw"} draggable="false" id={id}
 	onpointerup={stop} onpointerdown={startDrag} onclick={info}
 	style="left: {progL.current}px; top: {inDrag ? top : progT.current}px; z-index: {zIndex}">
 	<div class="flip-card-inner" class:flip={!face} class:flip-card-back={!face}>
 		<div class="flip-card-front" >
 			<!-- svelte-ignore a11y_missing_attribute -->
-			<img draggable="false" src="cards/{id[0] + id[1]}.svg" style:--size={size/10 + "vw"} >
+			<img draggable="false" src="cards/{id[0] + id[1]}.svg" style:--size={(size + 1)/7 - 1 + "vw"} >
 		</div>
 		<div class="flip-card-back"  >
 			<!-- svelte-ignore a11y_missing_attribute -->
-			<img draggable="false" src="cards/Blue_Back.svg" style:--size={size/10 + "vw"} >
+			<img draggable="false" src="cards/Blue_Back.svg" style:--size={(size + 1)/7 - 1 + "vw"} >
 		</div>
 	</div>
 </div>
@@ -171,8 +172,7 @@
 <style>
 
 	.flip {
-		transform: rotateY(-18deg);
-		transform: rotateX(300deg);
+		transform: rotateY(180deg);
 	}
 
 	.disabled {
@@ -217,7 +217,7 @@
 
 	.flip-card-back {
 		background-color:transparent;
-		transform: rotateY(-180deg) rotateZ(720deg);
+		transform: rotateY(-180deg) rotateZ(0deg);
 	}
 
 	img {

@@ -12,14 +12,17 @@ let deck = [...ranks.map((r) => r + suits[0]), ...ranks.map((r) => r + suits[1])
             ...ranks.map((r) => r + suits[2]), ...ranks.map((r) => r + suits[3])
 ];
 
-let dy = 14.0;    
+let dy = 20.0;    
 let margin = 1;
 let dx = 11.0;
+let test = 101/7;
 
-let stacks = [];
+// 100 / x = 101/7 - 1 => 100 = (101/7 - 1)*x => x = 100/(101/7 - 1)
+
+let stacks: Stack[] = [];
 
 for (let i = 0; i < 4; i++) {
-    let st = new Stack(40 + i*dx, margin, [0, 0], 1);
+    let st = new Stack(40 + i*test, margin, [0, 0], 1);
     st.emptyAccept = (card) => pipValue(card) === 1;
     st.topAccept = (card) => {
         return suit(card) === suit(st.topCard().id)
@@ -29,7 +32,8 @@ for (let i = 0; i < 4; i++) {
 }
 
 for (let i = 0; i < 7; i++) {
-    let st = new Stack(10 + i*dx, 14 + margin, [0, 2.5], 52);
+    let st = new Stack(test*i, dy + margin, [0, 4], 52);
+    console.log("test:", test*i);
     st.emptyAccept = (card) => value(card) === 13;
     st.topAccept = (card) => {
         return alt(card, st.topCard().id)
@@ -38,7 +42,7 @@ for (let i = 0; i < 7; i++) {
     stacks.push(st);
 }
 
-let waste = new Stack(22, margin, [0, 0], 0);
+let waste = new Stack(20, margin, [0, 0], 0);
 
 waste.update = () => {
     if (waste.cards.length === 2)
@@ -54,7 +58,7 @@ waste.emptyAccept = () => false;
 waste.topAccept = () => false;
 stacks.push(waste);
 
-let pile = new Stack(10, margin, [0, 0], 0);
+let pile = new Stack(5, margin, [0, 0], 0);
 
 pile.update = () => {
     for (let j = 0; j < pile.cards.length; j++)
