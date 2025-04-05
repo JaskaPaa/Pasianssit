@@ -6,11 +6,12 @@
     import {rectsIntersection} from '../routes/utils';
     import {getStacks, getDeal, isReady, Meditators} from '../routes/meditators.svelte';
     import {Klondike} from '../routes/klondike';
+    import {Meditators2} from '../routes/meditatorsorig';
     import {History} from '../routes/History.svelte';
     import { Confetti } from "svelte-confetti"
     import { tick } from 'svelte';
 
-    let { foo, boo, goo } = $props();
+    let { name } = $props();
 
     let width = $state(0);
 	let height = $state(0);
@@ -25,18 +26,61 @@
 
     $effect(() => {
         full = ( winWidth < winHeight) ? 100 : 60;
-        stacks = foo;
-        doDeal = boo;
-        hist = goo;       
+        
+        if (name === "klondike") {
+            doDeal = Klondike.deal;
+            stacks = Klondike.stacks;
+            hist = Klondike.history;
+        }
+
+        if (name === "meditators") {
+            doDeal = Meditators.deal;
+            stacks = Meditators.stacks;
+            hist = Meditators.history;
+            console.log("meditators hist:", hist);
+        }
+
+        if (name === "meditatorsorig") {
+            doDeal = Meditators2.deal;
+            stacks = Meditators2.stacks;
+            hist = Meditators2.history;
+        }
+
     });
 
-    let doDeal = $state(boo);
+    let doDeal = $state(Meditators.deal);
 
-    let stacks: Stack[] = $state(foo);
+    let stacks: Stack[] = $state(Meditators.stacks);
 
-    let hist: History = $state(goo);
+    let hist: History = $state(Meditators.history);
 
     //stacks = getStacks();
+
+    export const deal2 = async () => {
+    
+        rerun = false;
+        //rerun2 = false;
+        tooStack = -1;
+        collectCards();
+
+        let res = await isReady();
+        console.log("res:", res);
+        hist.states = [];
+        hist.current = 0;
+
+        setTimeout(() => {
+            rerun = true;
+            //rerun2 = true;
+            for (let i = 0; i < stacks.length; i++) {
+                stacks[i].cards = [];
+            }
+            doDeal(res.deal);
+            for (let i = 0; i < stacks.length; i++) {
+                stacks[i].update();
+            }
+            hist.save(stacks, [0, 0]);
+        }, 200);
+    }
 
     const collect = () => {
         for (let i = 4; i < stacks.length; i++) {
@@ -207,30 +251,6 @@
 		//await tick();
         //isVisible = true
 
-    }
-
-    export const deal2 = async () => {
-    
-        rerun = false;
-        //rerun2 = false;
-        tooStack = -1;
-        collectCards();
-
-        let res = await isReady();
-        console.log("res:", res);
-
-        setTimeout(() => {
-            rerun = true;
-            //rerun2 = true;
-            for (let i = 0; i < stacks.length; i++) {
-                stacks[i].cards = [];
-            }
-            doDeal(res.deal);
-            for (let i = 0; i < stacks.length; i++) {
-                stacks[i].update();
-            }
-            hist.save(stacks, [0, 0]);
-        }, 200);
     }
 
     function innDrag(id: string) {

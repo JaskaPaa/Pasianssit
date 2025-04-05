@@ -22,51 +22,31 @@
 
     let patience: Patience;
 
-    let deal = $state(getDeal());
-
-    let stacks: Stack[] = $state([]);
-
-    let hist: History = $state(null);
-
     let game = $state(null);
 
     game = data.game;
 
-    //stacks = getStacks();
+    let name = $state("meditators");
 
-    const dealing = async () => {   
-        hist = new History();
+    const dealing = async () => {
         patience.deal2();
-        //console.log("histooo:", hist);
     }
 
-    const switchPat = async (name: string) => {
+    const switchPat = async (n: string) => {
         //let pat = await loadPatience(name);
 
-        if (name === "klondike") {
-            deal = Klondike.deal;
-            stacks = Klondike.stacks;
-            hist = Klondike.history;
+        if (n === "klondike") {
+            name = "klondike";
         }
 
-        if (name === "meditators") {
-            deal = Meditators.deal;
-            stacks = Meditators.stacks;
-            hist = Meditators.history;
-            console.log("meditators hist:", hist);
+        if (n === "meditators") {
+            name = "meditators";
         }
 
-        if (name === "meditatorsorig") {
-            deal = Meditators2.deal;
-            stacks = Meditators2.stacks;
-            hist = Meditators2.history;
+        if (n === "meditatorsorig") {
+            name = "meditatorsorig";
         }
-
-        console.log("loaded!");
-        console.log("hist:", hist);
-
-        //  id: 1286, length: 59 helppo ? testaa...
-        
+        //  id: 1286, length: 59 helppo ? testaa...        
     }
 
     let burg = $state(false);
@@ -85,7 +65,7 @@
 </div>
 
 <div class="pats">
-    <Patience bind:this={patience} foo={stacks} boo={deal} goo={hist} />
+    <Patience bind:this={patience} name={name}/>
 </div>
 
 <style>
