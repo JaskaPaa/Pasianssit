@@ -22,22 +22,21 @@ export class History {
         }
 
         st.move = move;
-        //if (this.current > 0)
-          //  this.states.length = this.current + 1; // remove states
         
         this.states.splice(this.current+1);
 
         this.states.push(st);
         this.current = this.states.length - 1;
-
-        console.log("state saved:", this.states[this.current]);
     }
 
     back(): state {
         this.current = (this.current === 0) ? 0 : this.current - 1;
         return this.states[this.current];
     }
+
     lastMove() {
+        if (this.states.length <= this.current+1)
+            return [0,0];
         return this.states[this.current+1].move;
     }
 
