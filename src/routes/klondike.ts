@@ -1,6 +1,8 @@
 
 import {Stack, value, suit, alt, pipValue} from './Stack.svelte';
-import {shuffle} from './utils';
+import {shuffle, type state} from './utils';
+
+import {History} from './History.svelte';
 
 export const getStacks = () =>  stacks
 export const getDeal = () =>  deal
@@ -20,6 +22,9 @@ let test = 101/7;
 // 100 / x = 101/7 - 1 => 100 = (101/7 - 1)*x => x = 100/(101/7 - 1)
 
 let stacks: Stack[] = [];
+let history = { states : [{stacks: [], move: []}], current: 0 };
+
+let hist = new History();
 
 for (let i = 0; i < 4; i++) {
     let st = new Stack(40 + i*test, margin, [0, 0], 1);
@@ -33,7 +38,7 @@ for (let i = 0; i < 4; i++) {
 
 for (let i = 0; i < 7; i++) {
     let st = new Stack(test*i, dy + margin, [0, 4], 52);
-    console.log("test:", test*i);
+
     st.emptyAccept = (card) => value(card) === 13;
     st.topAccept = (card) => {
         return alt(card, st.topCard().id)
@@ -51,48 +56,68 @@ waste.update = () => {
         waste.cards[waste.cards.length-1].x = waste.x + 5;
         waste.cards[waste.cards.length-2].x = waste.x + 2.5;
     }
-    setTimeout(() => waste.enableOnlyTop(), 100);
+    console.log("waste update...----------");   
+
+    setTimeout(() => waste.updateZs(), 200);
+    setTimeout(() => {
+            waste.cards.forEach((c) => console.log(c.front) );
+            waste.cards.forEach((c) => c.front = true );
+            waste.enableOnlyTop();
+        }, 200);
 };
 
 waste.emptyAccept = () => false;
 waste.topAccept = () => false;
+
 stacks.push(waste);
 
 let pile = new Stack(5, margin, [0, 0], 0);
 
 pile.update = () => {
-    for (let j = 0; j < pile.cards.length; j++)
+    console.log("pile update...----------");   
+    for (let j = 0; j < pile.cards.length; j++) {
         pile.cards[j].enabled = false;
+        pile.cards[j].front = false;
+    }
+    console.log("klondike hist:", hist);
 };
 
 pile.onClick = () => {
+
+    if (pile.cards.length === 0 && waste.cards.length === 0)
+        return false;
+
     if (pile.cards.length === 0) {
         let card = null;
+        let count = 0;
         while (card = waste.cards.pop()) {
             card.front = false;
-            pile.pushC(card);
+            pile.pushC(card, 0, count < 3);
+            count++;
         }
-        return;
+        return true;
     }
     
-    for (let i = 0; i < 1; i++) {
+    for (let i = 0; i < 3; i++) {
         let card = pile.cards.pop();
         if (card === undefined)
             break;
         setTimeout(() => card.z = 100, 1);
         setTimeout(() => card.front = true, 100);
-        setTimeout(() => waste.enableOnlyTop(), 100);
-        waste.pushC(card);
+        setTimeout(() => waste.enableOnlyTop(), 200);
+        waste.pushC(card, 100, true);
     }
-    
+    return true;
 };
 
 stacks.push(pile);
 
 const deal = () => {
-    let deal = shuffle(deck); //deck.reverse(); 
+    let deal = shuffle(deck);
     let first = 4;
     let index = 0;
+    //hist = new History();
+
     for (let i = 0; i < 7; i++) {
         for (let j = i; j < 7; j++) {
             stacks[first + j%7].push(deal[index]);
@@ -101,6 +126,9 @@ const deal = () => {
     }
     for (let i = index; i < deal.length; i++)
         pile.push(deal[i]);
+
+    //hist.states = [];// new History();
+    //hist.save(stacks, [0,0]); 
 }
 
-export const Klondike = { deal: deal, stacks: stacks };
+export const Klondike = { deal: deal, stacks: stacks, history: hist };

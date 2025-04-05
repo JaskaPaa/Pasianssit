@@ -1,6 +1,6 @@
 <script>
     import { Tween } from 'svelte/motion';
-	import { cubicOut, elasticIn, cubicIn, quadIn, sineInOut } from 'svelte/easing';
+	import { cubicOut, elasticIn, cubicIn, quadIn, sineInOut, linear } from 'svelte/easing';
 
     let { left, top, id, start, end, inDrag, index, size, click, dir, numInDrag, front, enabled } = $props();
 	
@@ -9,7 +9,7 @@
 	let shadow = $state(false);
 	let shadowdown = $state(false);
 	let shadowleft = $state(false);
-	let dur = 400;
+	let dur = 200;
 	let disabled =  $state(!enabled);
 	let face =  $state(front);
 
@@ -31,8 +31,8 @@
 		disabled = !enabled;
 		face = front;
 		
-		if (current !== face)
-			shadow = true;
+		//if (current !== face)
+		//	shadow = true;
 
 		/*if (dir[0] < 0 && cardInDrag) 
 			shadow = true;
@@ -60,7 +60,7 @@
 			setTimeout(() => shadow = false, 700);  
 
 		zIndex = inDrag ? 100 + index : index;
-		dur = inDrag ? 0 : 400;
+		//dur = inDrag ? 0 : 300;
 		shadowW = 1 + (numInDrag-1)*Math.abs(dir[0])/10 - 0.04;
 		shadowH = 1.3 + (numInDrag-1)*Math.abs(dir[1])/10 - 0.04;
 		
@@ -69,10 +69,15 @@
 		shadowW = (Math.abs(dir[0]) > 0) ? shadowW : 1;
 		shadowH = (Math.abs(dir[1]) > 0) ? shadowH : 1.3;
 
+		//console.log("Effect numInDrag - zIndex:", id, numInDrag, zIndex);
+		//console.log("Effect inDrag ---------------:", inDrag);
+
 		if (inDrag) {
 			progL.set(left, { duration: 0});
 			progT.set(top, { duration: 0});
 		}
+
+		//console.log("Effect ----------------:", id, zIndex);
 		//shadow = (Math.abs(progL.current - progL.target) < 1) ? true : false;
 	});	
 
@@ -89,8 +94,7 @@
 
 		inDrag = true;
 
-        start(id);
-        
+        start(id);        
 	}
 
 	function stop(e) {
@@ -135,9 +139,9 @@
             return;
         }
 		//inDrag = false;
-		console.log("Clicked ----------------:", id, zIndex);
 		zIndex += 200; 
 		shadow = true;
+		console.log("Clicked ----------------:", id, zIndex);
 		click(id);
     }
 
@@ -153,18 +157,18 @@
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
-<div class="flip-card" class:disabled class:shadow class:shadowdown 
+<div class="flip-card" class:disabled  class:shadowdown class:shadow
 	class:shadowleft style:--size={(size + 1)/7 - 1 + "vw"} draggable="false" id={id}
 	onpointerup={stop} onpointerdown={startDrag} onclick={info}
 	style="left: {progL.current}px; top: {inDrag ? top : progT.current}px; z-index: {zIndex}">
 	<div class="flip-card-inner" class:flip={!face} class:flip-card-back={!face}>
 		<div class="flip-card-front" >
 			<!-- svelte-ignore a11y_missing_attribute -->
-			<img draggable="false" src="cards/{id[0] + id[1]}.svg" style:--size={(size + 1)/7 - 1 + "vw"} >
+			<img class="unselectable" draggable="false" src="cards/{id[0] + id[1]}.svg" style:--size={(size + 1)/7 - 1 + "vw"} >
 		</div>
 		<div class="flip-card-back"  >
 			<!-- svelte-ignore a11y_missing_attribute -->
-			<img draggable="false" src="cards/Blue_Back.svg" style:--size={(size + 1)/7 - 1 + "vw"} >
+			<img class="unselectable" draggable="false" src="cards/Blue_Back.svg" style:--size={(size + 1)/7 - 1 + "vw"} >
 		</div>
 	</div>
 </div>
@@ -236,10 +240,24 @@
 	}
 	.shadow {
 		/*filter: drop-shadow(16px 16px 20px #000000aa);*/
-		box-shadow: 20px 20px 20px #00000055;
+		/*box-shadow: 20px 20px 20px #00000055;
 		color: transparent;
-		border-radius: calc(0.05 * var(--size));
+		border-radius: calc(0.05 * var(--size));*/
+		--shacolor: #00000055;
+		/*filter: drop-shadow(20px 20px 20px var(--shacolor));*/
+		box-shadow: 20px 20px 20px var(--shacolor);
+		/*position: absolute;
+		z-index: -1000;*/
 	}
+
+    .unselectable {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
 
 
 	.hidden {

@@ -36,7 +36,7 @@ async function getData() {
 		console.log(json);
 		return json;
 	} catch (error) {
-			console.error(error.message);
+			console.error("error");
 	}
 }
 

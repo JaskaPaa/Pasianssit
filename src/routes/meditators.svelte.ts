@@ -1,6 +1,8 @@
 
 import {Stack, value, suit, alt, type card} from './Stack.svelte';
-import {shuffle} from './utils';
+import {shuffle, type state} from './utils';
+
+import {History} from './History.svelte';
 
 export const getStacks = () =>  stacks
 export const getDeal = (deal = []) =>  doDeal
@@ -18,6 +20,10 @@ let margin = 1;
 let stacks: Stack[] = [];
 
 let deal2: string[] = [];
+
+let history = { states : [{stacks: [], move: []}], current: 0 };
+
+let hist = new History();
 
 const ready = async () => {
 
@@ -46,7 +52,8 @@ const ready = async () => {
 const doDeal = (deal = []) => {
     
     console.log("game:", deal2);
-    
+    //hist = new History();
+
     deal = deal.reverse(); 
     for (let i = 0; i < deal.length; i++) {
         stacks[i%8 + 4].push(deal[i]);        
@@ -56,7 +63,8 @@ const doDeal = (deal = []) => {
             stacks[i].cards[j].front = true;
         }
     }
-    
+    //hist.states = []; //hist = new History();
+    //hist.save(stacks, [0,0]);
 }
 
 for (let i = 0; i < 4; i++) {
@@ -85,5 +93,5 @@ for (let i = 4; i < 12; i++) {
     stacks[i].update = () => stacks[i].enableOnlyTop();
 }
 
-export const Meditators = { deal: doDeal, stacks: stacks };
+export const Meditators = { deal: doDeal, stacks: stacks, history: hist };
 

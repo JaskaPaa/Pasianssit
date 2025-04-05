@@ -32,7 +32,7 @@ export class Stack {
             });
     }
 
-    pushC(card: card | undefined): void {
+    pushC(card: card | undefined, z = 0, inDrag = true): void {
         if (card === undefined)
             return;
         let i = this.cards.length;
@@ -40,8 +40,8 @@ export class Stack {
         //card.y += 0.001;
         //card.x = this.x + this.dir[0]*i;
         //card.y = this.y + this.dir[1]*i;
-        card.z = i;
-        card.inDrag = true;
+        card.z = i + z;
+        card.inDrag = inDrag;
         this.cards.push(card);
     }
     
@@ -67,7 +67,13 @@ export class Stack {
         }
     }
 
-    onClick() {}
+    updateZs() {
+        for (let j = 0; j < this.cards.length; j++) {
+            this.cards[j].z = j;
+        }
+    } 
+
+    onClick() { return false; }
 
     topCard() {
         /*if (this.cards.length === 0)
@@ -101,6 +107,7 @@ export class Stack {
     enableOnlyTop() {
         for (let j = 0; j < this.cards.length; j++) {
             this.cards[j].enabled = false;
+            //this.cards[j].z = j;
             if (j === this.cards.length - 1) {
                 this.cards[j].enabled = true;
                 this.cards[j].front = true;

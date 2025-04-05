@@ -1,4 +1,9 @@
+import type { card } from "./Stack.svelte";
 
+export type state = {
+    stacks: card[][];
+    move: number[]; 
+};
 
 export const rectsIntersection = (r1: DOMRect, r2: DOMRect) => {
     let pos = [[r1.x, r1.y], [r1.right, r1.y], [r1.x, r1.bottom], [r1.right, r1.bottom]];
