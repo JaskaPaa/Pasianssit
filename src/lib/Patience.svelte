@@ -79,7 +79,7 @@
                 stacks[i].update();
             }
             hist.save(stacks, [0, 0]);
-        }, 200);
+        }, 1000);
     }
 
     const collect = () => {
@@ -145,6 +145,8 @@
             stacks[i].cards = st.stacks[i];
         }
         tooStack = lastMove[0];
+
+        updateZ();
 
         if (hist.current > 0) {
             setTimeout(()=> {
@@ -228,6 +230,7 @@
                 shadowCount++;                                 
             }
         }
+        
         deck.update();
     }
     
@@ -367,7 +370,7 @@
                 continue;
             if (stacks[i].accept(id) === true && inStack !== -1) {
                 console.log("dropping to stack:", i);
-                stacks[i].disable();  // prevent click to acard under 
+                stacks[i].disable();  // prevent click to a card under 
                 stacks[inStack].disable();
                 
                 let cards = stacks[inStack].cards.slice(index);
@@ -443,11 +446,10 @@
         return inStack;
     }
 
-    const stackClick = (index: number) => {
-        if (stacks[index].onClick())
-            setTimeout(()=> hist.save(stacks, [index, index]), 300); // fix this
-        //updateCards();
-        //updateZ();
+    const stackClick = (index: number) => {   
+        stacks[index].onClick();
+        tooStack = -1; // wierd, but must be after takeback 
+        setTimeout(()=> updateCards(index), 200);
     }
 
     

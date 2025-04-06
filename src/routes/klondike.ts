@@ -79,7 +79,6 @@ pile.update = () => {
         pile.cards[j].enabled = false;
         pile.cards[j].front = false;
     }
-    console.log("klondike hist:", hist);
 };
 
 pile.onClick = () => {
@@ -95,6 +94,7 @@ pile.onClick = () => {
             pile.pushC(card, 0, count < 3);
             count++;
         }
+        setTimeout(()=> hist.save(stacks, [11, 12]), 300);
         return true;
     }
     
@@ -102,11 +102,13 @@ pile.onClick = () => {
         let card = pile.cards.pop();
         if (card === undefined)
             break;
+        console.log("card z:", card.z);
         setTimeout(() => card.z = 100, 1);
         setTimeout(() => card.front = true, 100);
         setTimeout(() => waste.enableOnlyTop(), 200);
         waste.pushC(card, 100, true);
     }
+    setTimeout(()=> hist.save(stacks, [12, 11]), 250);
     return true;
 };
 
