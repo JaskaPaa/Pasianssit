@@ -2,7 +2,7 @@
 
 - eteen/taakse napit svg?
 
-- keräämisongelma uudessa jaossa (klondike)
+- keräämisongelma eli ei saa kerätä pakasta! (klondike)
 
 - yhdista back forward funktiot
 
