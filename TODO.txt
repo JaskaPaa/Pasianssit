@@ -1,0 +1,8 @@
+
+
+- eteen/taakse napit svg?
+
+- keräämisongelma uudessa jaossa (klondike)
+
+- yhdista back forward funktiot
+
