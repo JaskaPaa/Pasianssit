@@ -240,9 +240,9 @@
 	}
 	.shadow {
 		/*filter: drop-shadow(16px 16px 20px #000000aa);*/
-		/*box-shadow: 20px 20px 20px #00000055;
+		/*box-shadow: 20px 20px 20px #00000055;*/
 		color: transparent;
-		border-radius: calc(0.05 * var(--size));*/
+		border-radius: calc(0.05 * var(--size));
 		--shacolor: #00000055;
 		/*filter: drop-shadow(20px 20px 20px var(--shacolor));*/
 		box-shadow: 20px 20px 20px var(--shacolor);

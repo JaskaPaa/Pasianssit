@@ -18,7 +18,7 @@
     
     import Patience from '../lib/Patience.svelte';
 
-    let full = $state(100);
+    let full = $state(60);
 
     let patience: Patience;
 
@@ -31,42 +31,39 @@
     const dealing = async () => {
         patience.deal2();
     }
-
-    const switchPat = async (n: string) => {
-        //let pat = await loadPatience(name);
-
-        if (n === "klondike") {
-            name = "klondike";
-        }
-
-        if (n === "meditators") {
-            name = "meditators";
-        }
-
-        if (n === "meditatorsorig") {
-            name = "meditatorsorig";
-        }
-        //  id: 1286, length: 59 helppo ? testaa...        
-    }
+   
+    //  id: 1286, length: 59 helppo ? testaa...    
 
     let burg = $state(false);
+    /*'san-felix': {
+    '50': '#e9ffe0',
+    '100': '#ccffbb',
+    '200': '#9dff80',
+    '300': '#5eff37',
+    '400': '#27ff00',
+    '500': '#06ff00',
+    '600': '#00d305',
+    '700': '#009f04',
+    '800': '#007b00',
+    '900': '#006400',
+    '950': '#003b06',
+    },*/
 
 </script>
 
 <div class="topbar">Mietiskelijän pasianssi</div>
 <div class="topbar">
-    <button onclick={() => dealing()}>Jaa</button>
-    <button onclick={()=> switchPat("klondike")}>Klondike</button>
-    <button onclick={()=> switchPat("meditators")}>Mietiskelijän</button>
-    <button onclick={()=> switchPat("meditatorsorig")}>Mietiskelijän2</button>
+    <button onclick={() => dealing()}>Uusi jako</button>
     <button onclick={()=> full += 5 }>+</button>
     <button onclick={()=> full -= 5}>-</button>
-    <button onclick={()=> burg = !burg }><Burger toggle={burg}></Burger></button>
+    <span style="float:right"><Burger bind:toggle={burg} bind:patience={name}></Burger></span>
 </div>
 
 <div class="pats">
-    <Patience bind:this={patience} name={name}/>
+    <Patience bind:this={patience} name={name} full={full}/>
 </div>
+
+<svelte:window onclick={ ()=> burg = (burg) ? true : false }/>
 
 <style>
     :global(body) { 
@@ -77,15 +74,15 @@
         background: #006400;
     } 
     .topbar {
-        display: flex;
-        align-items:center;
-        justify-content:center;
+        display: block;
+        align-items:baseline;
+        float: left;
+        /*justify-content: left;*/
         background: rgb(158, 212, 133);
     }
     .pats {
         display: flex;
         flex-direction: column;
     }
-
    
 </style>

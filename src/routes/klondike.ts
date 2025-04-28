@@ -95,7 +95,7 @@ pile.onClick = () => {
             count++;
         }
         setTimeout(()=> hist.save(stacks, [11, 12]), 300);
-        return true;
+        return; // quit
     }
     
     for (let i = 0; i < 3; i++) {
@@ -109,7 +109,6 @@ pile.onClick = () => {
         waste.pushC(card, 100, true);
     }
     setTimeout(()=> hist.save(stacks, [12, 11]), 250);
-    return true;
 };
 
 stacks.push(pile);

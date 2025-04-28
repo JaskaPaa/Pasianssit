@@ -6,7 +6,7 @@ import {History} from './History.svelte';
 
 export const getStacks = () =>  stacks
 export const getDeal = (deal = []) =>  doDeal
-export const isReady = async () =>  ready()
+export const isReady = async (limit = "") =>  ready(limit)
 
 let ranks = ["A", "7", "8", "9", "T", "J", "Q", "K"];    
 let suits = ["c", "d", "h", "s"];
@@ -25,11 +25,11 @@ let history = { states : [{stacks: [], move: []}], current: 0 };
 
 let hist = new History();
 
-const ready = async () => {
+const ready = async (limit= "") => {
 
     const response = await fetch('/newgame', {
         method: 'POST',
-        body: JSON.stringify({ limits: ""}),
+        body: JSON.stringify({ limits: limit}),
         headers: {
             'content-type': 'application/json'
         }

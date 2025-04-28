@@ -11,7 +11,9 @@
     import { Confetti } from "svelte-confetti"
     import { tick } from 'svelte';
 
-    let { name } = $props();
+    import '@fortawesome/fontawesome-free/css/all.min.css';
+
+    let { name, full } = $props();
 
     let width = $state(0);
 	let height = $state(0);
@@ -20,9 +22,11 @@
     let winWidth = $state(0);
     let winHeight = $state(0);
 
-    let full = $state(100);
+    //full = $state(100);
 
     let numInDrag = $state(0);
+
+    let firstTime = $state({klondike: true, meditators: true, meditatorsorig: true});
 
     $effect(() => {
         full = ( winWidth < winHeight) ? 100 : 60;
@@ -31,21 +35,31 @@
             doDeal = Klondike.deal;
             stacks = Klondike.stacks;
             hist = Klondike.history;
+            if (firstTime.klondike) {
+                deal2();
+                firstTime.klondike = false;
+            }
         }
 
         if (name === "meditators") {
             doDeal = Meditators.deal;
             stacks = Meditators.stacks;
             hist = Meditators.history;
-            console.log("meditators hist:", hist);
+            if (firstTime.meditators) {
+                deal2();
+                firstTime.meditators = false;
+            }
         }
 
         if (name === "meditatorsorig") {
             doDeal = Meditators2.deal;
             stacks = Meditators2.stacks;
             hist = Meditators2.history;
+            if (firstTime.meditatorsorig) {
+                deal2();
+                firstTime.meditatorsorig = false;
+            }
         }
-
     });
 
     let doDeal = $state(Meditators.deal);
@@ -54,7 +68,7 @@
 
     let hist: History = $state(Meditators.history);
 
-    //stacks = getStacks();
+    let game = $state({id: -1, deal: [], length: '??'});
 
     export const deal2 = async () => {
     
@@ -63,8 +77,9 @@
         tooStack = -1;
         collectCards();
 
-        let res = await isReady();
-        console.log("res:", res);
+        if (name === "meditators")
+            game = await isReady(selected);
+        
         hist.states = [];
         hist.current = 0;
 
@@ -74,12 +89,12 @@
             for (let i = 0; i < stacks.length; i++) {
                 stacks[i].cards = [];
             }
-            doDeal(res.deal);
+            doDeal(game.deal);
             for (let i = 0; i < stacks.length; i++) {
                 stacks[i].update();
             }
             hist.save(stacks, [0, 0]);
-        }, 1000);
+        }, 200);
     }
 
     const collect = () => {
@@ -114,8 +129,7 @@
         let st = hist.back();
 
         let lastMove = hist.lastMove();
-        console.log("last move:", lastMove);
-
+        
         if (st === undefined)
             return;
 
@@ -421,13 +435,18 @@
         console.log("effect!", tooStack);
         console.log("rerun:", rerun);
 
+        if (name === "meditators")
+            moves = hist.current.toString() + '/' + game.length;
+       else
+            moves = hist.current.toString();
+
         if (rerun) {
             updateCards(tooStack);
         }
         //if (rerun2) {
-            for (let i = 0; i < stacks.length; i++) {
-                stacks[i].update();
-            }
+        for (let i = 0; i < stacks.length; i++) {
+            stacks[i].update();
+        }
         //}
         
     });
@@ -452,7 +471,14 @@
         setTimeout(()=> updateCards(index), 200);
     }
 
-    
+    const dblClick = () => {
+        console.log("double click");
+        //pointerdown = true;
+        //takeBack();
+    }   
+
+    let moves = $state("0");
+    let selected = $state("");
 
 </script>
 
@@ -460,11 +486,29 @@
     on:dblclick={() => console.log('dblclick')}></svelte:window>
 
 <div class="control">
-    <button onclick={collect}>Kerää</button>
-    <button onpointerdown={takeBack} onpointerup={pointerUp}>&lt;&lt;</button>
-    <button onpointerdown={goForward} onpointerup={pointerUp}>&gt;&gt;</button>
-    <button onclick={debug}>Debug</button>
+    <select bind:value={selected} onchange={deal2} style="float:left">
+        <option value="">Kaikki</option>
+        <option value="32-40">Siirtoja 32-40</option>
+        <option value="41-45">Siirtoja 41-45</option>
+        <option value="46-50">Siirtoja 46-50</option>
+        <option value="50-60">Siirtoja 51-60</option>
+        <option value="61-99">Siirtoja yli 60</option>
+    </select>
+    <span style="width: 2.5rem;">{moves}</span>
+   
+    <div class="test">
+        <button class="test2" onclick={collect}>Kerää</button>
+        <!-- svelte-ignore a11y_consider_explicit_label -->
+        <button data-icon="add" onpointerdown={takeBack} onpointerup={pointerUp} ondblclick={dblClick}>
+            <i class="fa fa-backward" aria-hidden="true"></i>
+        </button>
+        <!-- svelte-ignore a11y_consider_explicit_label -->
+        <button onpointerdown={goForward} onpointerup={pointerUp}>
+            <i class="fa fa-forward" aria-hidden="true"></i>
+    </div> 
+    
 </div>
+
 <div id="tableu" class="table" bind:offsetHeight={offset} bind:clientWidth={width}
     bind:clientHeight={height} style:--full={full + "vw"}>
 
@@ -490,7 +534,7 @@
         {/each}           
     {/if}
 </div>
-
+<!--button onclick={debug}>Debug</button-->
 
 <style>
     .mover {
@@ -498,7 +542,7 @@
     }
     .table {
         position: relative;
-        background: green; /* #006400; /*#35654d; linear-gradient(250deg, rgb(75, 180, 34), green);*/
+        background: #006400; /*#35654d; linear-gradient(250deg, rgb(75, 180, 34), green);*/
         display: flex;
         flex-direction: column;
         --full: 100vw;
@@ -536,7 +580,18 @@
         display: flex;
         align-items:center;
         justify-content:center;
-        background: rgb(55, 90, 39);
+        background: rgb(65, 141, 30);
+    }
+    .test {
+        max-width: max-content;
+        margin-inline: auto;
+    }
+    .test2 {
+        max-width: max-content;
+        margin-inline-end: 2rem;
+    }
+    button {
+        user-select: none;
     }
     
 </style>
