@@ -14,6 +14,7 @@ export class Stack {
     cards: card[] = $state([]);
     dir = [0,0];
     acceptNum = 1;
+    type = "unknown";
 
     constructor(x = 0, y = 0, dir = [0,0], acceptNum = 1) {
         this.x = x;
