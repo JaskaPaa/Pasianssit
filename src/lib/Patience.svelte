@@ -97,12 +97,33 @@
         }, 200);
     }
 
-    const collect = () => {
+    const collect2 = () => {
         for (let i = 4; i < stacks.length; i++) {
             let top = stacks[i].topCard();
             if (!top)
                 continue;
             for (let j = 0; j < 4; j++) {
+                if (stacks[j].accept(top.id) === true) {
+                    stacks[j].pushC(stacks[i].cards.pop());
+                    tooStack = j;
+                    hist.save(stacks, [i, j]);
+                    setTimeout(collect, 300);
+                    return;
+                }
+            }
+        }
+    }
+    const collect = () => {
+        for (let i = 0; i < stacks.length; i++) {
+            let top = stacks[i].topCard();
+            
+            if (stacks[i].type !== "collectable" || !top)
+                continue;
+            
+            for (let j = 0; j < stacks.length; j++) {
+                if (stacks[j].type !== "foundation")
+                    continue;
+
                 if (stacks[j].accept(top.id) === true) {
                     stacks[j].pushC(stacks[i].cards.pop());
                     tooStack = j;
