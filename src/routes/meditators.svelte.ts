@@ -74,6 +74,7 @@ for (let i = 0; i < 4; i++) {
         return suit(card) === suit(st.topCard().id)
         && value(card) - 1 === value(st.topCard().id);
     };
+    st.type = "foundation";
     stacks.push(st);
 }
 
@@ -86,6 +87,7 @@ for (let i = 0; i < 8; i++) {
         return alt(card, st.topCard().id)
         && value(card) + 1 === value(st.topCard().id);
     };
+    st.type = "collectable";
     stacks.push(st);
 }
 

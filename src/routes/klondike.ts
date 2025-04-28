@@ -33,6 +33,7 @@ for (let i = 0; i < 4; i++) {
         return suit(card) === suit(st.topCard().id)
         && pipValue(card) - 1 === pipValue(st.topCard().id);
     };
+    st.type = "foundation";
     stacks.push(st);
 }
 
@@ -44,6 +45,7 @@ for (let i = 0; i < 7; i++) {
         return alt(card, st.topCard().id)
         && pipValue(card) + 1 === pipValue(st.topCard().id);
     };
+    st.type = "collectable";
     stacks.push(st);
 }
 
@@ -68,6 +70,7 @@ waste.update = () => {
 
 waste.emptyAccept = () => false;
 waste.topAccept = () => false;
+waste.type = "collectable";
 
 stacks.push(waste);
 
