@@ -119,7 +119,7 @@
             
             if (stacks[i].type !== "collectable" || !top)
                 continue;
-            
+
             for (let j = 0; j < stacks.length; j++) {
                 if (stacks[j].type !== "foundation")
                     continue;
@@ -499,7 +499,7 @@
     }   
 
     let moves = $state("0");
-    let selected = $state("");
+    let selected = $state("32-40");
 
 </script>
 
@@ -507,13 +507,13 @@
     on:dblclick={() => console.log('dblclick')}></svelte:window>
 
 <div class="control">
-    <select bind:value={selected} onchange={deal2} style="float:left">
-        <option value="">Kaikki</option>
+    <select class={name === "meditators" ? '' : 'hide'} bind:value={selected} onchange={deal2} style="float:left">
         <option value="32-40">Siirtoja 32-40</option>
         <option value="41-45">Siirtoja 41-45</option>
         <option value="46-50">Siirtoja 46-50</option>
         <option value="50-60">Siirtoja 51-60</option>
         <option value="61-99">Siirtoja yli 60</option>
+        <option value="">Kaikki määrät</option>
     </select>
     <span style="width: 2.5rem;">{moves}</span>
    
@@ -526,6 +526,7 @@
         <!-- svelte-ignore a11y_consider_explicit_label -->
         <button onpointerdown={goForward} onpointerup={pointerUp}>
             <i class="fa fa-forward" aria-hidden="true"></i>
+        </button>   
     </div> 
     
 </div>
@@ -613,6 +614,9 @@
     }
     button {
         user-select: none;
+    }
+    .hide {
+        display: none;
     }
     
 </style>
