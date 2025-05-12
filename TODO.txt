@@ -6,3 +6,4 @@
 
 - yhdista back forward funktiot
 
+- korjaa korttipinojen välit
