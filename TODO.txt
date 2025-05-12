@@ -1,9 +1,0 @@
-
-
-- eteen/taakse napit svg?
-
-- keräämisongelma eli ei saa kerätä pakasta! (klondike)
-
-- yhdista back forward funktiot
-
-- korjaa korttipinojen välit
