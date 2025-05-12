@@ -16,7 +16,7 @@
     let progT = $state(new Tween(top));
 	let progL = $state(new Tween(left));
 
-	progT = new Tween(top, {duration: dur, easing: sineInOut});
+	progT = new Tween(top, {duration: dur, easing: cubicOut});
 	progL = new Tween(left, {duration: dur, easing: sineInOut});
 
 	//console.log("id left top index inDrag:", id, left, top, index, inDrag);
@@ -99,7 +99,7 @@
 
 	function stop(e) {
 
-		if (inDrag && cardInDrag && mouseMoveCounter >= 3) {
+		if (inDrag && cardInDrag && mouseMoveCounter > maxMoves) {
 		
 			let elem = document.getElementById(id);
             let rect = elem.getBoundingClientRect();
@@ -120,7 +120,8 @@
 		cardInDrag = false;	
 	}
 
-	let mouseMoveCounter = 0;
+	let mouseMoveCounter = $state(0);
+	const maxMoves = 7;
 
 	function move(e) {
 		mouseMoveCounter++;
@@ -130,12 +131,13 @@
 			top += e.movementY;
 		}
     }
-
-	function info(e) {
+	
+	function clicked(e) {
 		//console.log("id----------------:", id);
-		//console.log("mouseMoveCounter:", mouseMoveCounter);
+		console.log("mouseMoveCounter:", mouseMoveCounter);
 
-		if ( mouseMoveCounter > 3) {
+		if ( mouseMoveCounter > maxMoves) {
+			mouseMoveCounter = 0;
             return;
         }
 		//inDrag = false;
@@ -150,6 +152,9 @@
 
 	let dirX = $state(0);
 	let dirY = $state(0);
+
+	let imgSrc = ['c', 'd', 'h', 's'].includes(id[1]) ? `cards/${id[0] + id[1]}.svg` : `number-cards/${id}.svg`;
+	//console.log(imgSrc); 
 	
 </script>
 
@@ -157,9 +162,9 @@
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
-<div class="flip-card" class:disabled  class:shadowdown class:shadow
+<div class="flip-card unselectable" class:disabled class:shadowdown class:shadow
 	class:shadowleft style:--size={(size + 1)/7 - 1 + "vw"} draggable="false" id={id}
-	onpointerup={stop} onpointerdown={startDrag} onclick={info}
+	onpointerup={stop} onpointerdown={startDrag} onclick={clicked}
 	style="left: {progL.current}px; top: {inDrag ? top : progT.current}px; z-index: {zIndex}">
 	<div class="flip-card-inner" class:flip={!face} class:flip-card-back={!face}>
 		<div class="flip-card-front" >
