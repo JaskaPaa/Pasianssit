@@ -56,14 +56,14 @@
     <button onclick={() => dealing()}>Uusi jako</button>
     <button onclick={()=> full += 5 }>+</button>
     <button onclick={()=> full -= 5}>-</button>
-    <span style="float:right"><Burger bind:toggle={burg} bind:patience={name}></Burger></span>
+    <span style="float:right"><Burger bind:patience={name}></Burger></span>
 </div>
 
 <div class="pats">
     <Patience bind:this={patience} name={name} full={full}/>
 </div>
 
-<svelte:window onclick={ ()=> burg = (burg) ? true : false }/>
+<!--svelte:window onclick={ ()=> burg = (burg) ? true : false }/-->
 
 <style>
     :global(body) { 

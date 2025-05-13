@@ -1,28 +1,27 @@
 <script lang='ts'>
     import { clickOutside } from "svelte-outside";
-    //export let toggle = true;
-    let { toggle = $bindable(),  patience= $bindable()} = $props();
-    //let dialog: HTMLDialogElement;
-    let show = $state(false);
+    
+    let { patience = $bindable()} = $props();
+    
+    let toggle = $state(false);
 
     let showMenu = () => {
-        console.log("toggle:", toggle);
-        show = true;
+        //console.log("toggle---:", toggle);
+        
         let elem2 = document.getElementById("burger");
         let elem1 = document.getElementById("menu");
         if (elem2 && elem1) {     
             let rect2 = elem2.getBoundingClientRect();
             top = rect2.bottom;
             right = window.innerWidth - rect2.right;
-            console.log("rect2:", rect2);
-            console.log("top right:", top, right);
-            console.log(window.innerWidth);
+            //console.log("rect2:", rect2);
+            //console.log("top right:", top, right);
+            //console.log(window.innerWidth);
             let rect1 = elem1.getBoundingClientRect();
-            console.log("rect1:", rect1);
+            //console.log("rect1:", rect1);
             //right = 300;
         }        
 
-        //dialog.show();
     }
 
     let selectPat = (name: string) => {
@@ -37,13 +36,10 @@
         if (toggle)
             showMenu();
         else {
-            show = false;
             let elem1 = document.getElementById("menu");
             if (elem1) {
                 let rect1 = elem1.getBoundingClientRect();
-                console.log("rect1:", rect1);
-            }        
-            //dialog.close();
+            }
         }
     });
 
@@ -58,7 +54,7 @@
         <line x1="10%" y1="50%" x2="90%" y2="50%" class="hamburger__bar hamburger__bar--bot" />
     </svg>
 
-    <div class="menu" class:show id="menu" style="right: {right}px; top: {top}px">
+    <div class="menu" class:show={toggle} id="menu" style="right: {right}px; top: {top}px">
         <p><b>Pasianssit</b></p>
         <button onclick={()=> selectPat("meditators")}>Mietiskelijän (ratkaistavissa)</button>
         <button onclick={()=> selectPat("meditatorsorig")}>Mietiskelijän (satunnainen)</button>
