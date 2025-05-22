@@ -22,14 +22,18 @@
     let winWidth = $state(0);
     let winHeight = $state(0);
 
-    //full = $state(100);
-
     let numInDrag = $state(0);
 
     let firstTime = $state({klondike: true, meditators: true, meditatorsorig: true});
 
     $effect(() => {
-        full = ( winWidth < winHeight) ? 100 : 60;
+        //full = (winWidth < winHeight) ? 100 : 50;
+
+        if (winWidth < winHeight) {
+            full = 100;
+        } else {
+            full = (height > winHeight) ? full - 1 : full;
+        }        
         
         if (name === "klondike") {
             doDeal = Klondike.deal;
@@ -452,10 +456,21 @@
     let rerun = true;
     let rerun2 = true;
 
+    let lastW = 0;
+
     $effect(() => {
         console.log("effect!", tooStack);
         console.log("rerun:", rerun);
 
+        //console.log("wwwww:", w, lastW);
+        //full += (w - lastW)*0.1;
+        /*if (winWidth < winHeight) {
+            full = 100;
+        } else {
+            full += (w - lastW)*0.1;
+            lastW = w;
+        }*/
+    
         if (name === "meditators")
             moves = hist.current.toString() + '/' + game.length;
        else
@@ -500,13 +515,15 @@
 
     let moves = $state("0");
     let selected = $state("32-40");
+    let w = $state(0);
 
 </script>
 
 <svelte:window bind:innerWidth={winWidth} bind:innerHeight={winHeight}
     on:dblclick={() => console.log('dblclick')}></svelte:window>
 
-<div class="control">
+<div class="wrapper">
+<div class="control" bind:clientWidth={w} >
     <select class={name === "meditators" ? '' : 'hide'} bind:value={selected} onchange={deal2} style="float:left">
         <option value="32-40">Siirtoja 32-40</option>
         <option value="41-45">Siirtoja 41-45</option>
@@ -556,20 +573,24 @@
         {/each}           
     {/if}
 </div>
+</div>
 <!--button onclick={debug}>Debug</button-->
 
 <style>
     .mover {
         position: absolute;
     }
+    .wrapper {
+        display: grid;
+    }
     .table {
         position: relative;
-        background: #006400; /*#35654d; linear-gradient(250deg, rgb(75, 180, 34), green);*/
+        background: #006488; /*#35654d; linear-gradient(250deg, rgb(75, 180, 34), green);*/
         display: flex;
         flex-direction: column;
         --full: 100vw;
         width: var(--full);
-        height: calc(0.57*var(--full));
+        height: calc(0.87*var(--full));
         justify-content: center;
         align-items: center;
         touch-action: none;
@@ -603,6 +624,8 @@
         align-items:center;
         justify-content:center;
         background: rgb(65, 141, 30);
+        /*resize: horizontal;
+        overflow: auto;*/
     }
     .test {
         max-width: max-content;

@@ -34,7 +34,6 @@
    
     //  id: 1286, length: 59 helppo ? testaa...    
 
-    let burg = $state(false);
     /*'san-felix': {
     '50': '#e9ffe0',
     '100': '#ccffbb',
@@ -63,8 +62,6 @@
     <Patience bind:this={patience} name={name} full={full}/>
 </div>
 
-<!--svelte:window onclick={ ()=> burg = (burg) ? true : false }/-->
-
 <style>
     :global(body) { 
         margin: 0; padding: 0;
@@ -75,6 +72,7 @@
     } 
     .topbar {
         display: block;
+        width: 100%;
         align-items:baseline;
         float: left;
         /*justify-content: left;*/
