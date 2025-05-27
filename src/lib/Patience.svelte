@@ -22,6 +22,9 @@
     let winWidth = $state(0);
     let winHeight = $state(0);
 
+    let lastHeight = $state(0);
+    let lastWidth = $state(0);
+
     let numInDrag = $state(0);
 
     let firstTime = $state({klondike: true, meditators: true, meditatorsorig: true});
@@ -32,8 +35,15 @@
         if (winWidth < winHeight) {
             full = 100;
         } else {
-            full = (height > winHeight) ? full - 1 : full;
-        }        
+            full = (height > winHeight) ? full - 5 : full;
+            full = (height < winHeight + 100) ? full + 5 : full;
+        }
+        
+        //if (lastHeight < winHeight) // || lastWidth < winWidth)
+          //  full += 5;
+
+        lastHeight = winHeight;
+        lastWidth = winWidth;
         
         if (name === "klondike") {
             doDeal = Klondike.deal;
