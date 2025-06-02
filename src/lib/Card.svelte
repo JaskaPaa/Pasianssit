@@ -251,6 +251,7 @@
 		--shacolor: #00000055;
 		/*filter: drop-shadow(20px 20px 20px var(--shacolor));*/
 		box-shadow: 20px 20px 20px var(--shacolor);
+		width: calc(0.98 * var(--size)); /* shadow problem */
 		/*position: absolute;
 		z-index: -1000;*/
 	}
