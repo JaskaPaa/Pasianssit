@@ -8,8 +8,11 @@
     import {Klondike} from '../routes/klondike';
     import {Meditators2} from '../routes/meditatorsorig';
     import {History} from '../routes/History.svelte';
-    import { Confetti } from "svelte-confetti"
+    import { Confetti } from "svelte-confetti";
+    import Resizebutton from "./Resizebutton.svelte";
+    
     import { tick } from 'svelte';
+
 
     import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -34,11 +37,12 @@
 
         if (winWidth < winHeight) {
             full = 100;
-        } else {
+        } /*else {
             full = (height > winHeight) ? full - 5 : full;
             full = (height < winHeight + 100) ? full + 5 : full;
-        }
-        
+        }*/
+        full += foo2*0.07; 
+        //console.log("fooo:", foo + 1);
         //if (lastHeight < winHeight) // || lastWidth < winWidth)
           //  full += 5;
 
@@ -526,6 +530,7 @@
     let moves = $state("0");
     let selected = $state("32-40");
     let w = $state(0);
+    let foo2 = $state(0);
 
 </script>
 
@@ -533,57 +538,59 @@
     on:dblclick={() => console.log('dblclick')}></svelte:window>
 
 <div class="wrapper">
-<div class="control" bind:clientWidth={w} >
-    <select class={name === "meditators" ? '' : 'hide'} bind:value={selected} onchange={deal2} style="float:left">
-        <option value="32-40">Siirtoja 32-40</option>
-        <option value="41-45">Siirtoja 41-45</option>
-        <option value="46-50">Siirtoja 46-50</option>
-        <option value="50-60">Siirtoja 51-60</option>
-        <option value="61-99">Siirtoja yli 60</option>
-        <option value="">Kaikki määrät</option>
-    </select>
-    <span style="width: 2.5rem;">{moves}</span>
-   
-    <div class="test">
-        <button class="test2" onclick={collect}>Kerää</button>
-        <!-- svelte-ignore a11y_consider_explicit_label -->
-        <button data-icon="add" onpointerdown={takeBack} onpointerup={pointerUp} ondblclick={dblClick}>
-            <i class="fa fa-backward" aria-hidden="true"></i>
-        </button>
-        <!-- svelte-ignore a11y_consider_explicit_label -->
-        <button onpointerdown={goForward} onpointerup={pointerUp}>
-            <i class="fa fa-forward" aria-hidden="true"></i>
-        </button>   
-    </div> 
+    <div class="control" bind:clientWidth={w} >
+        <select class={name === "meditators" ? '' : 'hide'} bind:value={selected} onchange={deal2} style="float:left">
+            <option value="32-40">Siirtoja 32-40</option>
+            <option value="41-45">Siirtoja 41-45</option>
+            <option value="46-50">Siirtoja 46-50</option>
+            <option value="50-60">Siirtoja 51-60</option>
+            <option value="61-99">Siirtoja yli 60</option>
+            <option value="">Kaikki määrät</option>
+        </select>
+        <span style="width: 2.5rem;">{moves}</span>
     
-</div>
+        <div class="test">
+            <button class="test2" onclick={collect}>Kerää</button>
+            <!-- svelte-ignore a11y_consider_explicit_label -->
+            <button data-icon="add" onpointerdown={takeBack} onpointerup={pointerUp} ondblclick={dblClick}>
+                <i class="fa fa-backward" aria-hidden="true"></i>
+            </button>
+            <!-- svelte-ignore a11y_consider_explicit_label -->
+            <button onpointerdown={goForward} onpointerup={pointerUp}>
+                <i class="fa fa-forward" aria-hidden="true"></i>
+            </button>   
+        </div>
 
-<div id="tableu" class="table" bind:offsetHeight={offset} bind:clientWidth={width}
-    bind:clientHeight={height} style:--full={full + "vw"}>
+        <Resizebutton bind:resize={foo2}/>    
+    </div>
 
-    {#each stacks as stack, i}
-         <!-- svelte-ignore a11y_click_events_have_key_events -->
-        <!-- svelte-ignore a11y_no_static_element_interactions -->
-        <div id="st{i}" onclick={() => stackClick(i)}  style:--size={(full + 1)/7 - 1 + "vw"} class="unselectable stack" 
-            style="left: {stack.x*width/100.0}px; top: {stack.y*width/100.0}px"></div>    
-        {#each stacks[i].cards as card, j}
-            <Card left={card.x*width/100} top={card.y*width/100} id={card.id}
-                start={innDrag} end={dropped} inDrag={card.inDrag} index={card.z} size={full}
-                click={clicked} dir={stacks[i].dir} numInDrag={numInDrag} front={card.front}
-                enabled={card.enabled} />
-        {/each}      
-    {/each}
-    {#if isVisible}
+    <div id="tableu" class="table" bind:offsetHeight={offset} bind:clientWidth={width}
+        bind:clientHeight={height} style:--full={full + "vw"}>
+
         {#each stacks as stack, i}
-        {#each stacks[i].cards as card, j}
-            <div class="mover" style="left: {card.x*width/100}px; top: {card.y*width/100}px">
-                <Confetti amount={3} size={100} x={[0.25, 3]} y={[0, 0.25]} colorArray={["url(cards/Qs.svg)", "url(https://github.githubassets.com/favicons/favicon-dark.png)"]}/>
-            </div>
+            <!-- svelte-ignore a11y_click_events_have_key_events -->
+            <!-- svelte-ignore a11y_no_static_element_interactions -->
+            <div id="st{i}" onclick={() => stackClick(i)}  style:--size={(full + 1)/7 - 1 + "vw"} class="unselectable stack" 
+                style="left: {stack.x*width/100.0}px; top: {stack.y*width/100.0}px"></div>    
+            {#each stacks[i].cards as card, j}
+                <Card left={card.x*width/100} top={card.y*width/100} id={card.id}
+                    start={innDrag} end={dropped} inDrag={card.inDrag} index={card.z} size={full}
+                    click={clicked} dir={stacks[i].dir} numInDrag={numInDrag} front={card.front}
+                    enabled={card.enabled} />
+            {/each}      
         {/each}
-        {/each}           
-    {/if}
+        {#if isVisible}
+            {#each stacks as stack, i}
+            {#each stacks[i].cards as card, j}
+                <div class="mover" style="left: {card.x*width/100}px; top: {card.y*width/100}px">
+                    <Confetti amount={3} size={100} x={[0.25, 3]} y={[0, 0.25]} colorArray={["url(cards/Qs.svg)", "url(https://github.githubassets.com/favicons/favicon-dark.png)"]}/>
+                </div>
+            {/each}
+            {/each}           
+        {/if}
+    </div>
 </div>
-</div>
+
 <!--button onclick={debug}>Debug</button-->
 
 <style>
@@ -592,10 +599,12 @@
     }
     .wrapper {
         display: grid;
+        align-items: center;
+        justify-content: center;
     }
     .table {
         position: relative;
-        background: #006488; /*#35654d; linear-gradient(250deg, rgb(75, 180, 34), green);*/
+        background: #006400; /*#35654d; linear-gradient(250deg, rgb(75, 180, 34), green);*/
         display: flex;
         flex-direction: column;
         --full: 100vw;
@@ -634,8 +643,6 @@
         align-items:center;
         justify-content:center;
         background: rgb(65, 141, 30);
-        /*resize: horizontal;
-        overflow: auto;*/
     }
     .test {
         max-width: max-content;

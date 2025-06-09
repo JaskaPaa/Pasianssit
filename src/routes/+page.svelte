@@ -53,8 +53,8 @@
 <div class="topbar">Mietiskelijän pasianssi</div>
 <div class="topbar">
     <button onclick={() => dealing()}>Uusi jako</button>
-    <button onclick={()=> full += 5 }>+</button>
-    <button onclick={()=> full -= 5}>-</button>
+    <!--button onclick={()=> full += 5 }>+</button>
+    <button onclick={()=> full -= 5}>-</button-->
     <span style="float:right"><Burger bind:patience={name}></Burger></span>
 </div>
 
