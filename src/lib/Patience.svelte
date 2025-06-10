@@ -41,8 +41,16 @@
             full = (height > winHeight) ? full - 5 : full;
             full = (height < winHeight + 100) ? full + 5 : full;
         }*/
-        full += foo2*0.07; 
-        //console.log("fooo:", foo + 1);
+        full += foo2*0.07;
+
+        full = (full > 95) ? 95 : full;
+        full = (full < 30) ? 30 : full;
+
+        if (winWidth < winHeight) {
+            full = 100;
+        }
+
+        console.log("full:", full);
         //if (lastHeight < winHeight) // || lastWidth < winWidth)
           //  full += 5;
 

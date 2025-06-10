@@ -20,29 +20,26 @@
         started = false;
     }
 
-
-
-
 </script>
 
 <svelte:window onpointermove={move} onpointerup={endDrag}/>
 
 <button onpointerdown={startDrag} >
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <!--path d="M12 0l5 5-12 12-5-5v12h12l-5-5 12-12 5 5v-12h-12z" /-->
-        <!--path d="M0 0h12 l-5 5 12 12 5 -5 v12h-12l5-5 -12 -12 -5 5z " fill={$gameBackground}/-->
-        <line  opacity="0.6" stroke="blue" stroke-width="12%" x1="10%" y1="90%" x2="90%" y2="10%"/>
-        <line  opacity="0.6" stroke="red" stroke-width="12%" x1="40%" y1="90%" x2="90%" y2="40%"/>
-        <line  opacity="0.6" stroke="green" stroke-width="12%" x1="70%" y1="90%" x2="90%" y2="70%"/>
-    </svg>
+    <!--i class="fa fa-forward" aria-hidden="true"></i-->
+    <i class="fa-solid fa-left-right"></i>
+    <!--i class="fa-solid fa-arrows-left-right-to-line"></i-->
 </button>
 
 
 <style>
     button {
-        width: 20px;
+        width: 24px;
+        height: 24px;
         margin-right: -10px;
         border-radius: 50%;
+        padding: 0%;
+        background: rgb(159, 185, 13);
+        border: none;
     }    
     /*button {
         position: absolute;

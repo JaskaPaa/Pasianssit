@@ -51,15 +51,17 @@
 </script>
 
 <div class="topbar">Mietiskelijän pasianssi</div>
-<div class="topbar">
-    <button onclick={() => dealing()}>Uusi jako</button>
-    <!--button onclick={()=> full += 5 }>+</button>
-    <button onclick={()=> full -= 5}>-</button-->
-    <span style="float:right"><Burger bind:patience={name}></Burger></span>
-</div>
+<div class="wrap">
+    <div class="topbar">
+        <button onclick={() => dealing()}>Uusi jako</button>
+        <!--button onclick={()=> full += 5 }>+</button>
+        <button onclick={()=> full -= 5}>-</button-->
+        <span style="float:right"><Burger bind:patience={name}></Burger></span>
+    </div>
 
-<div class="pats">
-    <Patience bind:this={patience} name={name} full={full}/>
+    <div class="pats">
+        <Patience bind:this={patience} name={name} full={full}/>
+    </div>
 </div>
 
 <style>
@@ -70,6 +72,13 @@
         align-items: center;
         background: #006400;
     } 
+    .wrap {
+        margin: 0; padding: 0;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        background: #006400;
+    }
     .topbar {
         display: block;
         width: 100%;
