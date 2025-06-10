@@ -41,7 +41,7 @@
             full = (height > winHeight) ? full - 5 : full;
             full = (height < winHeight + 100) ? full + 5 : full;
         }*/
-        full += foo2*0.07;
+        full += resize*0.07;
 
         full = (full > 95) ? 95 : full;
         full = (full < 30) ? 30 : full;
@@ -538,7 +538,7 @@
     let moves = $state("0");
     let selected = $state("32-40");
     let w = $state(0);
-    let foo2 = $state(0);
+    let resize = $state(0);
 
 </script>
 
@@ -569,7 +569,7 @@
             </button>   
         </div>
 
-        <Resizebutton bind:resize={foo2}/>    
+        <Resizebutton bind:resize={resize} visible={ full === 100 ? false : true}/>    
     </div>
 
     <div id="tableu" class="table" bind:offsetHeight={offset} bind:clientWidth={width}
