@@ -52,7 +52,7 @@
 
 <div class="topbar">Mietiskelijän pasianssi</div>
 <div class="wrap">
-    <div class="topbar">
+    <div class="gamebar">
         <button onclick={() => dealing()}>Uusi jako</button>
         <!--button onclick={()=> full += 5 }>+</button>
         <button onclick={()=> full -= 5}>-</button-->
@@ -80,6 +80,13 @@
         background: #006400;
     }
     .topbar {
+        display: block;
+        width: 100%;
+        background: rgb(158, 212, 133);
+        font-size: large;
+        text-align: center;
+    }
+    .gamebar {
         display: block;
         width: 100%;
         align-items:baseline;
