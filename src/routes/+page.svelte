@@ -103,6 +103,7 @@
     }
     .gamebar {
         display: block;
+        padding-top: 0.5rem;
         width: 100%;
         align-items:baseline;
         float: left;
