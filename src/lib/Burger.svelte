@@ -1,7 +1,7 @@
 <script lang='ts'>
     import { clickOutside } from "svelte-outside";
     
-    let { patience = $bindable()} = $props();
+    let { patience = $bindable() } = $props();
     
     let toggle = $state(false);
 

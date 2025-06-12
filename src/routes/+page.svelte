@@ -17,12 +17,15 @@
 
     
     import Patience from '../lib/Patience.svelte';
+	//import { _ } from '$env/static/private'; ????? mistä tullut
 
     let full = $state(60);
 
     let patience: Patience;
 
     let game = $state(null);
+
+    let patName = $state("Mietiskelijän pasianssi");
 
     game = data.game;
 
@@ -31,7 +34,16 @@
     const dealing = async () => {
         patience.deal2();
     }
-   
+
+    $effect(() => {
+        if (name === "meditators")
+            patName = "Mietiskelijän pasianssi";
+        if (name === "klondike")
+            patName = "Klondike pasianssi";
+        if (name === "meditatorsorig")
+            patName = "Mietiskelijän pasianssi";
+    });
+
     //  id: 1286, length: 59 helppo ? testaa...    
 
     /*'san-felix': {
@@ -50,12 +62,15 @@
 
 </script>
 
-<div class="topbar">Mietiskelijän pasianssi</div>
+<!--div class="topbar">{"-"}</div-->
 <div class="wrap">
     <div class="gamebar">
         <button onclick={() => dealing()}>Uusi jako</button>
         <!--button onclick={()=> full += 5 }>+</button>
         <button onclick={()=> full -= 5}>-</button-->
+        <span class="patname">{patName}</span>
+        <!-- svelte-ignore a11y_consider_explicit_label -->
+        <button class="round" onclick={() => alert("Jonku pitäisi laittaa tähän peliohjeet yms.")}><i class="fa-solid fa-info"></i></button>
         <span style="float:right"><Burger bind:patience={name}></Burger></span>
     </div>
 
@@ -83,7 +98,7 @@
         display: block;
         width: 100%;
         background: rgb(158, 212, 133);
-        font-size: large;
+        font-size: larger;
         text-align: center;
     }
     .gamebar {
@@ -94,9 +109,23 @@
         /*justify-content: left;*/
         background: rgb(158, 212, 133);
     }
+    .patname {
+        font-size: larger;
+        text-align: center;
+    }
     .pats {
         display: flex;
         flex-direction: column;
     }
+    .round {
+        width: 1.5rem;
+        border-radius: 50%;
+        aspect-ratio: 1 / 1;
+        height: 100%;
+        padding: 0%;
+        background: rgb(151, 170, 44);
+        border: none;
+    }
+
    
 </style>

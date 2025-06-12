@@ -10,6 +10,14 @@
     import {History} from '../routes/History.svelte';
     import { Confetti } from "svelte-confetti";
     import Resizebutton from "./Resizebutton.svelte";
+	
+    import { onMount } from 'svelte';
+
+	onMount(() => {
+		if (height > winHeight)
+            full = 45;
+	});
+
     
     import { tick } from 'svelte';
 
@@ -50,7 +58,7 @@
             full = 100;
         }
 
-        console.log("full:", full);
+        //console.log("full:", full);
         //if (lastHeight < winHeight) // || lastWidth < winWidth)
           //  full += 5;
 
@@ -617,7 +625,7 @@
         flex-direction: column;
         --full: 100vw;
         width: var(--full);
-        height: calc(0.87*var(--full));
+        height: calc(0.77*var(--full));
         justify-content: center;
         align-items: center;
         touch-action: none;
@@ -626,7 +634,7 @@
     .stack {        
         --size: 10vw;
         --xxx: 0;
-        border-radius: .5vw; /*calc(0.1*var(--size));*/
+        border-radius: calc(0.1*var(--size));
         width: var(--size);
         height: calc(1.3*var(--size));
         position: absolute;
