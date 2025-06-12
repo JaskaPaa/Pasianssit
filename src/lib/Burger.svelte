@@ -14,12 +14,7 @@
             let rect2 = elem2.getBoundingClientRect();
             top = rect2.bottom;
             right = window.innerWidth - rect2.right;
-            //console.log("rect2:", rect2);
-            //console.log("top right:", top, right);
-            //console.log(window.innerWidth);
             let rect1 = elem1.getBoundingClientRect();
-            //console.log("rect1:", rect1);
-            //right = 300;
         }        
 
     }
@@ -35,12 +30,6 @@
     $effect(() => {        
         if (toggle)
             showMenu();
-        else {
-            let elem1 = document.getElementById("menu");
-            if (elem1) {
-                let rect1 = elem1.getBoundingClientRect();
-            }
-        }
     });
 
 </script>
