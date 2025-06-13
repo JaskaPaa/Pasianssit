@@ -39,7 +39,7 @@
         if (name === "meditators")
             patName = "Mietiskelijän pasianssi";
         if (name === "klondike")
-            patName = "Klondike pasianssi";
+            patName = "Klondike-pasianssi";
         if (name === "meditatorsorig")
             patName = "Mietiskelijän pasianssi";
     });
@@ -70,7 +70,7 @@
         <button onclick={()=> full -= 5}>-</button-->
         <span class="patname">{patName}</span>
         <!-- svelte-ignore a11y_consider_explicit_label -->
-        <button class="round" onclick={() => alert("Jonku pitäisi laittaa tähän peliohjeet yms.")}><i class="fa-solid fa-info"></i></button>
+        <button class="round" onclick={() => alert("Jonkun pitäisi laittaa tähän peliohjeet yms.")}><i class="fa-solid fa-info"></i></button>
         <span style="float:right"><Burger bind:patience={name}></Burger></span>
     </div>
 
