@@ -5,6 +5,7 @@
 
 	$effect(() => {
 		if (showModal) dialog.showModal();
+        dialog.scrollTop = 0;
 	});
 </script>
 
@@ -40,9 +41,11 @@
                 kirjassa "Pasianssit" vuodelta 1987. Tarkempaa tietoa alkuperästä ei ole.
             </p>
         {/if}
+
         {#if name === "meditatorsorig"}
 	        <h2>Mietiskelijän pasianssi - alkuperäinen</h2>
         {/if}
+
         {#if name === "klondike"}
 	        <h2>Klondike-pasianssi</h2>
         {/if}
@@ -57,6 +60,7 @@
 		border-radius: 0.2em;
 		border: none;
 		padding: 0;
+        max-height: 80vh;
 	}
 	dialog::backdrop {
 		background: rgba(0, 0, 0, 0.5);
