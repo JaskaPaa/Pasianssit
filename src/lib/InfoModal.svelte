@@ -25,14 +25,18 @@
             <p><b>Ratkaisut</b></p>
             <p>
                 Ratkaisut ovat satunnaisista jaoista tietokonealgoritmilla etsittyjä.
-                Algoritmin saama siirtomäärä näkyy muodossa "45/42", jossa 42 on ratkaisun siirtomäärä ja 45 pelaajan tekemät siirrot.
-                Algoritmin siirtomäärän <b>saa ylittää tai alittaa</b>. Ratkaisut eivät siis ole välttämättä lyhympiä mahdollisia. 
+                Siirtomäärät näkyvät esimerkiksi muodossa "45/42", jolloin 42 on algoritmin ratkaisema siirtomäärä ja 45 pelaajan tekemät siirrot.
+                Algoritmin siirtomäärän <b>saa ylittää tai alittaa</b>. Ratkaisut eivät siis ole välttämättä lyhyimpiä mahdollisia. 
             </p>
             <p>
                 Pudotusvalikosta voi valita haluamansa siirtomäärän vaihteluvälin.
                 Suurempi siirtomäärä on yleensä huomattavasti vaikeampi kuin pienempi.
                 Yli 60 siirron ratkaisut sisältävät usein turhia siirtoja algoritmin
                 hölmöilyn takia ja ovat monesti pelattavissa alle 60 siirron.
+            </p>
+            <p><b>Alkuperä</b></p>
+            <p>
+                Pasianssi esitellään ainakin Ilmo Kurki-Suonion kirjassa "Pasianssit" vuodelta 1987. Tarkempaa tietoa alkuperästä ei ole.
             </p>
         {/if}
         {#if name === "meditatorsorig"}
