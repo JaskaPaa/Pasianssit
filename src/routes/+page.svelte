@@ -15,9 +15,6 @@
     import {History} from './History.svelte';
     import Burger from '$lib/Burger.svelte';
 
-    import { modals } from 'svelte-modals';
-    import InfoModal2 from '../lib/InfoModal2.svelte';
-
     import InfoModal from '../lib/InfoModal.svelte';
 
     
