@@ -36,7 +36,8 @@
             </p>
             <p><b>Alkuperä</b></p>
             <p>
-                Pasianssi esitellään ainakin Ilmo Kurki-Suonion kirjassa "Pasianssit" vuodelta 1987. Tarkempaa tietoa alkuperästä ei ole.
+                Mietiskelijän pasianssi, myös toisella nimellä "maailman vaikein pasianssi", esitellään ainakin Ilmo Kurki-Suonion
+                kirjassa "Pasianssit" vuodelta 1987. Tarkempaa tietoa alkuperästä ei ole.
             </p>
         {/if}
         {#if name === "meditatorsorig"}
