@@ -21,8 +21,19 @@
             <p>Vain yhtä korttia voi siirtää kerrallaan.</p>
             <p>Seiskat menevät tyhjiin keskipinoihin, joiden päälle rakennetaan maan mukaan ylöspäin.</p>
             <p>Sivupinoihin rakennetaan vuorovärein alaspäin. Tyhjään sivupinoon käy vain ässä.</p>
-
             <p>Peli on läpi, kun kaikki kortit ovat keskipinoissaan.</p>
+            <p><b>Ratkaisut</b></p>
+            <p>
+                Ratkaisut ovat satunnaisista jaoista tietokonealgoritmilla etsittyjä.
+                Algoritmin saama siirtomäärä näkyy muodossa "45/42", jossa 42 on ratkaisun siirtomäärä ja 45 pelaajan tekemät siirrot.
+                Algoritmin siirtomäärän <b>saa ylittää tai alittaa</b>. Ratkaisut eivät siis ole välttämättä lyhympiä mahdollisia. 
+            </p>
+            <p>
+                Pudotusvalikosta voi valita haluamansa siirtomäärän vaihteluvälin.
+                Suurempi siirtomäärä on yleensä huomattavasti vaikeampi kuin pienempi.
+                Yli 60 siirron ratkaisut sisältävät usein turhia siirtoja algoritmin
+                hölmöilyn takia ja ovat monesti pelattavissa alle 60 siirron.
+            </p>
         {/if}
         {#if name === "meditatorsorig"}
 	        <h2>Mietiskelijän pasianssi - alkuperäinen</h2>
@@ -31,7 +42,7 @@
 	        <h2>Klondike-pasianssi</h2>
         {/if}
 		<!-- svelte-ignore a11y_autofocus -->
-		<button autofocus onclick={() => dialog.close()}>close modal</button>
+		<button autofocus onclick={() => dialog.close()}>Sulje</button>
 	</div>
 </dialog>
 
