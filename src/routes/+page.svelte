@@ -15,6 +15,11 @@
     import {History} from './History.svelte';
     import Burger from '$lib/Burger.svelte';
 
+    import { modals } from 'svelte-modals';
+    import InfoModal2 from '../lib/InfoModal2.svelte';
+
+    import InfoModal from '../lib/InfoModal.svelte';
+
     
     import Patience from '../lib/Patience.svelte';
 	//import { _ } from '$env/static/private'; ????? mistä tullut
@@ -60,6 +65,13 @@
     '950': '#003b06',
     },*/
 
+    function handleClick() {
+        showModal = true;
+        //modals.open(InfoModal, { name: "Jonkun pitäisi laittaa tähän peliohjeet yms." });
+    }
+
+    let showModal = $state(false);
+
 </script>
 
 <!--div class="topbar">{"-"}</div-->
@@ -70,7 +82,7 @@
         <button onclick={()=> full -= 5}>-</button-->
         <span class="patname">{patName}</span>
         <!-- svelte-ignore a11y_consider_explicit_label -->
-        <button class="round" onclick={() => alert("Jonkun pitäisi laittaa tähän peliohjeet yms.")}><i class="fa-solid fa-info"></i></button>
+        <button class="round" onclick={handleClick}><i class="fa-solid fa-info"></i></button>
         <span style="float:right"><Burger bind:patience={name}></Burger></span>
     </div>
 
@@ -78,6 +90,8 @@
         <Patience bind:this={patience} name={name} full={full}/>
     </div>
 </div>
+
+<InfoModal bind:showModal name={name}></InfoModal>
 
 <style>
     :global(body) { 
