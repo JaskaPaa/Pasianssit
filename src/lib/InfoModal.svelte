@@ -17,7 +17,12 @@
 >
 	<div>
         {#if name === "meditators"}
-	        <h2>Mietiskelijän pasianssi</h2>
+	        <h2>Mietiskelijän pasianssi eli maailman vaikein pasianssi</h2>
+            <p><b>Alkuperä</b></p>
+            <p>
+                Mietiskelijän pasianssi, toiselta nimeltään "maailman vaikein pasianssi", esitellään ainakin Ilmo Kurki-Suonion
+                kirjassa "Pasianssit" vuodelta 1987. Tarkempaa tietoa alkuperästä ei ole.
+            </p>
             <p><b>Säännöt</b></p>
             <p>Vain yhtä korttia voi siirtää kerrallaan.</p>
             <p>Seiskat menevät tyhjiin keskipinoihin, joiden päälle rakennetaan maan mukaan ylöspäin.</p>
@@ -25,21 +30,19 @@
             <p>Peli on läpi, kun kaikki kortit ovat keskipinoissaan.</p>
             <p><b>Ratkaisut</b></p>
             <p>
-                Ratkaisut ovat satunnaisista jaoista tietokonealgoritmilla etsittyjä.
+                Tässä olevat ratkaisut ovat satunnaisista jaoista tietokonealgoritmilla etsittyjä.
+                Kaikki ovat siis mahdollisia ratkaista, vaikka jotkut ovat melkolailla epäinhimillisen vaikeita.
+            </p>
+            <p>
                 Siirtomäärät näkyvät esimerkiksi muodossa "45/42", jolloin 42 on algoritmin ratkaisema siirtomäärä ja 45 pelaajan tekemät siirrot.
-                Algoritmin siirtomäärän <b>saa ylittää tai alittaa</b>. Ratkaisut eivät siis ole välttämättä lyhyimpiä mahdollisia. 
+                Pelaajan ratkaisu <b>voi ylittää tai alittaa</b> algoritmilla ratkaistun siirtomäärän. Ratkaisut eivät siis ole välttämättä lyhyimpiä mahdollisia tai ainoita oikeita. 
             </p>
             <p>
                 Pudotusvalikosta voi valita haluamansa siirtomäärän vaihteluvälin.
                 Suurempi siirtomäärä on yleensä huomattavasti vaikeampi kuin pienempi.
                 Yli 60 siirron ratkaisut sisältävät usein turhia siirtoja algoritmin
                 hölmöilyn takia ja ovat monesti pelattavissa alle 60 siirron.
-            </p>
-            <p><b>Alkuperä</b></p>
-            <p>
-                Mietiskelijän pasianssi, myös toisella nimellä "maailman vaikein pasianssi", esitellään ainakin Ilmo Kurki-Suonion
-                kirjassa "Pasianssit" vuodelta 1987. Tarkempaa tietoa alkuperästä ei ole.
-            </p>
+            </p>            
         {/if}
 
         {#if name === "meditatorsorig"}
@@ -61,6 +64,7 @@
 		border: none;
 		padding: 0;
         max-height: 80vh;
+        overflow-y: scroll;
 	}
 	dialog::backdrop {
 		background: rgba(0, 0, 0, 0.5);
