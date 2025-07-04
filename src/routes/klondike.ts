@@ -132,7 +132,7 @@ const deal = () => {
         pile.push(deal[i]);
 
     //hist.states = [];// new History();
-    //hist.save(stacks, [0,0]); 
+    //hist.save(stacks, [0,0]); (full + 1)/7 - 1
 }
 
-export const Klondike = { deal: deal, stacks: stacks, history: hist };
+export const Klondike = { deal: deal, stacks: stacks, history: hist, cardSize: (100 + 1)/7 - 1 };

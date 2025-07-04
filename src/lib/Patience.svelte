@@ -42,6 +42,8 @@
 
     let firstTime = $state({klondike: true, meditators: true, meditatorsorig: true});
 
+    let cardSize =  $state(0);
+
     $effect(() => {
         //full = (winWidth < winHeight) ? 100 : 50;
 
@@ -71,6 +73,7 @@
             doDeal = Klondike.deal;
             stacks = Klondike.stacks;
             hist = Klondike.history;
+            cardSize = Klondike.cardSize;
             if (firstTime.klondike) {
                 deal2();
                 firstTime.klondike = false;
@@ -81,6 +84,7 @@
             doDeal = Meditators.deal;
             stacks = Meditators.stacks;
             hist = Meditators.history;
+            cardSize = Meditators.cardSize;
             if (firstTime.meditators) {
                 deal2();
                 firstTime.meditators = false;
@@ -91,6 +95,7 @@
             doDeal = Meditators2.deal;
             stacks = Meditators2.stacks;
             hist = Meditators2.history;
+            cardSize = Meditators2.cardSize;
             if (firstTime.meditatorsorig) {
                 deal2();
                 firstTime.meditatorsorig = false;
@@ -592,11 +597,11 @@
         {#each stacks as stack, i}
             <!-- svelte-ignore a11y_click_events_have_key_events -->
             <!-- svelte-ignore a11y_no_static_element_interactions -->
-            <div id="st{i}" onclick={() => stackClick(i)}  style:--size={(full + 1)/7 - 1 + "vw"} class="unselectable stack" 
-                style="left: {stack.x*width/100.0}px; top: {stack.y*width/100.0}px"></div>    
+            <div id="st{i}" onclick={() => stackClick(i)}  style:--size={full/100*cardSize + "vw"} class="unselectable stack" 
+                style="left: {stack.x*width/100.0}px; top: {stack.y*width/100.0}px"></div>
             {#each stacks[i].cards as card, j}
                 <Card left={card.x*width/100} top={card.y*width/100} id={card.id}
-                    start={innDrag} end={dropped} inDrag={card.inDrag} index={card.z} size={full}
+                    start={innDrag} end={dropped} inDrag={card.inDrag} index={card.z} size={full/100*cardSize}
                     click={clicked} dir={stacks[i].dir} numInDrag={numInDrag} front={card.front}
                     enabled={card.enabled} />
             {/each}      

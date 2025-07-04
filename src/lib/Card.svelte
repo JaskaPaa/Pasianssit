@@ -163,17 +163,17 @@
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div class="flip-card unselectable" class:disabled class:shadowdown class:shadow
-	class:shadowleft style:--size={(size + 1)/7 - 1 + "vw"} draggable="false" id={id}
+	class:shadowleft style:--size={size + "vw"} draggable="false" id={id}
 	onpointerup={stop} onpointerdown={startDrag} onclick={clicked}
 	style="left: {progL.current}px; top: {inDrag ? top : progT.current}px; z-index: {zIndex}">
 	<div class="flip-card-inner" class:flip={!face} class:flip-card-back={!face}>
 		<div class="flip-card-front" >
 			<!-- svelte-ignore a11y_missing_attribute -->
-			<img class="unselectable" draggable="false" src="cards/{id[0] + id[1]}.svg" style:--size={(size + 1)/7 - 1 + "vw"} >
+			<img class="unselectable" draggable="false" src="cards/{id[0] + id[1]}.svg" style:--size={size + "vw"}  >
 		</div>
 		<div class="flip-card-back"  >
 			<!-- svelte-ignore a11y_missing_attribute -->
-			<img class="unselectable" draggable="false" src="cards/Blue_Back.svg" style:--size={(size + 1)/7 - 1 + "vw"} >
+			<img class="unselectable" draggable="false" src="cards/Blue_Back.svg" style:--size={size + "vw"} >
 		</div>
 	</div>
 </div>

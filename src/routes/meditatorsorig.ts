@@ -13,7 +13,7 @@ let suits = ["c", "d", "h", "s"];
 let deck = [...ranks.map((r) => r + suits[0]), ...ranks.map((r) => r + suits[1]),
             ...ranks.map((r) => r + suits[2]), ...ranks.map((r) => r + suits[3])];
 
-let dy = 18.0;    
+let dy = 19.0;    
 let margin = 1;
 
 let stacks: Stack[] = [];
@@ -38,7 +38,7 @@ const deal = async () => {
 }
 
 for (let i = 0; i < 4; i++) {
-    let st = new Stack(45, i*dy + margin, [0, 0]);
+    let st = new Stack(43, i*dy + margin, [0, 0]);
     st.emptyAccept = (card) => value(card) === 7;
     st.topAccept = (card) => {
         return suit(card) === suit(st.topCard().id)
@@ -49,7 +49,7 @@ for (let i = 0; i < 4; i++) {
 }
 
 for (let i = 0; i < 4; i++) {
-    let st = new Stack(30, i*dy + margin, [-3, 0], 32);
+    let st = new Stack(28, i*dy + margin, [-3.5, 0], 32);
     st.emptyAccept = (card) => value(card) === 14;
     st.topAccept = (card) => {
         return alt(card, st.topCard().id)
@@ -60,7 +60,7 @@ for (let i = 0; i < 4; i++) {
 }
 
 for (let i = 0; i < 4; i++) {
-    let st = new Stack(60, i*dy + margin, [3, 0], 32);
+    let st = new Stack(58, i*dy + margin, [3.5, 0], 32);
     st.emptyAccept = (card) => value(card) === 14;
     st.topAccept = (card) => {
         return alt(card, st.topCard().id)
@@ -74,4 +74,4 @@ for (let i = 4; i < 12; i++) {
     stacks[i].update = () => stacks[i].enableOnlyTop();
 }
 
-export const Meditators2 = { deal: deal, stacks: stacks, history: hist };
+export const Meditators2 = { deal: deal, stacks: stacks, history: hist, cardSize: 14 };
