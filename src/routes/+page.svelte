@@ -17,6 +17,8 @@
 
     import InfoModal from '../lib/InfoModal.svelte';
 
+    import Loading from '../lib/Loading.svelte';
+
     
     import Patience from '../lib/Patience.svelte';
 	//import { _ } from '$env/static/private'; ????? mistä tullut

@@ -10,6 +10,8 @@
     import {History} from '../routes/History.svelte';
     import { Confetti } from "svelte-confetti";
     import Resizebutton from "./Resizebutton.svelte";
+
+    import Loading from './Loading.svelte';
 	
     import { onMount } from 'svelte';
 
@@ -110,9 +112,12 @@
         //rerun2 = false;
         tooStack = -1;
         collectCards();
+        loading = true;
 
         if (name === "meditators")
             game = await isReady(selected);
+
+        loading = false;
         
         hist.states = [];
         hist.current = 0;
@@ -130,7 +135,7 @@
             hist.save(stacks, [0, 0]);
         }, 200);
     }
-
+    // 1076 tarkista tämä !
     const collect2 = () => {
         for (let i = 4; i < stacks.length; i++) {
             let top = stacks[i].topCard();
@@ -547,6 +552,7 @@
     let selected = $state("32-40");
     let w = $state(0);
     let resize = $state(0);
+    let loading = $state(true);
 
 </script>
 
@@ -607,6 +613,9 @@
     </div>
 </div>
 
+{#if loading}
+	<Loading />
+{/if}
 <!--button onclick={debug}>Debug</button-->
 
 <style>
