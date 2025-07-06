@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="32"
+   height="32"
+   viewBox="0 0 32 32"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="heart.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="31.5"
+     inkscape:cx="16"
+     inkscape:cy="16.015873"
+     inkscape:window-width="3440"
+     inkscape:window-height="1374"
+     inkscape:window-x="0"
+     inkscape:window-y="29"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Taso 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       sodipodi:nodetypes="ccccsccssc"
+       inkscape:connector-curvature="0"
+       id="path8516"
+       d="m 7.8815482,0.18919855 c 4.8144508,-0.26086821 7.3244008,3.09428675 7.8141828,5.73857695 0.292092,0.4200239 0.452006,0.3016712 0.563998,-0.023496 0.235359,-3.3949204 3.959219,-6.16951095 7.408099,-5.79011346 5.61238,0.059441 9.023412,5.15513416 8.064361,9.46789406 -1.171586,5.2685049 -4.64981,8.4409289 -7.283551,11.7082019 -2.979581,3.382928 -6.990329,8.269603 -8.282513,10.621532 0,0 -4.076051,-5.061186 -9.3790347,-11.01346 C 3.2410872,16.918391 0.40302274,12.605409 0.13884766,8.8921918 -0.16299112,4.6497594 1.9714284,0.84678494 7.8815482,0.18919855 Z"
+       style="display:inline;fill:#d40000;fill-opacity:1;stroke-width:0.608735" />
+  </g>
+</svg>
