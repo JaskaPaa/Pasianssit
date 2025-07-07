@@ -619,7 +619,7 @@
 </div>
 
 {#if loading}
-	<Loading />
+	<Loading size={full}/>
 {/if}
 <!--button onclick={debug}>Debug</button-->
 

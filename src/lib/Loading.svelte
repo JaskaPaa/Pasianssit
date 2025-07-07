@@ -1,4 +1,7 @@
 
+<script lang="ts">
+    let { size } = $props();
+</script>
 
 <!--div class="wrap">
     <div class="waviy">
@@ -21,13 +24,13 @@
 <!--img class="loader" src="cards/suits2.svg" /-->
 
 <!-- svelte-ignore a11y_missing_attribute -->
-<img class="loader club" src="cards/club.svg" />
+<img class="loader club" style:--size={size + "vw"} src="cards/club.svg" />
 <!-- svelte-ignore a11y_missing_attribute -->
-<img class="loader diamond" src="cards/diamond.svg" />
+<img class="loader diamond" style:--size={size + "vw"} src="cards/diamond.svg" />
 <!-- svelte-ignore a11y_missing_attribute -->
-<img class="loader heart" src="cards/heart.svg" />
+<img class="loader heart" style:--size={size + "vw"} src="cards/heart.svg" />
 <!-- svelte-ignore a11y_missing_attribute -->
-<img class="loader spade" src="cards/spade.svg" />
+<img class="loader spade" style:--size={size + "vw"} src="cards/spade.svg" />
 <style>
     * {
         padding: 0;
@@ -41,6 +44,7 @@
         left: 0;
         margin-top: -25px;
         margin-left: -25px;
+        height: calc(1.3 * var(--size));
     }
 
     .wrap {
@@ -66,14 +70,16 @@
         background-color: none;/*rgb(137, 137, 248);*/
         width: 3vw;
         height: 3vw;
+        height: calc(0.05 * var(--size));
+        width: calc(0.05 * var(--size));
         /*-webkit-animation: spin2 2s linear infinite; /* Safari */
         /*animation: spin2 3s linear infinite;*/
         /*transform-origin:0%;*/
         margin: auto;
-        top: 50vh;
-        left: 48.5vw;
+        top: calc(0.5 * var(--size));
+        left: calc(50vw - 0.025 * var(--size));
         z-index: 2000;
-        transform-origin: 50% -5vw;
+        transform-origin: 50% calc(-0.1 * var(--size));
     }
     .club {
         /*transform-origin: 50% 0%;*/
