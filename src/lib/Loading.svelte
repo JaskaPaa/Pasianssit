@@ -1,5 +1,6 @@
 
 <script lang="ts">
+
     let { size } = $props();
 
     const degreeToRadian = (angle: number) => {
@@ -17,7 +18,7 @@
     const deltaAngle = 360 / suits.length;
     let currentAngle = -90;
 
-    const foo = (i: number) => {
+    const transform = (i: number) => {
         const xPos = radius * Math.cos(degreeToRadian(currentAngle));
         const yPos = radius * Math.sin(degreeToRadian(currentAngle));
 
@@ -26,21 +27,15 @@
 
         currentAngle += deltaAngle;
 
-        console.log(transform);
-        console.log(size);
-
         return `${transform} ${rotate}`;
-
     }
 
 </script>
 
-
 <div id='circle' style:--size={size + "px"}>
     {#each suits as suit, i}
 		<!-- svelte-ignore a11y_missing_attribute -->
-		<img src="cards/{suit}.svg" 
-        style="transform: {foo(i)}"/>
+		<img src="cards/{suit}.svg" style="transform: {transform(i)}"/>
 	{/each}
 </div>
 
@@ -49,9 +44,7 @@
     #circle {
         position: absolute;
         animation: rotate-animation 2s infinite linear;
-        background-color: none;    
-        /*height: calc(0.3 * var(--size));
-        width: calc(0.3 * var(--size));*/
+        background-color: none;
         height: 290px;
         width: 290px;
         margin: 0;
