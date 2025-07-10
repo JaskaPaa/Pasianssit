@@ -1,30 +1,79 @@
 
 <script lang="ts">
     let { size } = $props();
+
+    const degreeToRadian = (angle: number) => {
+        return angle * (Math.PI / 180);
+    };
+
+    $effect(() => {
+        radius = size/8;
+    });
+
+    let radius = $state(size/6);
+
+    const suits = ["club", "heart", "spade", "diamond", "club", "heart", "spade", "diamond", "club", "heart", "spade", "diamond"];
+
+    const deltaAngle = 360 / suits.length;
+    let currentAngle = -90;
+
+    const foo = (i: number) => {
+        const xPos = radius * Math.cos(degreeToRadian(currentAngle));
+        const yPos = radius * Math.sin(degreeToRadian(currentAngle));
+
+        const transform = `translate(${xPos}px, ${yPos}px)`;
+        const rotate = `rotate(${(i * deltaAngle)}deg)`;
+
+        currentAngle += deltaAngle;
+
+        console.log(transform);
+        console.log(size);
+
+        return `${transform} ${rotate}`;
+
+    }
+
 </script>
 
-<!-- svelte-ignore a11y_missing_attribute -->
-<img class="loader club" style:--size={size + "vw"} src="cards/club.svg" />
-<!-- svelte-ignore a11y_missing_attribute -->
-<img class="loader diamond" style:--size={size + "vw"} src="cards/diamond.svg" />
-<!-- svelte-ignore a11y_missing_attribute -->
-<img class="loader heart" style:--size={size + "vw"} src="cards/heart.svg" />
-<!-- svelte-ignore a11y_missing_attribute -->
-<img class="loader spade" style:--size={size + "vw"} src="cards/spade.svg" />
+
+<div id='circle' style:--size={size + "px"}>
+    {#each suits as suit, i}
+		<!-- svelte-ignore a11y_missing_attribute -->
+		<img src="cards/{suit}.svg" 
+        style="transform: {foo(i)}"/>
+	{/each}
+</div>
+
 <style>
-    * {
-        padding: 0;
+
+    #circle {
+        position: absolute;
+        animation: rotate-animation 2s infinite linear;
+        background-color: none;    
+        /*height: calc(0.3 * var(--size));
+        width: calc(0.3 * var(--size));*/
+        height: 290px;
+        width: 290px;
         margin: 0;
-        box-sizing: border-box;
+        top: calc(0.38 * var(--size));;
+        left: 50vw;
+        z-index: 2000;
+        transform-origin: 0 0;
+    }
+
+    @keyframes rotate-animation {
+        from { transform: rotate(0); }
+        to { transform: rotate(-360deg); }
     }
 
     img {
         position: absolute;
         top: 0;
         left: 0;
-        margin-top: -25px;
-        margin-left: -25px;
-        height: calc(1.3 * var(--size));
+        margin-top: calc(-0.025 * var(--size));
+        margin-left: calc(-0.025 * var(--size));
+        height: calc(0.05 * var(--size));
+        width: calc(0.05 * var(--size));
     }
 
     @keyframes flip {
@@ -32,55 +81,5 @@
             transform: rotateY(360deg) 
         }
     }
-    .loader {
-        position: absolute;
-        height: calc(0.05 * var(--size));
-        width: calc(0.05 * var(--size));
-        margin: auto;
-        top: calc(0.5 * var(--size));
-        left: calc(50vw - 0.025 * var(--size));
-        z-index: 2000;
-        transform-origin: 50% calc(-0.1 * var(--size));
-    }
-    .heart {
-        -webkit-animation: spin 1s linear infinite; /* Safari */
-        animation: spin 1s linear infinite;
-    }
-    .diamond {
-        -webkit-animation: spin3 1s linear infinite; /* Safari */
-        animation: spin3 1s linear infinite;
-    }
-    .club {
-        -webkit-animation: spin4 1s linear infinite; /* Safari */
-        animation: spin4 1s linear infinite;
-    }
-    .diamond {
-        -webkit-animation: spin3 1s linear infinite; /* Safari */
-        animation: spin3 1s linear infinite;
-    }    
-    .spade {
-        -webkit-animation: spin2 1s linear infinite; /* Safari */
-        animation: spin2 1s linear infinite;        
-    }
-    /* Safari */
-    @-webkit-keyframes spin {
-        0% { -webkit-transform: rotate(0deg); }
-        100% { -webkit-transform: rotate(360deg); }
-    }
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-    @keyframes spin2 {
-        0% { transform: rotate(45deg); }
-        100% { transform: rotate(405deg); }
-    }
-    @keyframes spin3 {
-        0% { transform: rotate(90deg); }
-        100% { transform: rotate(450deg); }
-    }
-     @keyframes spin4 {
-        0% { transform: rotate(135deg); }
-        100% { transform: rotate(495deg); }
-    }
+
 </style>

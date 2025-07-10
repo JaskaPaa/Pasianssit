@@ -555,9 +555,9 @@
 
     let moves = $state("0");
     let selected = $state("32-40");
-    let w = $state(0);
+    let ctrlW = $state(300);
     let resize = $state(0);
-    let loading = $state(true);
+    let loading = $state(false);
 
 </script>
 
@@ -565,7 +565,7 @@
     on:dblclick={() => console.log('dblclick')}></svelte:window>
 
 <div class="wrapper">
-    <div class="control" bind:clientWidth={w} >
+    <div class="control" bind:clientWidth={ctrlW} >
         <select class={name === "meditators" ? '' : 'hide'} bind:value={selected} onchange={deal2} style="float:left">
             <option value="32-40">Siirtoja 32-40</option>
             <option value="41-45">Siirtoja 41-45</option>
@@ -619,7 +619,7 @@
 </div>
 
 {#if loading}
-	<Loading size={full}/>
+	<Loading size={ctrlW}/>
 {/if}
 <!--button onclick={debug}>Debug</button-->
 
