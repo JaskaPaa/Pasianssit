@@ -14,7 +14,11 @@
 	bind:this={dialog}
 	onclose={() => (showModal = false)}
 	onclick={(e) => { if (e.target === dialog) dialog.close(); }}
->
+	
+>	
+	<div class="sticky">
+		<button onclick={() => dialog.close()}>Sulje</button>
+	</div>
 	<div>
         {#if name === "meditators"}
 	        <h2>Mietiskelijän pasianssi eli maailman vaikein pasianssi</h2>
@@ -52,8 +56,7 @@
         {#if name === "klondike"}
 	        <h2>Klondike-pasianssi</h2>
         {/if}
-		<!-- svelte-ignore a11y_autofocus -->
-		<button autofocus onclick={() => dialog.close()}>Sulje</button>
+		
 	</div>
 </dialog>
 
@@ -95,6 +98,16 @@
 		}
 	}
 	button {
-		display: block;
+		float: right;
+		top: 0;
 	}
+	.sticky {
+		display: block;
+		background-color: white;
+		border-bottom: solid gray;
+		position: sticky;
+  		top: 0;
+		height: 1rem;
+	}
+
 </style>
