@@ -17,9 +17,10 @@
 	
 >	
 	<div class="sticky">
-		<button onclick={() => dialog.close()}>Sulje</button>
+		<!-- svelte-ignore a11y_consider_explicit_label -->
+		<button onclick={() => dialog.close()}><i class="fa-solid fa-xmark"></i></button>
 	</div>
-	<div>
+	<div class="content">
         {#if name === "meditators"}
 	        <h2>Mietiskelijän pasianssi eli maailman vaikein pasianssi</h2>
             <p><b>Alkuperä</b></p>
@@ -67,7 +68,6 @@
 		border: none;
 		padding: 0;
         max-height: 80vh;
-        overflow-y: scroll;
 	}
 	dialog::backdrop {
 		background: rgba(0, 0, 0, 0.5);
@@ -78,6 +78,23 @@
 	dialog[open] {
 		animation: zoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 	}
+	.content {
+		overflow-y: scroll;
+	}
+
+	button {
+		float: right;
+		top: 0;
+	}
+	.sticky {
+		display: block;
+		background-color: white;
+		border-bottom: solid gray;
+		position: sticky;
+  		top: 0;
+		height: 1rem;
+	}
+
 	@keyframes zoom {
 		from {
 			transform: scale(0.95);
@@ -97,17 +114,6 @@
 			opacity: 1;
 		}
 	}
-	button {
-		float: right;
-		top: 0;
-	}
-	.sticky {
-		display: block;
-		background-color: white;
-		border-bottom: solid gray;
-		position: sticky;
-  		top: 0;
-		height: 1rem;
-	}
+	
 
 </style>
