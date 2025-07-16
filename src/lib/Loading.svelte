@@ -13,7 +13,11 @@
 
     let radius = $state(size/6);
 
-    const suits = ["club", "heart", "spade", "diamond", "club", "heart", "spade", "diamond", "club", "heart", "spade", "diamond"];
+    const suits = [
+                    "club", "heart", "spade", "diamond",
+                    "club", "heart", "spade", "diamond", 
+                    "club", "heart", "spade", "diamond"
+                ];
 
     const deltaAngle = 360 / suits.length;
     let currentAngle = -90;
@@ -56,7 +60,7 @@
 
     @keyframes rotate-animation {
         from { transform: rotate(0); }
-        to { transform: rotate(-360deg); }
+        to { transform: rotate(360deg); }
     }
 
     img {
