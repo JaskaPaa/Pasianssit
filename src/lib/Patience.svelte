@@ -70,6 +70,7 @@
         lastWidth = winWidth;
         
         if (name === "klondike") {
+            //let { deal, stacks, history, cardSize } = Klondike;
             doDeal = Klondike.deal;
             stacks = Klondike.stacks;
             hist = Klondike.history;
@@ -315,26 +316,6 @@
     
     let isVisible = $state(false);
 
-    const debug = async () => {
-        console.log("current", hist.current);
-        console.log("hist:", hist);
-        //hist.print();
-        let someC;
-        for (let i = 0; i < stacks.length; i++) {
-            someC = stacks[i].topCard();
-            if (someC) {
-                someC.x = 10;
-                someC.y = 30;
-            }
-
-        }
-        //setTimeout(()=> debug(), 400);
-        //isVisible = false;
-		//await tick();
-        //isVisible = true
-
-    }
-
     function innDrag(id: string) {
         updateZ();
         let num = 0;
@@ -559,6 +540,28 @@
     let resize = $state(0);
     let loading = $state(false);
 
+     const debug = async () => {
+        console.log("current", hist.current);
+        console.log("hist:", hist);
+        //hist.print();
+        let someC;
+        /*for (let i = 0; i < stacks.length; i++) {
+            someC = stacks[i].topCard();
+            if (someC) {
+                someC.x = 10;
+                someC.y = 30;
+            }
+
+        }*/
+        setTimeout(()=> isVisible = false, 10000);
+        //isVisible = false;
+		//await tick();
+        isVisible = true;
+
+        //isVisible = false;
+
+    }
+
 </script>
 
 <svelte:window bind:innerWidth={winWidth} bind:innerHeight={winHeight}
@@ -607,13 +610,13 @@
             {/each}      
         {/each}
         {#if isVisible}
-            {#each stacks as stack, i}
-            {#each stacks[i].cards as card, j}
-                <div class="mover" style="left: {card.x*width/100}px; top: {card.y*width/100}px">
-                    <Confetti amount={3} size={100} x={[0.25, 3]} y={[0, 0.25]} colorArray={["url(cards/Qs.svg)", "url(https://github.githubassets.com/favicons/favicon-dark.png)"]}/>
-                </div>
+            <!--{#each stacks as stack, i}
+            {#each stacks[i].cards as card, j} x={[0.25, 3]} y={[0, 0.25]} x={[-1.5, 1.5]} y={[0.0, 1.5]}
+                <div class="mover" style="left: {card.x*width/100}px; top: {card.y*width/100}px">-->
+                    <Confetti amount={52} fallDistance="200px" infinite cone size={50} xSpread={0.1} y={[0.0, 1.5]} colorArray={["url(cards/club.svg)", "url(cards/heart.svg)", "url(cards/spade.svg)", "url(diamond/club.svg)"]}/>
+                <!--/div>
             {/each}
-            {/each}           
+            {/each}-->           
         {/if}
     </div>
 </div>
