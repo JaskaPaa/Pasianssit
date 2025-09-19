@@ -94,8 +94,9 @@
     }
 
     .is-opened .hamburger__bar--bot {
-        transform: rotate(-45deg);
+        transform: rotate(90deg) rotate(90deg) rotate(135deg);
         rotate: 1turn;
+        animation: foo 1s;
     }
 
     .menu {
@@ -127,6 +128,15 @@
 
     .show {
         display: grid;
+    }
+
+    @keyframes foo {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(315deg);
+        }
     }
 </style>
 
