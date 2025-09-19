@@ -110,7 +110,7 @@
 
     let hist: History = $state(Meditators.history);
 
-    let game = $state({id: -1, deal: [], length: '??'});
+    let game = $state({id: -1, deal: [], length: '??', tries: '??'});
 
     export const deal2 = async () => {
     
@@ -493,7 +493,7 @@
         }*/
     
         if (name === "meditators")
-            moves = hist.current.toString() + '/' + game.length;
+            moves = hist.current.toString() + '/' + game.length + ' #' + game.tries;
        else
             moves = hist.current.toString();
 
@@ -577,7 +577,7 @@
             <option value="61-99">Siirtoja yli 60</option>
             <option value="">Kaikki määrät</option>
         </select>
-        <span style="width: 2.5rem;">{moves}</span>
+        <span style="width: 5.5rem;">{moves}</span>
     
         <div class="test">
             <button class="test2" onclick={collect}>Kerää</button>

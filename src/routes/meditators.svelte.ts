@@ -42,7 +42,7 @@ const ready = async (limit= "") => {
     if (game.error) {
         console.log("error:", game.error);
     } else {
-        console.log("game:", game);
+        console.log("--- game:", game);
         //deck = game.deal;
         deal2 = game.deal;
     }   
