@@ -663,7 +663,7 @@
                 <option value="61-99">Siirtoja yli 60</option>
                 <option value="">Kaikki määrät</option>
             </select>
-            <span style="width: 5.5rem;">Jako:</span>
+            <span style="display:inline-block;">&nbsp;&nbsp;Jako:</span>
             <input bind:value={gameId} onchange={gameById} type="number" id="gameid"
                 minlength="4" maxlength="8" size="10" min="0" max="2600"/>
         </div>
