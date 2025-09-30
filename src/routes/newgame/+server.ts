@@ -8,18 +8,25 @@ export async function GET() {
 }
 
 export const POST: RequestHandler = async ({ request }) => {
-	const { limits } = await request.json();
+	const { limits, id, random } = await request.json();
 	console.log(limits);
+	console.log(id);
 
-	const game = await getData(limits);
+	const game = await getData(limits, id, random);
 
 	return json(game);
 };
 
-async function getData(limits = "") {
+async function getData(limits = "", id: number, random: boolean) {
 
-	const url = "https://sage-mochi-0d0608.netlify.app/api/random-game/" + limits; //games/1232";
-    //const url = "https://sage-mochi-0d0608.netlify.app/api/games/1474";
+	//const url = "https://sage-mochi-0d0608.netlify.app/api/random-game/" + limits; //games/1232";
+	let url;
+	
+	if (random)
+		url = "https://sage-mochi-0d0608.netlify.app/api/random-game/" + limits; //games/1232";
+	else 
+    	url = "https://sage-mochi-0d0608.netlify.app/api/games/" + id; // 1474
+
 	try {
 		const response = await fetch(url);
 		if (!response.ok) {

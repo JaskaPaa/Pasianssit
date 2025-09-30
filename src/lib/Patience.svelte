@@ -111,6 +111,29 @@
     let hist: History = $state(Meditators.history);
 
     let game = $state({id: -1, deal: [], length: '??', tries: '??'});
+    
+    const gameById = () => {
+        random = false;
+        deal2();
+    }
+
+    const gameByLimits = () => {
+        random = true;
+        deal2();
+    }
+
+    const setSelect = (len: number) => {        
+        if (len <= 40)
+            selected = "32-40";
+        if (len > 40 && len <= 45)
+            selected = "41-45";
+        if (len > 45 && len <= 50)
+            selected = "46-50";
+        if (len > 50 && len <= 60)
+            selected = "51-60";
+        if (len > 60)
+            selected = "61-99";
+    }
 
     export const deal2 = async () => {
     
@@ -121,12 +144,18 @@
         loading = true;
 
         if (name === "meditators")
-            game = await isReady(selected);
+            game = await isReady(selected, gameId, random);
 
         loading = false;
         
         hist.states = [];
         hist.current = 0;
+        gameId = game.id;
+
+        if (random === false) {
+            setSelect(parseInt(game.length));
+            random = true;
+        }
 
         setTimeout(() => {
             rerun = true;
@@ -141,7 +170,7 @@
             hist.save(stacks, [0, 0]);
         }, 200);
     }
-    // 1076 tarkista tämä !
+    
     const collect2 = () => {
         for (let i = 4; i < stacks.length; i++) {
             let top = stacks[i].topCard();
@@ -188,13 +217,27 @@
         time = 400;
     }
 
+    const takeAllBack = () => {
+        if (hist.current === 0)
+            return;
+        takeBack();
+        takeAllBack();        
+    }
+
     const takeBack = () => {
         
         pointerdown = true;
+        
+        console.log("current:", hist.current);
+
+        if (hist.current === 0)
+            return;
 
         let st = hist.back();
 
         let lastMove = hist.lastMove();
+
+        console.log("st:", st);
         
         if (st === undefined)
             return;
@@ -228,6 +271,8 @@
 
         updateZ();
 
+        //takeBack();
+
         if (hist.current > 0) {
             setTimeout(()=> {
                 if (pointerdown) {
@@ -237,6 +282,15 @@
             }, time);
         }
 
+    }
+
+    const goAllForward = () => {
+
+        if (hist.states.length <= hist.current+1)
+            return;
+
+        goForward();        
+        goAllForward();        
     }
 
     const goForward = () => {
@@ -493,7 +547,7 @@
         }*/
     
         if (name === "meditators")
-            moves = hist.current.toString() + '/' + game.length + ' #' + game.tries;
+            moves = hist.current.toString() + '/' + game.length;
        else
             moves = hist.current.toString();
 
@@ -536,6 +590,9 @@
 
     let moves = $state("0");
     let selected = $state("32-40");
+    let gameId = $state(0);
+    let random = $state(true);
+
     let ctrlW = $state(300);
     let resize = $state(0);
     let loading = $state(false);
@@ -568,30 +625,48 @@
     on:dblclick={() => console.log('dblclick')}></svelte:window>
 
 <div class="wrapper">
-    <div class="control" bind:clientWidth={ctrlW} >
-        <select class={name === "meditators" ? '' : 'hide'} bind:value={selected} onchange={deal2} style="float:left">
-            <option value="32-40">Siirtoja 32-40</option>
-            <option value="41-45">Siirtoja 41-45</option>
-            <option value="46-50">Siirtoja 46-50</option>
-            <option value="50-60">Siirtoja 51-60</option>
-            <option value="61-99">Siirtoja yli 60</option>
-            <option value="">Kaikki määrät</option>
-        </select>
+    <div class="control" bind:clientWidth={ctrlW}>
         <span style="width: 5.5rem;">{moves}</span>
     
         <div class="test">
             <button class="test2" onclick={collect}>Kerää</button>
             <!-- svelte-ignore a11y_consider_explicit_label -->
-            <button data-icon="add" onpointerdown={takeBack} onpointerup={pointerUp} ondblclick={dblClick}>
-                <i class="fa fa-backward" aria-hidden="true"></i>
+            <button onpointerdown={takeAllBack} onpointerup={pointerUp} ondblclick={dblClick}>
+                <i class="fa fa-backward-fast" aria-hidden="true"></i>
             </button>
             <!-- svelte-ignore a11y_consider_explicit_label -->
-            <button onpointerdown={goForward} onpointerup={pointerUp}>
-                <i class="fa fa-forward" aria-hidden="true"></i>
-            </button>   
+            <button style="width: 1.5rem;" onpointerdown={takeBack} onpointerup={pointerUp} ondblclick={dblClick}>
+                <i class="fa fa-backward-step" aria-hidden="true"></i>
+            </button>
+            <!-- svelte-ignore a11y_consider_explicit_label -->
+            <button style="width: 1.5rem;" onpointerdown={goForward} onpointerup={pointerUp}>
+                <i class="fa fa-forward-step" aria-hidden="true"></i>
+            </button>
+            <!-- svelte-ignore a11y_consider_explicit_label -->
+            <button onpointerdown={goAllForward} onpointerup={pointerUp}>
+                <i class="fa fa-forward-fast" aria-hidden="true"></i>
+            </button> 
         </div>
 
         <Resizebutton bind:resize={resize} visible={ full === 100 ? false : true}/>    
+    </div>
+
+    <div class={name === "meditators" ? 'control' : 'hide'} bind:clientWidth={ctrlW}>
+        <!--span style="width: 5.5rem;">{'tries: ' + game.tries}</span>
+        <span style="width: 5.5rem;">{'id: ' + game.id}</span-->
+        <div class="test">
+            <select bind:value={selected} onchange={gameByLimits} style="float:left">
+                <option value="32-40">Siirtoja 32-40</option>
+                <option value="41-45">Siirtoja 41-45</option>
+                <option value="46-50">Siirtoja 46-50</option>
+                <option value="51-60">Siirtoja 51-60</option>
+                <option value="61-99">Siirtoja yli 60</option>
+                <option value="">Kaikki määrät</option>
+            </select>
+            <span style="width: 5.5rem;">Jako:</span>
+            <input bind:value={gameId} onchange={gameById} type="number" id="gameid"
+                minlength="4" maxlength="8" size="10" min="0" max="2600"/>
+        </div>
     </div>
 
     <div id="tableu" class="table" bind:offsetHeight={offset} bind:clientWidth={width}
