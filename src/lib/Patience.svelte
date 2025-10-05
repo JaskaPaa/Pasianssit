@@ -110,7 +110,7 @@
 
     let hist: History = $state(Meditators.history);
 
-    let game = $state({id: -1, deal: [], length: '??', tries: '??'});
+    let game = $state({id: -1, deal: [], length: '??', tries: '??', maxId: "0"});
     
     const gameById = () => {
         random = false;
@@ -546,9 +546,12 @@
             lastW = w;
         }*/
     
-        if (name === "meditators")
-            moves = hist.current.toString() + '/' + game.length;
-       else
+        if (name === "meditators") {
+            if (game.length)
+                moves = hist.current.toString() + '/' + game.length;
+            else
+                moves = "none";
+        } else
             moves = hist.current.toString();
 
         if (rerun) {
@@ -560,6 +563,17 @@
         }
         //}
         
+        let str = gameId.toString();
+        str.replace(/[^0-9]/g, ""); // leave only digits
+        gameId = parseInt(str);
+
+        if (gameId < 0)
+            gameId = 0;
+        if (gameId > 2623)
+            gameId = 2623;
+        
+
+
     });
 
     const findStack = (id: string) => {
@@ -618,7 +632,7 @@
         //isVisible = false;
 
     }
-
+    //style="width: 5.5rem;"
 </script>
 
 <svelte:window bind:innerWidth={winWidth} bind:innerHeight={winHeight}
@@ -626,24 +640,24 @@
 
 <div class="wrapper">
     <div class="control" bind:clientWidth={ctrlW}>
-        <span style="width: 5.5rem;">{moves}</span>
+        <span style="width=5rem;">{moves}</span> 
     
         <div class="test">
-            <button class="test2" onclick={collect}>Kerää</button>
+            <button class="ctrl-button action-button" onclick={collect}>Kerää</button>
             <!-- svelte-ignore a11y_consider_explicit_label -->
-            <button onpointerdown={takeAllBack} onpointerup={pointerUp} ondblclick={dblClick}>
+            <button class="ctrl-button" onpointerdown={takeAllBack} onpointerup={pointerUp} ondblclick={dblClick}>
                 <i class="fa fa-backward-fast" aria-hidden="true"></i>
             </button>
             <!-- svelte-ignore a11y_consider_explicit_label -->
-            <button style="width: 1.5rem;" onpointerdown={takeBack} onpointerup={pointerUp} ondblclick={dblClick}>
+            <button class="ctrl-button" onpointerdown={takeBack} onpointerup={pointerUp} ondblclick={dblClick}>
                 <i class="fa fa-backward-step" aria-hidden="true"></i>
             </button>
             <!-- svelte-ignore a11y_consider_explicit_label -->
-            <button style="width: 1.5rem;" onpointerdown={goForward} onpointerup={pointerUp}>
+            <button class="ctrl-button" onpointerdown={goForward} onpointerup={pointerUp}>
                 <i class="fa fa-forward-step" aria-hidden="true"></i>
             </button>
             <!-- svelte-ignore a11y_consider_explicit_label -->
-            <button onpointerdown={goAllForward} onpointerup={pointerUp}>
+            <button class="ctrl-button" onpointerdown={goAllForward} onpointerup={pointerUp}>
                 <i class="fa fa-forward-fast" aria-hidden="true"></i>
             </button> 
         </div>
@@ -655,7 +669,7 @@
         <!--span style="width: 5.5rem;">{'tries: ' + game.tries}</span>
         <span style="width: 5.5rem;">{'id: ' + game.id}</span-->
         <div class="test">
-            <select bind:value={selected} onchange={gameByLimits} style="float:left">
+            <select class="ctrl-button action-button" bind:value={selected} onchange={gameByLimits} style="float:left">
                 <option value="32-40">Siirtoja 32-40</option>
                 <option value="41-45">Siirtoja 41-45</option>
                 <option value="46-50">Siirtoja 46-50</option>
@@ -664,8 +678,8 @@
                 <option value="">Kaikki määrät</option>
             </select>
             <span style="display:inline-block;">&nbsp;&nbsp;Jako:</span>
-            <input bind:value={gameId} onchange={gameById} type="number" id="gameid"
-                minlength="4" maxlength="8" size="10" min="0" max="2600"/>
+            <input class="ctrl-button action-button" bind:value={gameId} onchange={gameById} type="numeric"
+                id="gameid" minlength="4" maxlength="8" size="5" min="0" max={game.maxId}/>
         </div>
     </div>
 
@@ -751,6 +765,46 @@
         align-items:center;
         justify-content:center;
         background: rgb(65, 141, 30);
+    }
+    .ctrl-button {
+        /*background-color: rgb(39, 128, 39);
+        border-radius: 50%;
+        width: 2.5rem;
+        height: 2.5rem;
+        border: 0.2rem solid black;
+        color: black;
+        padding: 0.0rem;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1.3rem;*/
+        /*margin: 4px 2px;*/
+        background-color: #108f10;
+        border-radius: 50%;
+        color: black;
+        border: none;
+        padding: 0px;
+        font-size: 1.3rem;
+        text-align: center;
+        height: 2rem;
+        width: 2rem;
+        box-shadow: 0 2px 4px #313131;
+        cursor: pointer;
+        transition: all 0.1s ease;
+        margin: 5px;
+    }
+    .ctrl-button:active {
+        /*background-color: #48abe0;*/
+        box-shadow: 0 0 2px darkslategray;
+        transform: translateY(0.05rem);
+    }
+    .ctrl-button.action-button {
+        border-radius: 5%;
+        width: 10rem;
+        height: 1rem;
+        font-size: 1rem;
+        height: 2rem;
+        border: 0.0rem solid black;
     }
     .test {
         max-width: max-content;
