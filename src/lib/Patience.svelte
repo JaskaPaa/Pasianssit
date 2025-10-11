@@ -564,13 +564,21 @@
         //}
         
         let str = gameId.toString();
+
+        if (isNaN(gameId)) {
+            str = "0";
+        }
+        
         str.replace(/[^0-9]/g, ""); // leave only digits
+        console.log("str", str);
+
         gameId = parseInt(str);
+        let maxId = parseInt(game.maxId);
 
         if (gameId < 0)
             gameId = 0;
-        if (gameId > 2623)
-            gameId = 2623;
+        if (gameId >  maxId)
+            gameId = maxId;
         
 
 
@@ -678,7 +686,7 @@
                 <option value="">Kaikki määrät</option>
             </select>
             <span style="display:inline-block;">&nbsp;&nbsp;Jako:</span>
-            <input class="ctrl-button action-button" bind:value={gameId} onchange={gameById} type="numeric"
+            <input class="ctrl-button action-button" bind:value={gameId} onchange={gameById} inputmode="numeric"
                 id="gameid" minlength="4" maxlength="8" size="5" min="0" max={game.maxId}/>
         </div>
     </div>
@@ -805,6 +813,14 @@
         font-size: 1rem;
         height: 2rem;
         border: 0.0rem solid black;
+    }
+    input:focus {
+        outline: none !important;
+        background-color: rgb(28, 168, 35);
+        border: 1rem solid black;
+    }
+    .ctrl-button:focus {
+        outline: none !important;
     }
     .test {
         max-width: max-content;
