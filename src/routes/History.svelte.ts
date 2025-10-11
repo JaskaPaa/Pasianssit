@@ -55,9 +55,7 @@ export class History {
         }
     }
 
-    diff() {        
-        
-        console.log("length:", this.states.length );
+    diff() {
 
         let m = this.current;
         let n = this.current - 1;
