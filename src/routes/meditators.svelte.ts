@@ -43,7 +43,6 @@ const ready = async (limit= "", gameId: number, random: boolean) => {
         console.log("error:", game.error);
     } else {
         console.log("--- game:", game);
-        //deck = game.deal;
         deal2 = game.deal;
     }   
     return game;
@@ -52,7 +51,6 @@ const ready = async (limit= "", gameId: number, random: boolean) => {
 const doDeal = (deal = []) => {
     
     console.log("game:", deal2);
-    //hist = new History();
 
     deal = deal.reverse(); 
     for (let i = 0; i < deal.length; i++) {
@@ -63,8 +61,6 @@ const doDeal = (deal = []) => {
             stacks[i].cards[j].front = true;
         }
     }
-    //hist.states = []; //hist = new History();
-    //hist.save(stacks, [0,0]);
 }
 
 
