@@ -56,9 +56,9 @@ const doDeal = (deal = []) => {
 
     deal = deal.reverse(); 
     for (let i = 0; i < deal.length; i++) {
-        stacks[i%8 + 4].push(deal[i]);        
+        stacks[i%8].push(deal[i]);        
     }
-    for (let i = 4; i < stacks.length; i++) {
+    for (let i = 0; i < 8; i++) {
         for (let j = 0; j < stacks[i].cards.length; j++) {
             stacks[i].cards[j].front = true;
         }
@@ -67,16 +67,6 @@ const doDeal = (deal = []) => {
     //hist.save(stacks, [0,0]);
 }
 
-for (let i = 0; i < 4; i++) {
-    let st = new Stack(43, i*dy + margin, [0, 0]);
-    st.emptyAccept = (card) => value(card) === 7;
-    st.topAccept = (card) => {
-        return suit(card) === suit(st.topCard().id)
-        && value(card) - 1 === value(st.topCard().id);
-    };
-    st.type = "foundation";
-    stacks.push(st);
-}
 
 for (let i = 0; i < 8; i++) {
     let dirX = (i%2 === 0) ? 3.5 : -3.5;
@@ -91,7 +81,19 @@ for (let i = 0; i < 8; i++) {
     stacks.push(st);
 }
 
-for (let i = 4; i < 12; i++) {
+for (let i = 0; i < 4; i++) {
+    let st = new Stack(43, i*dy + margin, [0, 0]);
+    st.emptyAccept = (card) => value(card) === 7;
+    st.topAccept = (card) => {
+        return suit(card) === suit(st.topCard().id)
+        && value(card) - 1 === value(st.topCard().id);
+    };
+    st.type = "foundation";
+    stacks.push(st);
+}
+
+
+for (let i = 0; i < 8; i++) {
     stacks[i].update = () => stacks[i].enableOnlyTop();
 }
 

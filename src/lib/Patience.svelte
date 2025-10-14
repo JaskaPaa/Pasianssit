@@ -25,6 +25,7 @@
 
 
     import '@fortawesome/fontawesome-free/css/all.min.css';
+	//import { _ } from '$env/static/private';
 
     let { name, full } = $props();
 
@@ -110,7 +111,7 @@
 
     let hist: History = $state(Meditators.history);
 
-    let game = $state({id: -1, deal: [], length: '??', tries: '??', maxId: "0"});
+    let game = $state({id: -1, deal: [], length: '??', tries: '??', maxId: "0", tip: []});
     
     const gameById = () => {
         random = false;
@@ -151,6 +152,7 @@
         hist.states = [];
         hist.current = 0;
         gameId = game.id;
+        tips = 1;
 
         if (random === false) {
             setSelect(parseInt(game.length));
@@ -298,6 +300,8 @@
         pointerdown = true;
 
         let st = hist.forward();
+
+        console.log("st:", st);
 
         if (st === null)
             return;
@@ -477,34 +481,35 @@
     const clicked = (id: string) => {
         console.log("klikki ----------------:", id);
         let inStack = findStack(id);
-        let index = stacks[inStack].cards.findIndex((c) => c.id === id);        
+        let index = stacks[inStack].cards.findIndex((c) => c.id === id);
+        
+        let types = ["foundation", "collectable"];
 
-        for (let i = 0; i < stacks.length; i++) {
-            if (i === inStack)
-                continue;
-            if (stacks[i].accept(id) === true && inStack !== -1) {
-                console.log("dropping to stack:", i);
-                stacks[i].disable();  // prevent click to a card under 
-                stacks[inStack].disable();
-                
-                let cards = stacks[inStack].cards.slice(index);
-                let num = cards.length;
-                
-                if (num > stacks[i].acceptNum)
+        for (let t = 0; t < types.length; t++) {
+            for (let i = 0; i < stacks.length; i++) {
+                if (i === inStack)
                     continue;
-                
-                //tooStack = i;
+                if (stacks[i].accept(id) === true && inStack !== -1 && stacks[i].type === types[t]) {
+                    console.log("dropping to stack:", i);
+                    stacks[i].disable();  // prevent click to a card under 
+                    stacks[inStack].disable();
+                    
+                    let cards = stacks[inStack].cards.slice(index);
+                    let num = cards.length;
+                    
+                    if (num > stacks[i].acceptNum)
+                        continue;
 
-                cards = stacks[inStack].cards.splice(index);
-                for (let k = 0; k < cards.length; k++) {
-                    stacks[i].pushC(cards[k]);
+                    cards = stacks[inStack].cards.splice(index);
+                    for (let k = 0; k < cards.length; k++) {
+                        stacks[i].pushC(cards[k]);
+                    }
+
+                    tooStack = i;
+
+                    hist.save(stacks, [inStack, i]);       
+                    return;
                 }
-
-                tooStack = i;
-
-                //setTimeout(()=> hist.save(stacks, [inStack, i]), 400);
-                hist.save(stacks, [inStack, i]);       
-                return;
             }
         }
         updateCards();
@@ -525,6 +530,49 @@
         for (let i = 0; i < stacks.length; i++) {
             stacks[i].update();
         }
+    }
+
+    let tips = $state(1);
+    
+    const tip = async (e: MouseEvent & { currentTarget: EventTarget & HTMLButtonElement; }) => {
+
+        const node = e.currentTarget;
+        node.disabled = true;
+        
+        takeAllBack();
+
+        await new Promise(res => setTimeout(res, time));
+
+        let sol = game.tip;
+
+        for (let m = 0; m < tips*5; m++) {
+            
+            let from = sol[m][0];
+            let to = sol[m][1];
+
+            let card = stacks[from].topCard();
+
+            let index = stacks[from].cards.findIndex((c) => c.id === card.id);
+
+            stacks[from].disable();
+
+            let cards = stacks[from].cards.splice(index);
+
+            for (let k = 0; k < cards.length; k++) {
+                stacks[to].pushC(cards[k]);
+            }
+
+            tooStack = to;
+
+            hist.save(stacks, [from, to]);
+
+            await new Promise(res => setTimeout(res, time*2));
+
+        }
+
+        if (tips < 5) tips++;
+
+        node.disabled = false;
     }
 
     let tooStack = $state(-1);
@@ -716,6 +764,15 @@
             {/each}-->           
         {/if}
     </div>
+
+    <div class={name === "meditators" ? 'control' : 'hide'} bind:clientWidth={ctrlW}>
+        <!--span style="width: 5.5rem;">{'tries: ' + game.tries}</span>
+        <span style="width: 5.5rem;">{'id: ' + game.id}</span-->
+        <div class="test">
+            <button class="ctrl-button action-button" onclick={(e) => tip(e)}>Vinkki ({tips*5 + " siirtoa"})</button>
+        </div>    
+    </div>
+
 </div>
 
 {#if loading}
