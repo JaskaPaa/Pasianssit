@@ -866,9 +866,8 @@
     .ctrl-button.action-button {
         border-radius: 5%;
         width: 10rem;
-        height: 1rem;
+        height: 1.5rem;
         font-size: 1rem;
-        height: 2rem;
         border: 0.0rem solid black;
     }
     input:focus {
