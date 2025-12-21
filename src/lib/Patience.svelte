@@ -27,7 +27,7 @@
     import '@fortawesome/fontawesome-free/css/all.min.css';
 	//import { _ } from '$env/static/private';
 
-    let { name, full } = $props();
+    let { name, full, deck } = $props();
 
     let width = $state(0);
 	let height = $state(0);
@@ -738,7 +738,7 @@
                 <Card left={card.x*width/100} top={card.y*width/100} id={card.id}
                     start={innDrag} end={dropped} inDrag={card.inDrag} index={card.z} size={full/100*cardSize}
                     click={clicked} dir={stacks[i].dir} numInDrag={numInDrag} front={card.front}
-                    enabled={card.enabled} />
+                    enabled={card.enabled} deck={deck}/>
             {/each}      
         {/each}
         {#if isVisible}

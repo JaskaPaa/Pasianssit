@@ -34,6 +34,7 @@
     game = data.game;
 
     let name = $state("meditators");
+    let deck = $state("mittelalter");
 
     const dealing = async () => {
         patience.deal2();
@@ -82,11 +83,11 @@
         <span class="patname">{patName}</span>
         <!-- svelte-ignore a11y_consider_explicit_label -->
         <button class="round" onclick={handleClick}><i class="fa-solid fa-info"></i></button>
-        <span style="float:right"><Burger bind:patience={name}></Burger></span>
+        <span style="float:right"><Burger bind:patience={name} bind:deck={deck}></Burger></span>
     </div>
 
     <div class="pats">
-        <Patience bind:this={patience} name={name} full={full}/>
+        <Patience bind:this={patience} name={name} full={full} deck={deck}/>
     </div>
 </div>
 

@@ -1,9 +1,11 @@
 <script lang='ts'>
     import { clickOutside } from "svelte-outside";
     
-    let { patience = $bindable() } = $props();
+    let { patience = $bindable(),  deck = $bindable()} = $props();
     
     let toggle = $state(false);
+
+    let checkmark = '&check;';
 
     let showMenu = () => {
         //console.log("toggle---:", toggle);
@@ -21,6 +23,11 @@
 
     let selectPat = (name: string) => {
         patience = name;
+        toggle = !toggle;
+    }
+
+    let selectDeck = (selection: string) => {
+        deck = selection;
         toggle = !toggle;
     }
 
@@ -48,6 +55,10 @@
         <button onclick={()=> selectPat("meditators")}>Mietiskelijän (ratkaistavissa)</button>
         <button onclick={()=> selectPat("meditatorsorig")}>Mietiskelijän (satunnainen)</button>
         <button onclick={() => selectPat("klondike")}>Klondike (satunnainen)</button>
+        <p><b>Pakat</b></p>
+        <button onclick={()=> selectDeck("clubkarte")}>Clubkarte {@html deck === "clubkarte" ? checkmark : ""}</button>
+        <button onclick={()=> selectDeck("anglo")}>Anglo {@html deck === "anglo" ? checkmark : ""}</button>
+        <button onclick={() => selectDeck("mittelalter")}>Mittelalter {@html deck === "mittelalter" ? checkmark : ""}</button>
     </div>
 </div>
 

@@ -2,7 +2,7 @@
     import { Tween } from 'svelte/motion';
 	import { cubicOut, elasticIn, cubicIn, quadIn, sineInOut, linear } from 'svelte/easing';
 
-    let { left, top, id, start, end, inDrag, index, size, click, dir, numInDrag, front, enabled } = $props();
+    let { left, top, id, start, end, inDrag, index, size, click, dir, numInDrag, front, enabled, deck } = $props();
 	
 	let cardInDrag = false;
     let zIndex = $state(index);
@@ -171,7 +171,7 @@
 	<div class="flip-card-inner" class:flip={!face} class:flip-card-back={!face}>
 		<div class="flip-card-front" >
 			<!-- svelte-ignore a11y_missing_attribute -->
-			<img class="unselectable" draggable="false" src="mittelalter/{id[0] + id[1]}.svg" style:--size={size + "vw"}  >
+			<img class="unselectable" draggable="false" src="{deck}/{id[0] + id[1]}.svg" style:--size={size + "vw"}  >
 		</div>
 		<div class="flip-card-back"  >
 			<!-- svelte-ignore a11y_missing_attribute -->
