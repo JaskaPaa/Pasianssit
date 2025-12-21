@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="119.99988"
+   height="179.99982"
+   version="1.1"
+   viewBox="0 0 119.99988 179.99982"
+   preserveAspectRatio="none"
+   id="svg495"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs495" />
+  <path
+     id="10"
+     d="m 12.714047,-633.00017 c -2.22,0 -3.7400001,1.53 -3.7400001,4.23 v 5.49 c 0,2.65 1.4200001,4.28 3.7300001,4.29 2.33,0 3.77,-1.69 3.77,-4.29 v -5.49 c 0,-2.7 -1.58,-4.22 -3.77,-4.22 z m -7.0900001,0.3 c -0.12,0 -0.2,0.12 -0.2,0.23 v 12.94 c 0,0.13 0.06,0.23 0.2,0.23 h 1.51 c 0.12,0.01 0.2,-0.12 0.2,-0.23 v -12.94 c 0,-0.1 -0.09,-0.23 -0.2,-0.23 z m 7.0900001,1.65 c 1.05,0 1.86,0.76 1.86,2.2 v 5.69 c 0,1.36 -0.72,2.2 -1.86,2.2 -1.1,0 -1.83,-0.78 -1.83,-2.2 v -5.69 c 0,-1.48 0.83,-2.2 1.83,-2.2 z" />
+  <g
+     id="club_1"
+     transform="translate(-1079.996,-540.00017)">
+    <g
+       id="card"
+       transform="matrix(0.83103,0,0,0.83565,-1641.87,-580.266)">
+      <rect
+         id="card_face"
+         x="1976.6"
+         y="695.289"
+         width="142.599"
+         height="213.601"
+         rx="9.5"
+         ry="9.5"
+         fill="#ffffff"
+         stroke="#332e2e"
+         stroke-linejoin="round"
+         stroke-width="1.8" />
+    </g>
+    <rect
+       id="fr"
+       x="7"
+       y="7"
+       width="106"
+       height="166"
+       rx="3"
+       ry="3"
+       fill="none"
+       stroke="#a68c59" />
+    <use
+       id="u3938"
+       transform="rotate(180,60,90)"
+       xlink:href="#nump" />
+    <path
+       id="nump"
+       d="m 5.004,6.004 v 33 h 14 v -33 z"
+       fill="#ffffff" />
+  </g>
+  <g
+     id="spade_10"
+     transform="translate(-1079.996,-540.00017)">
+    <use
+       transform="translate(1080,540)"
+       xlink:href="#card"
+       id="use364" />
+    <use
+       transform="translate(1080,540)"
+       xlink:href="#fr"
+       id="use365" />
+    <use
+       transform="translate(1080,540)"
+       xlink:href="#nump"
+       id="use366" />
+    <use
+       transform="translate(1080,540)"
+       xlink:href="#u3938"
+       id="use367" />
+    <use
+       transform="translate(120)"
+       xlink:href="#u1649"
+       id="use368" />
+    <use
+       transform="translate(120)"
+       xlink:href="#u1651"
+       id="use369" />
+    <use
+       id="u1669"
+       transform="translate(120)"
+       xlink:href="#u1653" />
+    <use
+       transform="translate(120)"
+       xlink:href="#u1655"
+       id="use370" />
+    <use
+       transform="translate(120)"
+       xlink:href="#u1657"
+       id="use371" />
+    <use
+       transform="translate(120)"
+       xlink:href="#u1659"
+       id="use372" />
+    <use
+       id="u1677"
+       transform="translate(120)"
+       xlink:href="#u1661" />
+    <use
+       transform="translate(120)"
+       xlink:href="#u1663"
+       id="use373" />
+    <use
+       transform="translate(25,-21.08)"
+       xlink:href="#u1669"
+       id="use374" />
+    <use
+       transform="translate(25,21.08)"
+       xlink:href="#u1677"
+       id="use375" />
+    <use
+       transform="translate(1080)"
+       xlink:href="#pip_spade_S"
+       id="use376" />
+    <use
+       transform="translate(1080)"
+       xlink:href="#u10961"
+       id="use377" />
+    <use
+       transform="translate(1079.996,1180.0002)"
+       style="fill:#332e2e"
+       xlink:href="#10"
+       id="use378" />
+    <use
+       transform="rotate(180,600.00202,39.999913)"
+       style="fill:#332e2e"
+       xlink:href="#10"
+       id="use379" />
+  </g>
+  <g
+     id="spade_6"
+     transform="translate(-1079.996,-540.00017)">
+    <use
+       id="u32996"
+       transform="translate(334.94)"
+       xlink:href="#u32170" />
+    <use
+       id="u32998"
+       transform="translate(334.94)"
+       xlink:href="#u32172" />
+    <use
+       id="u33000"
+       transform="translate(334.94)"
+       xlink:href="#u32174" />
+    <use
+       id="u33002"
+       transform="translate(50)"
+       xlink:href="#u32996" />
+    <use
+       id="u33004"
+       transform="translate(50)"
+       xlink:href="#u32998" />
+    <use
+       id="u33006"
+       transform="translate(50)"
+       xlink:href="#u33000" />
+  </g>
+  <g
+     id="spade_2"
+     transform="translate(-1079.996,-540.00017)">
+    <use
+       id="u28846"
+       transform="translate(120,-63.25)"
+       xlink:href="#pip_spade" />
+    <use
+       id="u29400"
+       transform="rotate(180,180.044,630)"
+       xlink:href="#u28846" />
+  </g>
+  <g
+     id="spade_3"
+     transform="translate(-1079.996,-540.00017)">
+    <use
+       id="u32170"
+       transform="translate(120)"
+       xlink:href="#u28846" />
+    <use
+       id="u32172"
+       transform="translate(120)"
+       xlink:href="#u29400" />
+    <use
+       id="u32174"
+       transform="translate(240)"
+       xlink:href="#pip_spade" />
+  </g>
+  <g
+     id="spade_7"
+     transform="translate(-1079.996,-540.00017)">
+    <use
+       id="u33008"
+       transform="translate(120)"
+       xlink:href="#u32996" />
+    <use
+       id="u33010"
+       transform="translate(120)"
+       xlink:href="#u32998" />
+    <use
+       id="u33012"
+       transform="translate(120)"
+       xlink:href="#u33000" />
+    <use
+       id="u33014"
+       transform="translate(120)"
+       xlink:href="#u33002" />
+    <use
+       id="u33016"
+       transform="translate(120)"
+       xlink:href="#u33004" />
+    <use
+       id="u33018"
+       transform="translate(120)"
+       xlink:href="#u33006" />
+  </g>
+  <g
+     id="spade_8"
+     transform="translate(-1079.996,-540.00017)">
+    <use
+       id="u33022"
+       transform="translate(120)"
+       xlink:href="#u33008" />
+    <use
+       id="u33024"
+       transform="translate(120)"
+       xlink:href="#u33010" />
+    <use
+       id="u33026"
+       transform="translate(120)"
+       xlink:href="#u33012" />
+    <use
+       id="u33028"
+       transform="translate(120.06)"
+       xlink:href="#u33014" />
+    <use
+       id="u33030"
+       transform="translate(120)"
+       xlink:href="#u33016" />
+    <use
+       id="u33032"
+       transform="translate(120.06)"
+       xlink:href="#u33018" />
+  </g>
+  <g
+     id="spade_9"
+     transform="translate(-1079.996,-540.00017)">
+    <use
+       id="u1649"
+       transform="translate(120)"
+       xlink:href="#u33022" />
+    <use
+       id="u1651"
+       transform="translate(120)"
+       xlink:href="#u33024" />
+    <use
+       id="u1653"
+       transform="translate(120,-21.08)"
+       xlink:href="#u33026" />
+    <use
+       id="u1655"
+       transform="translate(119.94)"
+       xlink:href="#u33028" />
+    <use
+       id="u1657"
+       transform="translate(120)"
+       xlink:href="#u33030" />
+    <use
+       id="u1659"
+       transform="translate(119.94,-21.08)"
+       xlink:href="#u33032" />
+    <use
+       id="u1661"
+       transform="translate(0,-42.17)"
+       xlink:href="#u1651" />
+    <use
+       id="u1663"
+       transform="translate(0,-42.17)"
+       xlink:href="#u1657" />
+  </g>
+  <g
+     id="spade_1"
+     transform="translate(-1079.996,-540.00017)">
+    <use
+       id="u10961"
+       transform="rotate(180,60.044,630.004)"
+       xlink:href="#pip_spade_S" />
+    <path
+       id="pip_spade"
+       d="m 60,614.25 c 0,0 -2.116,3.992 -6.5,7.75 -3.5,3 -7.25,6.3 -7.25,11 0,3.59 2.298,6.75 5.75,6.75 4.035,0 6.125,-3.45 6.125,-6.1 0,-0.2 0.178,-0.35 0.375,-0.35 0.197,0 0.361,0.153 0.375,0.35 V 635 c 0,4.075 -0.443,7.143 -3.625,9.5 l 1.2,1.25 c 0,0 1.55,-1.2 3.55,-1.2 2,0 3.55,1.2 3.55,1.2 l 1.2,-1.25 c -3.182,-2.357 -3.625,-5.425 -3.625,-9.5 v -1.35 c 0.014,-0.197 0.178,-0.35 0.375,-0.35 0.197,0 0.375,0.15 0.375,0.35 0,2.65 2.09,6.1 6.125,6.1 3.452,0 5.75,-3.16 5.75,-6.75 0,-4.7 -3.75,-8 -7.25,-11 -4.384,-3.758 -6.5,-7.75 -6.5,-7.75 z"
+       fill="#332e2e" />
+    <use
+       id="pip_spade_S"
+       transform="matrix(0.4,0,0,0.4,-13.24,318.3)"
+       xlink:href="#pip_spade" />
+  </g>
+</svg>

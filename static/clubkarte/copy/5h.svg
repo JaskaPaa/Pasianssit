@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="119.99991"
+   height="179.99982"
+   version="1.1"
+   viewBox="0 0 119.99991 179.99982"
+   preserveAspectRatio="none"
+   id="svg381"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs20" />
+  <path
+     id="5"
+     d="m 15.354065,-443.41017 c 0,3.28 -2.27,4.53 -4.42,4.53 -3.35,0 -4.18,-2.55 -4.38,-3.68 v -0.03 c 0,-0.15 0.08,-0.22 0.24,-0.22 h 1.9 c 0.13,0 0.22,0.07 0.26,0.22 0.03,0.18 0.33,1.72 1.96,1.72 1.77,0 2.08,-1.74 2.08,-2.54 0,-1.17 -0.37,-2.48 -2.02,-2.48 -0.81,0 -1.71,0.39 -1.94,1.12 -0.05,0.13 -0.15,0.19 -0.28,0.19 h -1.94 c -0.22,0 -0.24,-0.17 -0.24,-0.24 v -7.86 c 0,-0.17 0.15,-0.24 0.24,-0.24 h 7.78 c 0.12,0 0.24,0.12 0.24,0.24 v 1.5 c 0,0.09 -0.07,0.24 -0.24,0.24 h -5.6 c -0.07,0 -0.1,0.03 -0.1,0.1 l -0.02,3.58 c 0,0.05 0.01,0.09 0.04,0.1 0.03,0 0.05,-0.01 0.08,-0.04 0.63,-0.47 1.38,-0.7 2.26,-0.7 1.66,0 4.1,0.89 4.1,4.49 z" />
+  <g
+     id="club_1"
+     transform="translate(-479.99593,-360.00017)">
+    <g
+       id="card"
+       transform="matrix(0.83103,0,0,0.83565,-1641.87,-580.266)">
+      <rect
+         id="card_face"
+         x="1976.6"
+         y="695.289"
+         width="142.599"
+         height="213.601"
+         rx="9.6000004"
+         ry="9.6000004"
+         fill="#ffffff"
+         stroke="#333333"
+         stroke-width="1.8" />
+    </g>
+  </g>
+  <g
+     id="heart_1"
+     transform="translate(-479.99593,-360.00017)">
+    <use
+       id="pip_heart_S"
+       transform="matrix(0.386,0,0,0.37,-12.4,222.9)"
+       xlink:href="#pip_heart" />
+    <use
+       id="u9338"
+       transform="rotate(180,60.034,450)"
+       xlink:href="#pip_heart_S" />
+    <path
+       id="pip_heart"
+       d="m 53,438 c -3.87,0 -7,2.86 -7,7 0,7.5 8,10 14,20 6.11,-10.19 14,-12.5 14,-20 a 6.85,6.85 0 0 0 -7,-7 c -3.68,0 -5.7,2.3 -7,5 -1.3,-2.7 -3.32,-5 -7,-5 z"
+       fill="#ee3333" />
+  </g>
+  <g
+     id="heart_2"
+     transform="translate(-479.99593,-360.00017)">
+    <use
+       id="u21397"
+       transform="translate(120,-66.5)"
+       xlink:href="#pip_heart" />
+    <use
+       id="u21762"
+       transform="rotate(180,180.004,450)"
+       xlink:href="#u21397" />
+  </g>
+  <g
+     id="heart_3"
+     transform="translate(-479.99593,-360.00017)">
+    <use
+       id="u21852"
+       transform="translate(120)"
+       xlink:href="#u21397" />
+    <use
+       id="u21854"
+       transform="translate(120)"
+       xlink:href="#u21762" />
+    <use
+       id="u21856"
+       transform="translate(0,66.5)"
+       xlink:href="#u21852" />
+  </g>
+  <g
+     id="heart_4"
+     transform="translate(-479.99593,-360.00017)">
+    <use
+       id="u21858"
+       transform="translate(95)"
+       xlink:href="#u21852" />
+    <use
+       id="u21860"
+       transform="translate(95)"
+       xlink:href="#u21854" />
+    <use
+       id="u21961"
+       transform="translate(50)"
+       xlink:href="#u21858" />
+    <use
+       id="u21963"
+       transform="translate(50)"
+       xlink:href="#u21860" />
+  </g>
+  <g
+     id="heart_5"
+     transform="translate(-479.99593,-360.00017)">
+    <use
+       transform="translate(480,360)"
+       xlink:href="#card"
+       id="use259" />
+    <use
+       transform="translate(120)"
+       xlink:href="#u21858"
+       id="use260" />
+    <use
+       transform="translate(120)"
+       xlink:href="#u21860"
+       id="use261" />
+    <use
+       transform="translate(120)"
+       xlink:href="#u21961"
+       id="use262" />
+    <use
+       transform="translate(120)"
+       xlink:href="#u21963"
+       id="use263" />
+    <use
+       transform="translate(239.97)"
+       xlink:href="#u21856"
+       id="use264" />
+    <use
+       transform="translate(480)"
+       xlink:href="#pip_heart_S"
+       id="use265" />
+    <use
+       transform="translate(480)"
+       xlink:href="#u9338"
+       id="use266" />
+    <use
+       transform="translate(479.99593,820.00017)"
+       style="fill:#ee3333"
+       xlink:href="#5"
+       id="use267" />
+    <use
+       transform="rotate(180,300.00203,39.999911)"
+       style="fill:#ee3333"
+       xlink:href="#5"
+       id="use268" />
+  </g>
+</svg>

@@ -76,7 +76,7 @@
 <!--div class="topbar">{"-"}</div-->
 <div class="wrap">
     <div class="gamebar">
-        <button onclick={() => dealing()}>Uusi jako</button>
+        <button onclick={() => dealing()} class="ctrl-button action-button">Uusi jako</button>
         <!--button onclick={()=> full += 5 }>+</button>
         <button onclick={()=> full -= 5}>-</button-->
         <span class="patname">{patName}</span>
@@ -140,6 +140,33 @@
         background: rgb(151, 170, 44);
         border: none;
     }
-
+    .ctrl-button {
+        background-color: rgb(158, 212, 133);
+        border-radius: 50%;
+        color: black;
+        border: none;
+        padding: 0px;
+        font-size: 1.3rem;
+        text-align: center;
+        height: 2rem;
+        width: 2rem;
+        box-shadow: 0 2px 4px #313131;
+        cursor: pointer;
+        transition: all 0.1s ease;
+        margin: 5px;
+    }
+    .ctrl-button:active {
+        box-shadow: 0 0 2px darkslategray;
+        transform: translateY(0.05rem);
+    }
+    .ctrl-button.action-button {
+        border-radius: 5%;
+        width: auto;
+        height: 1.5rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        font-size: 1rem;
+        border: 0.0rem solid black;
+    }
    
 </style>

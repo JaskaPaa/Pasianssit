@@ -154,7 +154,9 @@
 	let dirY = $state(0);
 
 	let imgSrc = ['c', 'd', 'h', 's'].includes(id[1]) ? `cards/${id[0] + id[1]}.svg` : `number-cards/${id}.svg`;
-	//console.log(imgSrc); 
+	//console.log(imgSrc);
+	
+	// sed -i '6 a \   preserveAspectRatio="none"' *.svg
 	
 </script>
 
@@ -169,7 +171,7 @@
 	<div class="flip-card-inner" class:flip={!face} class:flip-card-back={!face}>
 		<div class="flip-card-front" >
 			<!-- svelte-ignore a11y_missing_attribute -->
-			<img class="unselectable" draggable="false" src="cards/{id[0] + id[1]}.svg" style:--size={size + "vw"}  >
+			<img class="unselectable" draggable="false" src="mittelalter/{id[0] + id[1]}.svg" style:--size={size + "vw"}  >
 		</div>
 		<div class="flip-card-back"  >
 			<!-- svelte-ignore a11y_missing_attribute -->
@@ -193,7 +195,7 @@
 		position: absolute;
 		user-select: none;
 		--size: 10vw;
-        width: var(--size);
+        width: calc(1.0 * var(--size));
         height: calc(1.3 * var(--size));
 		perspective: 10cm;
 	}
@@ -231,7 +233,7 @@
 
 	img {
 		--size: 10vw;
-        width: var(--size);
+        width: calc(1.002 * var(--size));
         height: calc(1.3 * var(--size));
 		border-radius: calc(0.03 * var(--size));
 	}

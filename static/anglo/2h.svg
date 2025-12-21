@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="202.5"
+   height="315"
+   version="1.1"
+   id="svg1018"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1018" />
+  <path
+     id="A"
+     d="m -177.4,-693 -8,-27.6 -8,27.6 m -2,1 h 4 m 12.1,0 h 3.8 m -6.2,-10 h -7.3"
+     fill="none"
+     stroke-linecap="square"
+     stroke-linejoin="bevel"
+     stroke-width="3.5" />
+  <path
+     id="2"
+     d="M 25.7,-692.6 H 8.4 c 0,-4.9 4.2,-8.4 8.7,-9.6 4.4,-1.2 8.7,-4 8.7,-9 0.3,-5 -3.6,-9.2 -8.6,-9.2 -5,0 -9,4.2 -8.7,9.3"
+     fill="none"
+     stroke-linecap="square"
+     stroke-linejoin="bevel"
+     stroke-width="3.5" />
+  <g
+     id="3"
+     transform="translate(-202.5,-633.2)"
+     style="fill:none;stroke-width:3.5">
+    <path
+       d="m 415,-86.8 h 14.2 l -12.8,12.2"
+       stroke-linecap="square"
+       stroke-linejoin="bevel"
+       id="path2" />
+    <path
+       d="m 416.3,-74.5 a 8.2,8.8 0 1 1 -2.4,6.2"
+       id="path3" />
+  </g>
+  <g
+     id="spade_1"
+     transform="translate(-202.5,-630)">
+    <g
+       id="g272">
+      <use
+         transform="translate(0,945)"
+         xlink:href="#card"
+         id="use270" />
+      <use
+         id="u42787"
+         transform="rotate(180,101.3,1102.5)"
+         xlink:href="#p37946" />
+      <path
+         d="m 101.3,1049.6 c 0,0 -42.6,40.4 -42.6,62 0,13.4 8.5,22.4 20.6,22.4 11.4,0 13.4,-10 17.7,-10 0,15.8 -6.6,24.2 -12.7,31.5 H 118 A 43,43 0 0 1 105.5,1124 c 4.3,0 6.3,10 17.7,10 12.2,0 20.6,-9 20.6,-22.6 0,-21.4 -42.4,-61.8 -42.4,-61.8 z"
+         style="fill:#333333"
+         id="path270" />
+      <use
+         id="p37946"
+         transform="matrix(0.46108,0,0,0.46108,-216.4,495.2)"
+         xlink:href="#spade" />
+      <use
+         transform="translate(202.5,1675)"
+         style="stroke:#333333"
+         xlink:href="#A"
+         id="use271" />
+      <use
+         transform="rotate(180,0.05,265)"
+         style="stroke:#333333"
+         xlink:href="#A"
+         id="use272" />
+      <path
+         d="m 101.3,1059.5 c 3.9,4 9.4,9.7 15.9,17.5 5.1,6.2 10.3,13 14,19.4 a 37.2,37.2 0 0 1 5.7,15.2 c 0,9.1 -5.4,15.3 -13.7,15.3 v 0 c -10.8,0 -8,-10.4 -21.8,-10.4 m -0.1,-57 a 260.1,260.1 0 0 0 -16,17.5 181,181 0 0 0 -14,19.4 37,37 0 0 0 -5.6,15.3 c 0,9 5.3,15.2 13.6,15.2 v 0 c 10.8,0 8,-10.3 21.8,-10.3 m 17.7,-0.9 c -3.1,-4.8 -7.6,-9.8 -11.4,-14.7 L 96,1086.3 m 25.6,10.2 a 30,30 0 0 1 7.1,15.2 c 0,4.1 -1.7,6.4 -4.2,7 -0.9,0.2 -3.2,0.8 -5.7,-3 m -35.3,0 c 3.2,-4.8 7.6,-9.8 11.4,-14.7 l 11.4,-14.7 -5.2,-6.3 -5.1,6.3 m -15.3,10.2 a 30,30 0 0 0 -7.1,15.2 c 0,4.1 1.7,6.4 4.2,7 0.9,0.2 3.2,0.8 5.7,-3 m 1.6,-26 16,19.5 16.1,-19.4 -16,-19 z"
+         style="fill:none;stroke:#ffffff;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round"
+         id="path272" />
+    </g>
+  </g>
+  <g
+     id="spade_2"
+     transform="translate(-202.5,-630)">
+    <use
+       transform="translate(202.5,945)"
+       xlink:href="#card"
+       id="use273" />
+    <use
+       id="u42791"
+       transform="translate(202.6)"
+       xlink:href="#p37946" />
+    <use
+       id="u42793"
+       transform="translate(202.6)"
+       xlink:href="#u42787" />
+    <use
+       id="u51906"
+       transform="translate(-202.5,-104.7)"
+       xlink:href="#spade" />
+    <use
+       id="u51908"
+       transform="matrix(1,0,0,-1,-202.5,2309.7)"
+       xlink:href="#spade" />
+    <use
+       transform="translate(202.5,1675)"
+       style="stroke:#333333"
+       xlink:href="#2"
+       id="use274" />
+    <use
+       transform="rotate(180,202.55,265)"
+       style="stroke:#333333"
+       xlink:href="#2"
+       id="use275" />
+  </g>
+  <g
+     id="spade_3"
+     transform="translate(-202.5,-630)">
+    <use
+       transform="translate(405,945)"
+       xlink:href="#card"
+       id="use276" />
+    <use
+       id="u42807"
+       transform="translate(405)"
+       xlink:href="#p37946" />
+    <use
+       id="u42809"
+       transform="translate(405)"
+       xlink:href="#u42787" />
+    <path
+       id="spade"
+       d="m 506.25,1075.5 c -9,17 -21.75,20.1 -21.75,31.6 0,6.1 4.4,11.3 10.6,11.3 3.7,0.06 7.1,-1.85 9,-5 0,8 -3.2,12.3 -6.3,16 h 16.8 c -3.1,-3.7 -6.4,-8 -6.2,-16 1.9,3.2 5.35,5 9,5 6.2,0 10.5,-5.3 10.6,-11.4 0,-11.4 -12.75,-14.5 -21.75,-31.5 z"
+       fill="#333333" />
+    <use
+       transform="translate(202.5)"
+       xlink:href="#u51906"
+       id="use277" />
+    <use
+       transform="translate(202.5)"
+       xlink:href="#u51908"
+       id="use278" />
+    <use
+       transform="translate(202.5,1675)"
+       style="stroke:#333333"
+       xlink:href="#3"
+       id="use279" />
+    <use
+       transform="rotate(180,405.05,265)"
+       style="stroke:#333333"
+       xlink:href="#3"
+       id="use280" />
+  </g>
+  <g
+     id="heart_1"
+     transform="translate(-202.5,-630)">
+    <use
+       transform="translate(0,630)"
+       xlink:href="#card"
+       id="use476" />
+    <use
+       id="u41664"
+       transform="rotate(180,101.3,787.6)"
+       xlink:href="#heartS" />
+    <path
+       id="heart"
+       d="M 101.3,810.3 C 91.3,795.3 79,788 79,776.8 c 0,-6.2 4.7,-12 11,-12 6.6,0 10.6,5.2 11.2,12 0.7,-6.8 4.7,-12 11.2,-12 6.4,0 11,5.8 11,12 0,11.2 -12.1,18.5 -22.1,33.5 z"
+       fill="#ee1111" />
+    <use
+       id="heartS"
+       transform="matrix(0.4498,0,0,0.4498,-28.4,334.3)"
+       xlink:href="#heart" />
+    <use
+       transform="translate(202.5,1360)"
+       style="stroke:#ee1111"
+       xlink:href="#A"
+       id="use477" />
+    <use
+       transform="rotate(180,0.05,107.5)"
+       style="stroke:#ee1111"
+       xlink:href="#A"
+       id="use478" />
+  </g>
+  <g
+     id="heart_2"
+     transform="translate(-202.5,-630)">
+    <use
+       transform="translate(202.5,630)"
+       xlink:href="#card"
+       id="use479" />
+    <use
+       id="u41668"
+       transform="translate(202.5)"
+       xlink:href="#heartS" />
+    <use
+       id="u41670"
+       transform="translate(202.5)"
+       xlink:href="#u41664" />
+    <use
+       id="u49445"
+       transform="translate(202.5,-108)"
+       xlink:href="#heart" />
+    <use
+       id="u49447"
+       transform="matrix(1,0,0,-1,202.5,1683)"
+       xlink:href="#heart" />
+    <use
+       transform="translate(202.5,1360)"
+       style="stroke:#ee1111"
+       xlink:href="#2"
+       id="use480" />
+    <use
+       transform="rotate(180,202.55,107.5)"
+       style="stroke:#ee1111"
+       xlink:href="#2"
+       id="use481" />
+  </g>
+  <g
+     id="heart_3"
+     transform="translate(-202.5,-630)">
+    <use
+       transform="translate(405,630)"
+       xlink:href="#card"
+       id="use482" />
+    <use
+       id="u41685"
+       transform="translate(405)"
+       xlink:href="#heartS" />
+    <use
+       id="u41687"
+       transform="translate(405)"
+       xlink:href="#u41664" />
+    <use
+       transform="translate(202.5)"
+       xlink:href="#u49445"
+       id="use483" />
+    <use
+       transform="translate(202.5)"
+       xlink:href="#u49447"
+       id="use484" />
+    <use
+       transform="translate(405)"
+       xlink:href="#heart"
+       id="use485" />
+    <use
+       transform="translate(202.5,1360)"
+       style="stroke:#ee1111"
+       xlink:href="#3"
+       id="use486" />
+    <use
+       transform="rotate(180,405.05,107.5)"
+       style="stroke:#ee1111"
+       xlink:href="#3"
+       id="use487" />
+  </g>
+  <g
+     id="diamond_1"
+     transform="translate(-202.5,-630)">
+    <use
+       transform="translate(0,315)"
+       xlink:href="#card"
+       id="use741" />
+    <use
+       id="u41521"
+       transform="rotate(180,101.3,472.6)"
+       xlink:href="#diamS" />
+    <path
+       id="diam"
+       d="m 123.5,472.5 a 112.97,112.97 0 0 0 -22,26 97.4,97.4 0 0 0 -22.6,-26 c 11,-10.3 15.8,-14.6 22.6,-26 a 112.57,112.57 0 0 0 22,26 z"
+       fill="#ee1111" />
+    <use
+       id="diamS"
+       transform="matrix(0.4423,0,0,0.4423,-27.7,164.5)"
+       xlink:href="#diam" />
+    <use
+       transform="translate(202.5,1045)"
+       style="stroke:#ee1111"
+       xlink:href="#A"
+       id="use742" />
+    <use
+       transform="rotate(180,0.05,-50)"
+       style="stroke:#ee1111"
+       xlink:href="#A"
+       id="use743" />
+  </g>
+  <g
+     id="diamond_2"
+     transform="translate(-202.5,-630)">
+    <use
+       transform="translate(202.5,315)"
+       xlink:href="#card"
+       id="use744" />
+    <use
+       id="u41525"
+       transform="translate(202.5)"
+       xlink:href="#diamS" />
+    <use
+       id="u41527"
+       transform="translate(202.5)"
+       xlink:href="#u41521" />
+    <use
+       id="u49155"
+       transform="translate(202.5,-105.5)"
+       xlink:href="#diam" />
+    <use
+       id="u49157"
+       transform="translate(202.5,105.5)"
+       xlink:href="#diam" />
+    <use
+       transform="translate(202.5,1045)"
+       style="stroke:#ee1111"
+       xlink:href="#2"
+       id="use745" />
+    <use
+       transform="rotate(180,202.55,-50)"
+       style="stroke:#ee1111"
+       xlink:href="#2"
+       id="use746" />
+  </g>
+  <g
+     id="diamond_3"
+     transform="translate(-202.5,-630)">
+    <use
+       transform="translate(405,315)"
+       xlink:href="#card"
+       id="use747" />
+    <use
+       id="u41541"
+       transform="translate(405)"
+       xlink:href="#diamS" />
+    <use
+       id="u41543"
+       transform="translate(405)"
+       xlink:href="#u41521" />
+    <use
+       transform="translate(202.5)"
+       xlink:href="#u49155"
+       id="use748" />
+    <use
+       transform="translate(202.5)"
+       xlink:href="#u49157"
+       id="use749" />
+    <use
+       transform="translate(405,-2)"
+       xlink:href="#diam"
+       id="use750" />
+    <use
+       transform="translate(202.5,1045)"
+       style="stroke:#ee1111"
+       xlink:href="#3"
+       id="use751" />
+    <use
+       transform="rotate(180,405.05,-50)"
+       style="stroke:#ee1111"
+       xlink:href="#3"
+       id="use752" />
+  </g>
+  <g
+     id="club_1"
+     transform="translate(-202.5,-630)">
+    <rect
+       id="card"
+       x="0.69999999"
+       y="0.69999999"
+       width="201.10001"
+       height="313.60001"
+       rx="9"
+       ry="9"
+       fill="#ffffff"
+       stroke="#333333"
+       stroke-width="1.4" />
+  </g>
+</svg>

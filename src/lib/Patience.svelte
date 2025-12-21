@@ -544,6 +544,7 @@
         await new Promise(res => setTimeout(res, time));
 
         let sol = game.tip;
+        time = 200;
 
         for (let m = 0; m < tips*5; m++) {
             
@@ -566,7 +567,9 @@
 
             hist.save(stacks, [from, to]);
 
-            await new Promise(res => setTimeout(res, time*2));
+            let speed = (m < tips*5 - 5) ? 0 : 2;
+
+            await new Promise(res => setTimeout(res, time*speed));
 
         }
 
@@ -696,7 +699,7 @@
 
 <div class="wrapper">
     <div class="control" bind:clientWidth={ctrlW}>
-        <span style="width=5rem;">{moves}</span> 
+        <span style="max-width: 4rem; min-width: 4rem;">{moves}</span> 
     
         <div class="test">
             <button class="ctrl-button action-button" onclick={collect}>Kerää</button>
@@ -721,23 +724,7 @@
         <Resizebutton bind:resize={resize} visible={ full === 100 ? false : true}/>    
     </div>
 
-    <div class={name === "meditators" ? 'control' : 'hide'} bind:clientWidth={ctrlW}>
-        <!--span style="width: 5.5rem;">{'tries: ' + game.tries}</span>
-        <span style="width: 5.5rem;">{'id: ' + game.id}</span-->
-        <div class="test">
-            <select class="ctrl-button action-button" bind:value={selected} onchange={gameByLimits} style="float:left">
-                <option value="32-40">Siirtoja 32-40</option>
-                <option value="41-45">Siirtoja 41-45</option>
-                <option value="46-50">Siirtoja 46-50</option>
-                <option value="51-60">Siirtoja 51-60</option>
-                <option value="61-99">Siirtoja yli 60</option>
-                <option value="">Kaikki määrät</option>
-            </select>
-            <span style="display:inline-block;">&nbsp;&nbsp;Jako:</span>
-            <input class="ctrl-button action-button" bind:value={gameId} onchange={gameById} inputmode="numeric"
-                id="gameid" minlength="4" maxlength="8" size="5" min="0" max={game.maxId}/>
-        </div>
-    </div>
+    
 
     <div id="tableu" class="table" bind:offsetHeight={offset} bind:clientWidth={width}
         bind:clientHeight={height} style:--full={full + "vw"}>
@@ -769,7 +756,18 @@
         <!--span style="width: 5.5rem;">{'tries: ' + game.tries}</span>
         <span style="width: 5.5rem;">{'id: ' + game.id}</span-->
         <div class="test">
-            <button class="ctrl-button action-button" onclick={(e) => tip(e)}>Vinkki ({tips*5 + " siirtoa"})</button>
+            <select class="ctrl-button action-button" bind:value={selected} onchange={gameByLimits} style="float:left">
+                <option value="32-40">Siirtoja 32-40</option>
+                <option value="41-45">Siirtoja 41-45</option>
+                <option value="46-50">Siirtoja 46-50</option>
+                <option value="51-60">Siirtoja 51-60</option>
+                <option value="61-99">Siirtoja yli 60</option>
+                <option value="">Kaikki määrät</option>
+            </select>
+            <span style="display:inline-block;">&nbsp;&nbsp;Jako:</span>
+            <input class="ctrl-button action-button" bind:value={gameId} onchange={gameById} inputmode="numeric"
+                id="gameid" minlength="4" maxlength="8" size="5" min="0" max={game.maxId}/>
+            <button class="ctrl-button action-button" onclick={(e) => tip(e)}>Vinkki ({tips})</button>
         </div>    
     </div>
 
@@ -865,8 +863,10 @@
     }
     .ctrl-button.action-button {
         border-radius: 5%;
-        width: 10rem;
+        width: auto;
         height: 1.5rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
         font-size: 1rem;
         border: 0.0rem solid black;
     }
