@@ -56,8 +56,8 @@
         <button onclick={()=> selectPat("meditatorsorig")}>Mietiskelijän (satunnainen)</button>
         <button onclick={() => selectPat("klondike")}>Klondike (satunnainen)</button>
         <p><b>Pakat</b></p>
-        <button onclick={()=> selectDeck("clubkarte")}>Clubkarte {@html deck === "clubkarte" ? checkmark : ""}</button>
         <button onclick={()=> selectDeck("anglo")}>Anglo {@html deck === "anglo" ? checkmark : ""}</button>
+        <button onclick={()=> selectDeck("clubkarte")}>Clubkarte {@html deck === "clubkarte" ? checkmark : ""}</button>        
         <button onclick={() => selectDeck("mittelalter")}>Mittelalter {@html deck === "mittelalter" ? checkmark : ""}</button>
     </div>
 </div>
