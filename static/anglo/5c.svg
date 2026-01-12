@@ -9,13 +9,6 @@
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
      id="defs1018" />
-  <path
-     id="4"
-     d="m -180.3,-62.5 v -28 l -14.1,21.5 h 18 m -7.2,7 h 6.8"
-     fill="none"
-     stroke-linecap="square"
-     stroke-linejoin="bevel"
-     stroke-width="3.5" />
   <g
      id="5"
      transform="translate(-810,-3.2)"
@@ -28,30 +21,9 @@
        d="m 819.8,-73.1 c 4.9,-9.4 17.7,-3.4 15.3,7 -1.1,4.5 -5,7.4 -9,6.8 -4.1,-0.6 -7.2,-4.5 -7.2,-9.2"
        id="path5" />
   </g>
-  <path
-     id="6"
-     d="m 211.4,-70.9 c 0,-4.5 3.7,-8.2 8.2,-8.2 a 8.25,8.25 0 0 1 0,16.5 8.2,8.2 0 0 1 -8.2,-8.3 c 0,-2.9 -0.5,-10.6 1.7,-15 3.1,-6.2 12,-5.2 14.3,2.2"
-     fill="none"
-     stroke-width="3.5" />
-  <g
-     id="club_2"
-     transform="translate(-810)">
-    <use
-       id="u37954"
-       transform="translate(202.5)"
-       xlink:href="#clubS" />
-    <use
-       id="u37956"
-       transform="translate(202.5)"
-       xlink:href="#u37950" />
-  </g>
   <g
      id="club_4"
      transform="translate(-810)">
-    <use
-       transform="translate(607.5)"
-       xlink:href="#card"
-       id="use16" />
     <use
        id="u46740"
        transform="translate(649.95,-106.5)"
@@ -61,14 +33,6 @@
        transform="matrix(1,0,0,-1,649.95,421.5)"
        xlink:href="#club" />
     <use
-       id="u37972"
-       transform="translate(405)"
-       xlink:href="#u37954" />
-    <use
-       id="u37974"
-       transform="translate(405)"
-       xlink:href="#u37956" />
-    <use
        id="u46750"
        transform="matrix(1,0,0,-1,565.15,421.5)"
        xlink:href="#club" />
@@ -76,16 +40,6 @@
        id="u46760"
        transform="translate(565.15,-106.5)"
        xlink:href="#club" />
-    <use
-       transform="translate(810,100)"
-       style="stroke:#333333"
-       xlink:href="#4"
-       id="use17" />
-    <use
-       transform="rotate(180,303.8,107.5)"
-       style="stroke:#333333"
-       xlink:href="#4"
-       id="use18" />
   </g>
   <g
      id="club_5"
@@ -132,230 +86,6 @@
        style="stroke:#333333"
        xlink:href="#5"
        id="use26" />
-  </g>
-  <g
-     id="club_6"
-     transform="translate(-810)">
-    <use
-       transform="translate(1012.5)"
-       xlink:href="#card"
-       id="use27" />
-    <use
-       transform="translate(810)"
-       xlink:href="#u37954"
-       id="use28" />
-    <use
-       transform="translate(810)"
-       xlink:href="#u37956"
-       id="use29" />
-    <use
-       id="u46744"
-       transform="translate(970.05)"
-       xlink:href="#club" />
-    <use
-       id="u46746"
-       transform="translate(1054.95)"
-       xlink:href="#club" />
-    <use
-       id="u46865"
-       transform="translate(405)"
-       xlink:href="#u46740" />
-    <use
-       id="u46867"
-       transform="translate(405)"
-       xlink:href="#u46750" />
-    <use
-       id="u46869"
-       transform="translate(405)"
-       xlink:href="#u46752" />
-    <use
-       id="u46871"
-       transform="translate(405)"
-       xlink:href="#u46760" />
-    <use
-       transform="translate(810,100)"
-       style="stroke:#333333"
-       xlink:href="#6"
-       id="use30" />
-    <use
-       transform="rotate(180,708.8,107.5)"
-       style="stroke:#333333"
-       xlink:href="#6"
-       id="use31" />
-  </g>
-  <g
-     id="diamond_1"
-     transform="translate(-810)">
-    <use
-       id="u41521"
-       transform="rotate(180,101.3,472.6)"
-       xlink:href="#diamS" />
-    <path
-       id="diam"
-       d="m 123.5,472.5 a 112.97,112.97 0 0 0 -22,26 97.4,97.4 0 0 0 -22.6,-26 c 11,-10.3 15.8,-14.6 22.6,-26 a 112.57,112.57 0 0 0 22,26 z"
-       fill="#ee1111" />
-    <use
-       id="diamS"
-       transform="matrix(0.4423,0,0,0.4423,-27.7,164.5)"
-       xlink:href="#diam" />
-  </g>
-  <g
-     id="diamond_2"
-     transform="translate(-810)">
-    <use
-       id="u41525"
-       transform="translate(202.5)"
-       xlink:href="#diamS" />
-    <use
-       id="u41527"
-       transform="translate(202.5)"
-       xlink:href="#u41521" />
-    <use
-       id="u49155"
-       transform="translate(202.5,-105.5)"
-       xlink:href="#diam" />
-    <use
-       id="u49157"
-       transform="translate(202.5,105.5)"
-       xlink:href="#diam" />
-  </g>
-  <g
-     id="diamond_4"
-     transform="translate(-810)">
-    <use
-       transform="translate(607.5,315)"
-       xlink:href="#card"
-       id="use753" />
-    <use
-       id="u41545"
-       transform="translate(405)"
-       xlink:href="#u41525" />
-    <use
-       id="u41547"
-       transform="translate(405)"
-       xlink:href="#u41527" />
-    <use
-       id="u49179"
-       transform="translate(362.6)"
-       xlink:href="#u49155" />
-    <use
-       id="u49181"
-       transform="matrix(1,0,0,-1,362.6,1156)"
-       xlink:href="#u49157" />
-    <use
-       id="u49189"
-       transform="translate(84.8)"
-       xlink:href="#u49179" />
-    <use
-       id="u49191"
-       transform="matrix(1,0,0,-1,84.8,945)"
-       xlink:href="#u49179" />
-    <use
-       transform="translate(810,415)"
-       style="stroke:#ee1111"
-       xlink:href="#4"
-       id="use754" />
-    <use
-       transform="rotate(180,303.8,265)"
-       style="stroke:#ee1111"
-       xlink:href="#4"
-       id="use755" />
-  </g>
-  <g
-     id="diamond_5"
-     transform="translate(-810)">
-    <use
-       transform="translate(810,315)"
-       xlink:href="#card"
-       id="use756" />
-    <use
-       id="u41566"
-       transform="translate(810)"
-       xlink:href="#diamS" />
-    <use
-       id="u41568"
-       transform="translate(810)"
-       xlink:href="#u41521" />
-    <use
-       transform="translate(202.5)"
-       xlink:href="#u49179"
-       id="use757" />
-    <use
-       transform="translate(202.5)"
-       xlink:href="#u49181"
-       id="use758" />
-    <use
-       transform="translate(202.5)"
-       xlink:href="#u49189"
-       id="use759" />
-    <use
-       transform="translate(202.5)"
-       xlink:href="#u49191"
-       id="use760" />
-    <use
-       transform="translate(810)"
-       xlink:href="#diam"
-       id="use761" />
-    <use
-       transform="translate(810,415)"
-       style="stroke:#ee1111"
-       xlink:href="#5"
-       id="use762" />
-    <use
-       transform="rotate(180,506.3,265)"
-       style="stroke:#ee1111"
-       xlink:href="#5"
-       id="use763" />
-  </g>
-  <g
-     id="diamond_6"
-     transform="translate(-810)">
-    <use
-       transform="translate(1012.5,315)"
-       xlink:href="#card"
-       id="use764" />
-    <use
-       transform="translate(810)"
-       xlink:href="#u41525"
-       id="use765" />
-    <use
-       transform="translate(810)"
-       xlink:href="#u41527"
-       id="use766" />
-    <use
-       id="u49219"
-       transform="translate(405)"
-       xlink:href="#u49179" />
-    <use
-       id="u49221"
-       transform="translate(405)"
-       xlink:href="#u49181" />
-    <use
-       id="u49223"
-       transform="translate(405)"
-       xlink:href="#u49189" />
-    <use
-       id="u49225"
-       transform="translate(405)"
-       xlink:href="#u49191" />
-    <use
-       id="u49233"
-       transform="translate(970)"
-       xlink:href="#diam" />
-    <use
-       id="u49235"
-       transform="translate(1054.9)"
-       xlink:href="#diam" />
-    <use
-       transform="translate(810,415)"
-       style="stroke:#ee1111"
-       xlink:href="#6"
-       id="use767" />
-    <use
-       transform="rotate(180,708.8,265)"
-       style="stroke:#ee1111"
-       xlink:href="#6"
-       id="use768" />
   </g>
   <g
      id="club_1"
