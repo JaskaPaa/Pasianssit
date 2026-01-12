@@ -175,7 +175,7 @@
 		</div>
 		<div class="flip-card-back"  >
 			<!-- svelte-ignore a11y_missing_attribute -->
-			<img class="unselectable" draggable="false" src="cards/Blue_Back.svg" style:--size={size + "vw"} >
+			<img class="unselectable" draggable="false" src="{deck}/back.svg" style:--size={size + "vw"} >
 		</div>
 	</div>
 </div>
