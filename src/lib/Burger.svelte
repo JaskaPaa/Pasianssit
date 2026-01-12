@@ -52,13 +52,14 @@
 
     <div class="menu" class:show={toggle} id="menu" style="right: {right}px; top: {top}px">
         <p><b>Pasianssit</b></p>
-        <button onclick={()=> selectPat("meditators")}>Mietiskelijän (ratkaistavissa)</button>
-        <button onclick={()=> selectPat("meditatorsorig")}>Mietiskelijän (satunnainen)</button>
+        <button onclick={() => selectPat("meditators")}>Mietiskelijän (ratkaistavissa)</button>
+        <button onclick={() => selectPat("meditatorsorig")}>Mietiskelijän (satunnainen)</button>
         <button onclick={() => selectPat("klondike")}>Klondike (satunnainen)</button>
         <p><b>Pakat</b></p>
-        <button onclick={()=> selectDeck("anglo")}>Anglo {@html deck === "anglo" ? checkmark : ""}</button>
-        <button onclick={()=> selectDeck("clubkarte")}>Clubkarte {@html deck === "clubkarte" ? checkmark : ""}</button>        
+        <button onclick={() => selectDeck("anglo")}>Anglo {@html deck === "anglo" ? checkmark : ""}</button>
+        <button onclick={() => selectDeck("clubkarte")}>Clubkarte {@html deck === "clubkarte" ? checkmark : ""}</button>        
         <button onclick={() => selectDeck("mittelalter")}>Mittelalter {@html deck === "mittelalter" ? checkmark : ""}</button>
+        <button onclick={() => selectDeck("ornamental")}>Ornamental {@html deck === "ornamental" ? checkmark : ""}</button>
     </div>
 </div>
 
