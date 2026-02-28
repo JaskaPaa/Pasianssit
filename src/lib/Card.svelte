@@ -249,11 +249,12 @@
 		/*filter: drop-shadow(16px 16px 20px #000000aa);*/
 		/*box-shadow: 20px 20px 20px #00000055;*/
 		color: transparent;
-		border-radius: calc(0.05 * var(--size));
+		border-radius: calc(0.1 * var(--size));
 		--shacolor: #00000055;
 		/*filter: drop-shadow(20px 20px 20px var(--shacolor));*/
 		box-shadow: 20px 20px 20px var(--shacolor);
 		width: calc(0.98 * var(--size)); /* shadow problem */
+		height: calc(1.3*0.98 * var(--size));
 		/*position: absolute;
 		z-index: -1000;*/
 	}
