@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="120.00079"
+   height="179.99902"
+   version="1.1"
+   viewBox="0 0 120.00079 179.99902"
+   preserveAspectRatio="none"
+   id="svg462"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs462" />
+  <g
+     id="club_6"
+     transform="translate(-959.99924,-0.00116749)">
+    <use
+       id="u3337"
+       transform="translate(120)"
+       xlink:href="#u2622" />
+    <use
+       id="u3339"
+       transform="translate(120)"
+       xlink:href="#u2624" />
+    <use
+       id="u3341"
+       transform="translate(120)"
+       xlink:href="#u2626" />
+    <use
+       id="u3343"
+       transform="translate(120)"
+       xlink:href="#u2628" />
+  </g>
+  <g
+     id="club_2"
+     transform="translate(-959.99924,-0.00116749)">
+    <use
+       id="u1410"
+       transform="translate(120,-62.5)"
+       xlink:href="#pip_club" />
+    <use
+       id="u1780"
+       transform="matrix(1,0,0,-1,120,242.5)"
+       xlink:href="#pip_club" />
+  </g>
+  <g
+     id="club_3"
+     transform="translate(-959.99924,-0.00116749)">
+    <use
+       id="u1782"
+       transform="translate(120.01)"
+       xlink:href="#u1410" />
+    <use
+       id="u1784"
+       transform="translate(120.01)"
+       xlink:href="#u1780" />
+  </g>
+  <g
+     id="club_4"
+     transform="translate(-959.99924,-0.00116749)">
+    <use
+       id="u2414"
+       transform="translate(95)"
+       xlink:href="#u1782" />
+    <use
+       id="u2416"
+       transform="translate(95)"
+       xlink:href="#u1784" />
+    <use
+       id="u2538"
+       transform="translate(50)"
+       xlink:href="#u2414" />
+    <use
+       id="u2540"
+       transform="translate(50)"
+       xlink:href="#u2416" />
+  </g>
+  <g
+     id="club_5"
+     transform="translate(-959.99924,-0.00116749)">
+    <use
+       id="u2622"
+       transform="translate(120)"
+       xlink:href="#u2414" />
+    <use
+       id="u2624"
+       transform="translate(120)"
+       xlink:href="#u2416" />
+    <use
+       id="u2626"
+       transform="translate(120)"
+       xlink:href="#u2538" />
+    <use
+       id="u2628"
+       transform="translate(120)"
+       xlink:href="#u2540" />
+  </g>
+  <g
+     id="club_7"
+     transform="translate(-959.99924,-0.00116749)">
+    <use
+       id="u3961"
+       transform="translate(120)"
+       xlink:href="#u3337" />
+    <use
+       id="u3963"
+       transform="translate(120)"
+       xlink:href="#u3339" />
+    <use
+       id="u3965"
+       transform="translate(120)"
+       xlink:href="#u3341" />
+    <use
+       id="u3967"
+       transform="translate(120)"
+       xlink:href="#u3343" />
+  </g>
+  <g
+     id="club_8"
+     transform="translate(-959.99924,-0.00116749)">
+    <use
+       id="u3975"
+       transform="translate(120)"
+       xlink:href="#u3961" />
+    <use
+       id="u3977"
+       transform="translate(120)"
+       xlink:href="#u3963" />
+    <use
+       id="u3979"
+       transform="translate(120)"
+       xlink:href="#u3965" />
+    <use
+       id="u3981"
+       transform="translate(120)"
+       xlink:href="#u3967" />
+  </g>
+  <g
+     id="club_9"
+     transform="translate(-959.99924,-0.00116749)">
+    <use
+       transform="translate(960)"
+       xlink:href="#card"
+       id="use61" />
+    <use
+       transform="translate(960)"
+       xlink:href="#fr"
+       id="use62" />
+    <use
+       id="u3991"
+       transform="translate(120)"
+       xlink:href="#u3975" />
+    <use
+       id="u3993"
+       transform="translate(120)"
+       xlink:href="#u3977" />
+    <use
+       id="u3995"
+       transform="translate(120)"
+       xlink:href="#u3979" />
+    <use
+       id="u3997"
+       transform="translate(120)"
+       xlink:href="#u3981" />
+    <use
+       id="u3999"
+       transform="translate(0,41.667)"
+       xlink:href="#u3991" />
+    <use
+       id="u4001"
+       transform="translate(0,41.667)"
+       xlink:href="#u3995" />
+    <use
+       id="u4003"
+       transform="matrix(1,0,0,-1,0,180)"
+       xlink:href="#u3999" />
+    <use
+       id="u4005"
+       transform="matrix(1,0,0,-1,0,180)"
+       xlink:href="#u4001" />
+    <use
+       transform="translate(25,20.833)"
+       xlink:href="#u3999"
+       id="use63" />
+    <use
+       transform="translate(960)"
+       xlink:href="#pip_club_S"
+       id="use64" />
+    <use
+       transform="translate(960)"
+       xlink:href="#u2940"
+       id="use65" />
+    <use
+       transform="translate(959.99924,100.00117)"
+       style="fill:#333333;stroke:#333333"
+       xlink:href="#9"
+       id="use66" />
+    <use
+       transform="rotate(180,540.00039,39.999416)"
+       style="fill:#333333;stroke:#333333"
+       xlink:href="#9"
+       id="use67" />
+  </g>
+  <path
+     id="9"
+     d="m 10.660765,-78.391167 c 2.22,-0.05 2.43,-4.02 2.46,-6.19 -0.52,0.53 -1.31,0.99 -2.19,0.98 -2.6199992,-0.03 -4.2699992,-2.11 -4.2699992,-4.96 0,-1.66 0.59,-4.73 4.2099992,-4.73 2.37,0 4.28,1.53 4.38,6.57 0,5.13 -0.68,9.33 -4.53,9.33 -1.9499992,0 -3.6099992,-1.19 -3.6099992,-3.18 0,-0.95 0.52,-1.74 1.52,-1.74 0.73,0 1.35,0.48 1.35,1.38 0,0.47 -0.25,1.27 -1.13,1.48 0.32,0.73 1.13,1.07 1.8099992,1.06 z m 2.36,-10.11 c -0.01,-1.26 -0.38,-3.81 -2.07,-3.79 -1.5399992,0.02 -2.2099992,1.2 -2.2099992,3.79 0,1.12 0.14,3.53 2.2099992,3.53 2.08,0 2.08,-3 2.07,-3.53 z"
+     stroke-width="0.2" />
+  <g
+     id="club_1"
+     transform="translate(-959.99924,-0.00116749)">
+    <g
+       id="card"
+       transform="matrix(0.83103,0,0,0.83565,-1641.9,-580.27)">
+      <rect
+         id="card_face"
+         x="1976.64"
+         y="695.29498"
+         width="142.60001"
+         height="213.60001"
+         rx="9.5"
+         ry="9.5"
+         fill="#ffffff"
+         stroke="#333333"
+         stroke-linejoin="round"
+         stroke-width="1.8" />
+    </g>
+    <g
+       id="fr">
+      <rect
+         x="7"
+         y="7"
+         width="106"
+         height="166"
+         rx="3"
+         ry="3"
+         fill="none"
+         style="fill:#eeeedd"
+         id="rect460" />
+      <path
+         d="M 18.5,7 H 110 c 1.66,0 3,1.34 3,3 v 129 m -12,34 H 10 c -1.66,0 -3,-1.34 -3,-3 V 41"
+         style="fill:none;stroke:#aa8855"
+         id="path460" />
+    </g>
+    <use
+       id="u2940"
+       transform="rotate(180,60.044,90)"
+       xlink:href="#pip_club_S" />
+    <use
+       id="pip_club_S"
+       transform="matrix(0.367,0,0,0.367,-11.04,-1.24)"
+       xlink:href="#pip_club" />
+    <path
+       id="pip_club"
+       d="m 60,75 c -4.9,0 -7.35,5.92 -3.89,9.39 1,1 2.89,1.81 2.89,3.81 0,1.2 -0.97,2 -1.8,2 -2.76,0 -2.34,-4.7 -7.2,-4.7 -3.04,0 -5.5,2.46 -5.5,5.5 0,3.04 2.46,5.5 5.5,5.5 4.65,0 4.3,-4.3 7.2,-4.3 0.83,0 1.8,0.6 1.8,1.6 0,7.7 -2,8.2 -4.2,9.9 L 56,105 c 0,0 1.6,-1.5 4,-1.5 2.4,0 4,1.5 4,1.5 l 1.2,-1.3 C 63,102 61,101.5 61,93.8 c 0,-1 0.97,-1.6 1.8,-1.6 2.9,0 2.56,4.3 7.2,4.3 3.04,0 5.5,-2.46 5.5,-5.5 0,-3.04 -2.46,-5.5 -5.5,-5.5 -4.86,0 -4.44,4.7 -7.2,4.7 -0.83,0 -1.8,-0.8 -1.8,-2 0,-2 1.89,-2.81 2.89,-3.81 C 67.35,80.92 64.9,75 60,75 Z m 0,15.1 1,1 -1,1 -1,-1 z"
+       style="fill:#333333" />
+  </g>
+</svg>

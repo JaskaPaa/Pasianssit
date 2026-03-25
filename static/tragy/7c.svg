@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="120.00073"
+   height="179.99902"
+   version="1.1"
+   viewBox="0 0 120.00073 179.99902"
+   preserveAspectRatio="none"
+   id="svg462"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs462" />
+  <g
+     id="club_6"
+     transform="translate(-719.99922,-0.00116749)">
+    <use
+       id="u3337"
+       transform="translate(120)"
+       xlink:href="#u2622" />
+    <use
+       id="u3339"
+       transform="translate(120)"
+       xlink:href="#u2624" />
+    <use
+       id="u3341"
+       transform="translate(120)"
+       xlink:href="#u2626" />
+    <use
+       id="u3343"
+       transform="translate(120)"
+       xlink:href="#u2628" />
+    <use
+       id="u3345"
+       transform="translate(0,62.5)"
+       xlink:href="#u3337" />
+    <use
+       id="u3347"
+       transform="translate(0,62.5)"
+       xlink:href="#u3341" />
+  </g>
+  <g
+     id="club_2"
+     transform="translate(-719.99922,-0.00116749)">
+    <use
+       id="u1410"
+       transform="translate(120,-62.5)"
+       xlink:href="#pip_club" />
+    <use
+       id="u1780"
+       transform="matrix(1,0,0,-1,120,242.5)"
+       xlink:href="#pip_club" />
+  </g>
+  <g
+     id="club_3"
+     transform="translate(-719.99922,-0.00116749)">
+    <use
+       id="u1782"
+       transform="translate(120.01)"
+       xlink:href="#u1410" />
+    <use
+       id="u1784"
+       transform="translate(120.01)"
+       xlink:href="#u1780" />
+  </g>
+  <g
+     id="club_4"
+     transform="translate(-719.99922,-0.00116749)">
+    <use
+       id="u2414"
+       transform="translate(95)"
+       xlink:href="#u1782" />
+    <use
+       id="u2416"
+       transform="translate(95)"
+       xlink:href="#u1784" />
+    <use
+       id="u2538"
+       transform="translate(50)"
+       xlink:href="#u2414" />
+    <use
+       id="u2540"
+       transform="translate(50)"
+       xlink:href="#u2416" />
+  </g>
+  <g
+     id="club_5"
+     transform="translate(-719.99922,-0.00116749)">
+    <use
+       id="u2622"
+       transform="translate(120)"
+       xlink:href="#u2414" />
+    <use
+       id="u2624"
+       transform="translate(120)"
+       xlink:href="#u2416" />
+    <use
+       id="u2626"
+       transform="translate(120)"
+       xlink:href="#u2538" />
+    <use
+       id="u2628"
+       transform="translate(120)"
+       xlink:href="#u2540" />
+  </g>
+  <g
+     id="club_7"
+     transform="translate(-719.99922,-0.00116749)">
+    <use
+       transform="translate(720)"
+       xlink:href="#card"
+       id="use46" />
+    <use
+       transform="translate(720)"
+       xlink:href="#fr"
+       id="use47" />
+    <use
+       id="u3961"
+       transform="translate(120)"
+       xlink:href="#u3337" />
+    <use
+       id="u3963"
+       transform="translate(120)"
+       xlink:href="#u3339" />
+    <use
+       id="u3965"
+       transform="translate(120)"
+       xlink:href="#u3341" />
+    <use
+       id="u3967"
+       transform="translate(120)"
+       xlink:href="#u3343" />
+    <use
+       id="u3969"
+       transform="translate(120)"
+       xlink:href="#u3345" />
+    <use
+       id="u3971"
+       transform="translate(120)"
+       xlink:href="#u3347" />
+    <use
+       id="u3973"
+       transform="translate(25,31.25)"
+       xlink:href="#u3961" />
+    <use
+       transform="translate(720)"
+       xlink:href="#pip_club_S"
+       id="use48" />
+    <use
+       transform="translate(720)"
+       xlink:href="#u2940"
+       id="use49" />
+    <use
+       transform="translate(719.99922,100.00117)"
+       style="fill:#333333;stroke:#333333"
+       xlink:href="#7"
+       id="use50" />
+    <use
+       transform="rotate(180,420.00039,39.999416)"
+       style="fill:#333333;stroke:#333333"
+       xlink:href="#7"
+       id="use51" />
+  </g>
+  <path
+     id="7"
+     d="m 7.380779,-93.301167 -0.63,4.33 0.69,0.14 c 0.66,-1.69 1.01,-2.01 2.989999,-2.01 h 2.81 c -2.58,4.02 -4.479999,7.86 -4.659999,13.54 h 2.569999 c -0.17,-5.2 0.75,-9.9 4.29,-14.74 l 0.07,-0.91 H 8.470779 c -0.22,0 -0.4,-0.21 -0.41,-0.35 z"
+     stroke-width="0.25" />
+  <g
+     id="club_1"
+     transform="translate(-719.99922,-0.00116749)">
+    <g
+       id="card"
+       transform="matrix(0.83103,0,0,0.83565,-1641.9,-580.27)">
+      <rect
+         id="card_face"
+         x="1976.64"
+         y="695.29498"
+         width="142.60001"
+         height="213.60001"
+         rx="9.5"
+         ry="9.5"
+         fill="#ffffff"
+         stroke="#333333"
+         stroke-linejoin="round"
+         stroke-width="1.8" />
+    </g>
+    <g
+       id="fr">
+      <rect
+         x="7"
+         y="7"
+         width="106"
+         height="166"
+         rx="3"
+         ry="3"
+         fill="none"
+         style="fill:#eeeedd"
+         id="rect460" />
+      <path
+         d="M 18.5,7 H 110 c 1.66,0 3,1.34 3,3 v 129 m -12,34 H 10 c -1.66,0 -3,-1.34 -3,-3 V 41"
+         style="fill:none;stroke:#aa8855"
+         id="path460" />
+    </g>
+    <use
+       id="u2940"
+       transform="rotate(180,60.044,90)"
+       xlink:href="#pip_club_S" />
+    <use
+       id="pip_club_S"
+       transform="matrix(0.367,0,0,0.367,-11.04,-1.24)"
+       xlink:href="#pip_club" />
+    <path
+       id="pip_club"
+       d="m 60,75 c -4.9,0 -7.35,5.92 -3.89,9.39 1,1 2.89,1.81 2.89,3.81 0,1.2 -0.97,2 -1.8,2 -2.76,0 -2.34,-4.7 -7.2,-4.7 -3.04,0 -5.5,2.46 -5.5,5.5 0,3.04 2.46,5.5 5.5,5.5 4.65,0 4.3,-4.3 7.2,-4.3 0.83,0 1.8,0.6 1.8,1.6 0,7.7 -2,8.2 -4.2,9.9 L 56,105 c 0,0 1.6,-1.5 4,-1.5 2.4,0 4,1.5 4,1.5 l 1.2,-1.3 C 63,102 61,101.5 61,93.8 c 0,-1 0.97,-1.6 1.8,-1.6 2.9,0 2.56,4.3 7.2,4.3 3.04,0 5.5,-2.46 5.5,-5.5 0,-3.04 -2.46,-5.5 -5.5,-5.5 -4.86,0 -4.44,4.7 -7.2,4.7 -0.83,0 -1.8,-0.8 -1.8,-2 0,-2 1.89,-2.81 2.89,-3.81 C 67.35,80.92 64.9,75 60,75 Z m 0,15.1 1,1 -1,1 -1,-1 z"
+       style="fill:#333333" />
+  </g>
+</svg>

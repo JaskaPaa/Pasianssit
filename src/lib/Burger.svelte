@@ -60,6 +60,7 @@
         <button onclick={() => selectDeck("clubkarte")}>Clubkarte {@html deck === "clubkarte" ? checkmark : ""}</button>        
         <button onclick={() => selectDeck("mittelalter")}>Mittelalter {@html deck === "mittelalter" ? checkmark : ""}</button>
         <button onclick={() => selectDeck("ornamental")}>Ornamental {@html deck === "ornamental" ? checkmark : ""}</button>
+        <button onclick={() => selectDeck("tragy")}>Tragy {@html deck === "tragy" ? checkmark : ""}</button>
     </div>
 </div>
 
