@@ -36,8 +36,31 @@
     let name = $state("meditators");
     let deck = $state("mittelalter");
 
+    let color = $state("#9ED485");
+    let clickCount = $state(0);
+    let dealText = $state("Uusi jako");
+    let timeoutID = $state(undefined);
+
     const dealing = async () => {
-        patience.deal2();
+        color = "#3C3";
+        dealText = "Vahvista";
+        clickCount += 1;
+
+        if (clickCount === 1) {
+            timeoutID = setTimeout(function() {
+                color = "#9ED485";
+                clickCount = 0;
+                dealText = "Uusi jako";
+            }, 2000);
+        }
+
+        if (clickCount > 1) {
+            patience.deal2();
+            color = "#9ED485";
+            dealText = "Uusi jako";
+            clickCount = 0;
+            clearTimeout(timeoutID);
+        }
     }
 
     $effect(() => {
@@ -77,7 +100,7 @@
 <!--div class="topbar">{"-"}</div-->
 <div class="wrap">
     <div class="gamebar">
-        <button onclick={() => dealing()} class="ctrl-button action-button">Uusi jako</button>
+        <button style="--color: {color}" onclick={() => dealing()} class="ctrl-button action-button">{dealText}</button>
         <!--button onclick={()=> full += 5 }>+</button>
         <button onclick={()=> full -= 5}>-</button-->
         <span class="patname">{patName}</span>
@@ -142,7 +165,9 @@
         border: none;
     }
     .ctrl-button {
-        background-color: rgb(158, 212, 133);
+        display: inline-block;
+        background-color: var(--color, rgb(158, 212, 133));
+        /*background-color: rgb(158, 212, 133);*/
         border-radius: 50%;
         color: black;
         border: none;
@@ -150,12 +175,13 @@
         font-size: 1.3rem;
         text-align: center;
         height: 2rem;
-        width: 2rem;
+        min-width: 6rem;
         box-shadow: 0 2px 4px #313131;
         cursor: pointer;
         transition: all 0.1s ease;
         margin: 5px;
     }
+    
     .ctrl-button:active {
         box-shadow: 0 0 2px darkslategray;
         transform: translateY(0.05rem);
