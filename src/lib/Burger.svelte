@@ -38,6 +38,9 @@
         if (toggle)
             showMenu();
     });
+    
+    // Use this for a new deck of cards, if preserveAspectRatio="none" is missing from svg files:
+    // sed -i '7i  \ \ \ preserveAspectRatio="none"' *.svg
 
 </script>
 
