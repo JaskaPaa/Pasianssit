@@ -40,17 +40,20 @@
     let clickCount = $state(0);
     let dealText = $state("Uusi jako");
     let timeoutID = $state(undefined);
+    let blink = $state("");
 
     const dealing = async () => {
         color = "#3C3";
         dealText = "Vahvista";
         clickCount += 1;
+        blink = "blink-me";
 
         if (clickCount === 1) {
             timeoutID = setTimeout(function() {
                 color = "#9ED485";
                 clickCount = 0;
                 dealText = "Uusi jako";
+                blink = "";
             }, 2000);
         }
 
@@ -60,6 +63,7 @@
             dealText = "Uusi jako";
             clickCount = 0;
             clearTimeout(timeoutID);
+            blink = "";    
         }
     }
 
@@ -100,7 +104,7 @@
 <!--div class="topbar">{"-"}</div-->
 <div class="wrap">
     <div class="gamebar">
-        <button style="--color: {color}" onclick={() => dealing()} class="ctrl-button action-button">{dealText}</button>
+        <button style="--color: {color}" onclick={() => dealing()} class="ctrl-button action-button"><span class={blink}>{dealText}</span></button>
         <!--button onclick={()=> full += 5 }>+</button>
         <button onclick={()=> full -= 5}>-</button-->
         <span class="patname">{patName}</span>
@@ -194,6 +198,24 @@
         padding-right: 0.5rem;
         font-size: 1rem;
         border: 0.0rem solid black;
+    }
+
+    @keyframes blink {
+        0% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .blink-me {
+        animation: blink 1s infinite;
     }
    
 </style>
