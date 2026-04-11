@@ -190,7 +190,7 @@
         box-shadow: 0 0 2px darkslategray;
         transform: translateY(0.05rem);
     }
-    
+
     .ctrl-button.action-button {
         border-radius: 5%;
         width: auto;
@@ -203,7 +203,7 @@
 
     @keyframes blink {
         0% { opacity: 1; }
-        50% { opacity: 0; }
+        50% { opacity: 0.4; }
         100% { opacity: 1; }
     }
 
