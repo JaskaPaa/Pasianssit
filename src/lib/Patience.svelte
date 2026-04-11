@@ -112,6 +112,8 @@
     let hist: History = $state(Meditators.history);
 
     let game = $state({id: -1, deal: [], length: '??', tries: '??', maxId: "0", tip: []});
+
+    let dealing = $state(false);
     
     const gameById = () => {
         random = false;
@@ -138,6 +140,7 @@
 
     export const deal2 = async () => {
     
+        dealing = true;    
         rerun = false;
         //rerun2 = false;
         tooStack = -1;
@@ -170,6 +173,7 @@
                 stacks[i].update();
             }
             hist.save(stacks, [0, 0]);
+            dealing = false;    
         }, 200);
     }
     
@@ -190,6 +194,9 @@
         }
     }
     const collect = () => {
+        if (dealing) 
+            return;
+
         for (let i = 0; i < stacks.length; i++) {
             let top = stacks[i].topCard();
             
