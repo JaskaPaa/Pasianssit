@@ -129,7 +129,7 @@
         /*top: 50px;*/ 
         /*transform: translateY(-30%);*/
         filter: drop-shadow(0 0 var(--shadow) gray);
-        z-index: 1000;
+        z-index: 2000;
     }
 
     button {

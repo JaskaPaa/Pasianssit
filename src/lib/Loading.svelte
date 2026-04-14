@@ -54,7 +54,7 @@
         margin: 0;
         top: calc(0.38 * var(--size));;
         left: 50vw;
-        z-index: 2000;
+        z-index: 1000;
         transform-origin: 0 0;
     }
 
